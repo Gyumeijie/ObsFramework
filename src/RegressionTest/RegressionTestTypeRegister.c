@@ -9,6 +9,7 @@
 #include "TestCaseDummyObsClock_1.h"
 #include "TestCaseEvent_1.h"
 #include "TestCaseDummyPunctualAction_1.h"
+#include "TestCaseDummyConditionalPunctualAction_1.h"
 
 void regression_test_type_register()
 {
@@ -27,4 +28,6 @@ void regression_test_type_register()
    TestCaseEvent_1_register();
 
    TestCaseDummyPunctualAction_1_register();
+
+   TestCaseDummyConditionalPunctualAction_1_register();
 }

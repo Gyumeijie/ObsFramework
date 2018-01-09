@@ -39,6 +39,12 @@ typedef struct DC_DummyTelemetryPacketClass  DC_DummyTelemetryPacketClass;
 typedef struct PunctualAction PunctualAction;
 typedef struct PunctualActionClass PunctualActionClass;
 
+typedef struct ConditionalPunctualAction ConditionalPunctualAction;
+typedef struct ConditionalPunctualActionClass ConditionalPunctualActionClass;
+
+typedef struct DC_DummyConditionalPunctualAction DC_DummyConditionalPunctualAction;
+typedef struct DC_DummyConditionalPunctualActionClass DC_DummyConditionalPunctualActionClass;
+
 typedef struct DC_DummyPunctualAction DC_DummyPunctualAction;
 typedef struct DC_DummyPunctualActionClass DC_DummyPunctualActionClass;
 
