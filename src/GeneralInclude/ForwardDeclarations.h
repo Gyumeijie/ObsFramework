@@ -36,6 +36,12 @@ typedef struct DC_DataItemClass  DC_DataItemClass;
 typedef struct DC_DummyTelemetryPacket  DC_DummyTelemetryPacket;
 typedef struct DC_DummyTelemetryPacketClass  DC_DummyTelemetryPacketClass;
 
+typedef struct PunctualAction PunctualAction;
+typedef struct PunctualActionClass PunctualActionClass;
+
+typedef struct DC_DummyPunctualAction DC_DummyPunctualAction;
+typedef struct DC_DummyPunctualActionClass DC_DummyPunctualActionClass;
+
 typedef struct DC_SettableDataItem  DC_SettableDataItem;
 typedef struct DC_SettableDataItemClass  DC_SettableDataItemClass;
 
@@ -180,6 +186,9 @@ typedef struct TestCaseGenericSetUpClass TestCaseGenericSetUpClass;
 
 typedef struct TestSuite TestSuite;
 typedef struct TestSuiteClass TestSuiteClass;
+
+typedef struct TestCaseWithEvtCheck  TestCaseWithEvtCheck;
+typedef struct TestCaseWithEvtCheckClass  TestCaseWithEvtCheckClass;
 
 #endif
 
