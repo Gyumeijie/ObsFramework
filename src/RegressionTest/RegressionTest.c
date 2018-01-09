@@ -15,7 +15,8 @@
 
 #include "TestCaseRootObject_3.h"
 #include "TestCaseRootObject_1.h"
-#include "TestCaseRootObject_2.h"
+#include "TestCaseRootObject_2.h" 
+#include "TestCaseDummyTracer_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -51,6 +52,7 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_3_new());
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_2_new());
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_1_new());
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTracer_1_new());
 
 
 	// Run the test suite -- this causes all test cases in
