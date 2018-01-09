@@ -17,6 +17,9 @@
 #include "TestCaseRootObject_1.h"
 #include "TestCaseRootObject_2.h" 
 #include "TestCaseDummyTracer_1.h"
+#include "TestCaseEventRepository_1.h"
+#include "TestCaseEventRepository_2.h"
+#include "TestCaseEventRepository_3.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -52,7 +55,13 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_3_new());
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_2_new());
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_1_new());
+
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTracer_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseEventRepository_1_new());
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseEventRepository_2_new());
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseEventRepository_3_new());
+
 
 
 	// Run the test suite -- this causes all test cases in
