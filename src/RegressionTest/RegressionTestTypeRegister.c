@@ -6,6 +6,7 @@
 #include "TestCaseEventRepository_1.h"
 #include "TestCaseEventRepository_2.h"
 #include "TestCaseEventRepository_3.h"
+#include "TestCaseDummyObsClock_1.h"
 
 void regression_test_type_register()
 {
@@ -18,4 +19,6 @@ void regression_test_type_register()
    TestCaseEventRepository_1_register();
    TestCaseEventRepository_2_register();
    TestCaseEventRepository_3_register();
+
+   TestCaseDummyObsClock_1_register();
 }
