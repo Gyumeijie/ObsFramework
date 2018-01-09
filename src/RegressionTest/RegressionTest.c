@@ -21,6 +21,7 @@
 #include "TestCaseEventRepository_2.h"
 #include "TestCaseEventRepository_3.h"
 #include "TestCaseDummyObsClock_1.h"
+#include "TestCaseEvent_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -64,6 +65,9 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseEventRepository_3_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyObsClock_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseEvent_1_new());
+
 
 
 	// Run the test suite -- this causes all test cases in
