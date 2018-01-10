@@ -37,7 +37,7 @@ PunctualAction* DC_FdirCheck_getFdiCheck(DC_FdirCheck *This)
 void DC_FdirCheck_setRecoveryAction
 (
     DC_FdirCheck *This,
-    RecoveryAction* pRecoveryAction
+    RecoveryAction *pRecoveryAction
 )
 {
 	assert(pRecoveryAction);

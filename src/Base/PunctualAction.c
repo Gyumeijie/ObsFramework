@@ -24,8 +24,8 @@ TD_ActionOutcome PunctualAction_execute(PunctualAction *This)
 {
     TD_ActionOutcome outcomeCode = ACTION_DISABLED;
 
-    DC_EventRepository* dc_er = CC_RootObject_getEventRepository();
-    DC_EventRepositoryClass* dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
+    DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
+    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
     if (PunctualAction_isEnabled(This)) {
 
         // doAction is a vitual method and here should call child's doAction.
