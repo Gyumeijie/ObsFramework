@@ -84,9 +84,6 @@ typedef struct DC_EventClass  DC_EventClass;
 typedef struct DC_FdirCheck DC_FdirCheck;
 typedef struct DC_FdirCheckClass DC_FdirCheckClass;
 
-typedef struct DC_NullProfile  DC_NullProfile;
-typedef struct DC_NullProfileClass  DC_NullProfileClass;
-
 typedef struct DC_NullRecoveryAction  DC_NullRecoveryAction;
 typedef struct DC_NullRecoveryActionClass  DC_NullRecoveryActionClass;
 
@@ -152,6 +149,12 @@ typedef struct DC_TestPUSTelecommandClass  DC_TestPUSTelecommandClass;
 
 typedef struct MonitoringProfile  MonitoringProfile;
 typedef struct MonitoringProfileClass  MonitoringProfileClass;
+
+typedef struct DC_NullProfile  DC_NullProfile;
+typedef struct DC_NullProfileClass  DC_NullProfileClass;
+
+typedef struct DC_ForbiddenValueProfile DC_ForbiddenValueProfile;
+typedef struct DC_ForbiddenValueProfileClass DC_ForbiddenValueProfileClass;
 
 typedef struct ObsClock  ObsClock;
 typedef struct ObsClockClass  ObsClockClass;

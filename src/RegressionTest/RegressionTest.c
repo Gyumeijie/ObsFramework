@@ -27,6 +27,7 @@
 #include "TestCaseRecoveryAction_1.h"
 #include "TestCaseFdirCheck_1.h"
 #include "TestCaseNullProfile_1.h"
+#include "TestCaseForbiddenValueProfile_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -82,6 +83,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFdirCheck_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseNullProfile_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseForbiddenValueProfile_1_new());
 
 
 	// Run the test suite -- this causes all test cases in
