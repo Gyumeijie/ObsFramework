@@ -24,6 +24,7 @@
 #include "TestCaseEvent_1.h"
 #include "TestCaseDummyPunctualAction_1.h"
 #include "TestCaseDummyConditionalPunctualAction_1.h"
+#include "TestCaseRecoveryAction_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -73,6 +74,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyPunctualAction_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyConditionalPunctualAction_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseRecoveryAction_1_new());
 
     
 

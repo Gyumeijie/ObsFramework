@@ -48,6 +48,12 @@ typedef struct DC_DummyConditionalPunctualActionClass DC_DummyConditionalPunctua
 typedef struct DC_DummyPunctualAction DC_DummyPunctualAction;
 typedef struct DC_DummyPunctualActionClass DC_DummyPunctualActionClass;
 
+typedef struct RecoveryAction RecoveryAction; 
+typedef struct RecoveryActionClass RecoveryActionClass; 
+
+typedef struct DC_DummyRecoveryAction DC_DummyRecoveryAction;
+typedef struct DC_DummyRecoveryActionClass DC_DummyRecoveryActionClass;
+
 typedef struct DC_SettableDataItem  DC_SettableDataItem;
 typedef struct DC_SettableDataItemClass  DC_SettableDataItemClass;
 
