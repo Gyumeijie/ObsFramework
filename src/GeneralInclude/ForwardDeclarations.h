@@ -162,9 +162,6 @@ typedef struct PUSTelecommandClass  PUSTelecommandClass;
 typedef struct PUSTcManoeuvre  PUSTcManoeuvre;
 typedef struct PUSTcManoeuvreClass  PUSTcManoeuvreClass;
 
-typedef struct RecoveryAction  RecoveryAction;
-typedef struct RecoveryActionClass  RecoveryActionClass;
-
 typedef struct Telecommand  Telecommand;
 typedef struct TelecommandClass  TelecommandClass;
 
