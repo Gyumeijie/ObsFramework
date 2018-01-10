@@ -13,6 +13,8 @@
 #include "../GeneralInclude/TestConstants.h"
 #include "../Utilities/TestUtilities.h"
 
+#undef MS_HOST
+
 void printRegressionTestHeader(FILE* outFile) {
 
 #ifdef MS_HOST

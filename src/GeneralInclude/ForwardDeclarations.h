@@ -81,6 +81,9 @@ typedef struct DC_EventRepositoryClass  DC_EventRepositoryClass;
 typedef struct DC_Event  DC_Event;
 typedef struct DC_EventClass  DC_EventClass;
 
+typedef struct DC_FdirCheck DC_FdirCheck;
+typedef struct DC_FdirCheckClass DC_FdirCheckClass;
+
 typedef struct DC_NullProfile  DC_NullProfile;
 typedef struct DC_NullProfileClass  DC_NullProfileClass;
 
