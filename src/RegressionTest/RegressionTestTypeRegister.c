@@ -12,6 +12,7 @@
 #include "TestCaseDummyConditionalPunctualAction_1.h"
 #include "TestCaseRecoveryAction_1.h"
 #include "TestCaseFdirCheck_1.h"
+#include "TestCaseNullProfile_1.h"
 
 void regression_test_type_register()
 {
@@ -36,4 +37,6 @@ void regression_test_type_register()
    TestCaseRecoveryAction_1_register();
    
    TestCaseFdirCheck_1_register();
+
+   TestCaseNullProfile_1_register();
 }
