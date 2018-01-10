@@ -3,7 +3,7 @@
 #include "../Base/BaseTypeRegister.h"
 #include "../Event/EventTypeRegister.h"
 #include "../Utilities/UtilitiesTypeRegister.h"
-#include "../RegressionTest/RegressionTestTypeRegister.h"
+#include "../FDIR/FDIRTypeRegister.h"
 #include "../Qom/object.h"
 
 void application_type_register(void)
@@ -14,6 +14,7 @@ void application_type_register(void)
     system_type_register();
     event_type_register();
     utilities_type_register();
+    fdir_type_register();
 }
 
 
