@@ -159,6 +159,9 @@ typedef struct DC_ForbiddenValueProfileClass DC_ForbiddenValueProfileClass;
 typedef struct DC_DeltaProfile DC_DeltaProfile;
 typedef struct DC_DeltaProfileClass DC_DeltaProfileClass;
 
+typedef struct DC_StuckDataProfile DC_StuckDataProfile;
+typedef struct DC_StuckDataProfileClass DC_StuckDataProfileClass;
+
 typedef struct ObsClock  ObsClock;
 typedef struct ObsClockClass  ObsClockClass;
 

@@ -15,6 +15,7 @@
 #include "TestCaseNullProfile_1.h"
 #include "TestCaseForbiddenValueProfile_1.h"
 #include "TestCaseDeltaProfile_1.h" 
+#include "TestCaseStuckDataProfile_1.h"
 
 void regression_test_type_register()
 {
@@ -45,4 +46,6 @@ void regression_test_type_register()
    TestCaseForbiddenValueProfile_1_register();
 
    TestCaseDeltaProfile_1_register();
+
+   TestCaseStuckDataProfile_1_register();
 }
