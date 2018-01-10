@@ -5,6 +5,7 @@
 #include "DC_FdirCheck.h"
 #include "MonitoringProfile.h"
 #include "DC_NullProfile.h"
+#include "DC_ForbiddenValueProfile.h"
 
 void fdir_type_register(void)
 {
@@ -14,4 +15,5 @@ void fdir_type_register(void)
     DC_FdirCheck_register();
     MonitoringProfile_register();
     DC_NullProfile_register();
+    DC_ForbiddenValueProfile_register();
 }
