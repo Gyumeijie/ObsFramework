@@ -162,6 +162,12 @@ typedef struct DC_DeltaProfileClass DC_DeltaProfileClass;
 typedef struct DC_StuckDataProfile DC_StuckDataProfile;
 typedef struct DC_StuckDataProfileClass DC_StuckDataProfileClass;
 
+typedef struct RangeProfile RangeProfile;
+typedef struct RangeProfileClass RangeProfileClass;
+
+typedef struct DC_InRangeProfile DC_InRangeProfile;
+typedef struct DC_InRangeProfileClass DC_InRangeProfileClass;
+
 typedef struct ObsClock  ObsClock;
 typedef struct ObsClockClass  ObsClockClass;
 

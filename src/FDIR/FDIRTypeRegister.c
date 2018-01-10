@@ -8,6 +8,8 @@
 #include "DC_ForbiddenValueProfile.h"
 #include "DC_DeltaProfile.h"
 #include "DC_StuckDataProfile.h"
+#include "RangeProfile.h"
+#include "DC_InRangeProfile.h"
 
 void fdir_type_register(void)
 {
@@ -20,4 +22,6 @@ void fdir_type_register(void)
     DC_ForbiddenValueProfile_register();
     DC_DeltaProfile_register();
     DC_StuckDataProfile_register();
+    RangeProfile_register();
+    DC_InRangeProfile_register();
 }
