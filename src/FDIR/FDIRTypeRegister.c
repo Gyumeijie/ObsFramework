@@ -10,6 +10,7 @@
 #include "DC_StuckDataProfile.h"
 #include "RangeProfile.h"
 #include "DC_InRangeProfile.h"
+#include "DC_OutOfRangeProfile.h"
 
 void fdir_type_register(void)
 {
@@ -24,4 +25,5 @@ void fdir_type_register(void)
     DC_StuckDataProfile_register();
     RangeProfile_register();
     DC_InRangeProfile_register();
+    DC_OutOfRangeProfile_register();
 }

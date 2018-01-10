@@ -17,6 +17,7 @@
 #include "TestCaseDeltaProfile_1.h" 
 #include "TestCaseStuckDataProfile_1.h"
 #include "TestCaseInRangeProfile_1.h"
+#include "TestCaseOutOfRangeProfile_1.h"
 
 void regression_test_type_register()
 {
@@ -51,4 +52,6 @@ void regression_test_type_register()
    TestCaseStuckDataProfile_1_register();
 
    TestCaseInRangeProfile_1_register();
+   
+   TestCaseOutOfRangeProfile_1_register();
 }

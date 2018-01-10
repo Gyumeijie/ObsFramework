@@ -168,6 +168,9 @@ typedef struct RangeProfileClass RangeProfileClass;
 typedef struct DC_InRangeProfile DC_InRangeProfile;
 typedef struct DC_InRangeProfileClass DC_InRangeProfileClass;
 
+typedef struct DC_OutOfRangeProfile DC_OutOfRangeProfile;
+typedef struct DC_OutOfRangeProfileClass DC_OutOfRangeProfileClass;
+
 typedef struct ObsClock  ObsClock;
 typedef struct ObsClockClass  ObsClockClass;
 
