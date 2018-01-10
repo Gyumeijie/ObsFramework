@@ -7,6 +7,7 @@
 #include "DC_NullProfile.h"
 #include "DC_ForbiddenValueProfile.h"
 #include "DC_DeltaProfile.h"
+#include "DC_StuckDataProfile.h"
 
 void fdir_type_register(void)
 {
@@ -18,4 +19,5 @@ void fdir_type_register(void)
     DC_NullProfile_register();
     DC_ForbiddenValueProfile_register();
     DC_DeltaProfile_register();
+    DC_StuckDataProfile_register();
 }
