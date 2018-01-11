@@ -24,6 +24,9 @@
 typedef struct DataPool  DataPool;
 typedef struct DataPoolClass  DataPoolClass;
 
+typedef struct DC_BasicDataPool DC_BasicDataPool;
+typedef struct DC_BasicDataPoolClass DC_BasicDataPoolClass;
+
 typedef struct CC_RootObject  CC_RootObject;
 typedef struct CC_RootObjectClass  CC_RootObjectClass;
 
