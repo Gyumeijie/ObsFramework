@@ -33,6 +33,9 @@ typedef struct DC_BasicPUSTcLoaderClass  DC_BasicPUSTcLoaderClass;
 typedef struct DC_DataItem  DC_DataItem;
 typedef struct DC_DataItemClass  DC_DataItemClass;
 
+typedef struct DC_RawDataItem DC_RawDataItem;
+typedef struct DC_RawDataItemClass DC_RawDataItemClass;
+
 typedef struct DC_DummyTelemetryPacket  DC_DummyTelemetryPacket;
 typedef struct DC_DummyTelemetryPacketClass  DC_DummyTelemetryPacketClass;
 
