@@ -21,6 +21,7 @@
 #include "TestCaseProfileList_1.h"
 #include "TestCaseBasicDatabase_1.h"
 #include "TestCaseDummyDatabase_1.h" 
+#include "TestCaseDataItem_1.h"
 
 void regression_test_type_register()
 {
@@ -63,4 +64,6 @@ void regression_test_type_register()
    TestCaseBasicDatabase_1_register();
 
    TestCaseDummyDatabase_1_register();
+
+   TestCaseDataItem_1_register();
 }
