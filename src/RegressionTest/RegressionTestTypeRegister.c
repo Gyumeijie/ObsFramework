@@ -20,6 +20,7 @@
 #include "TestCaseOutOfRangeProfile_1.h"
 #include "TestCaseProfileList_1.h"
 #include "TestCaseBasicDatabase_1.h"
+#include "TestCaseDummyDatabase_1.h" 
 
 void regression_test_type_register()
 {
@@ -60,4 +61,6 @@ void regression_test_type_register()
    TestCaseProfileList_1_register();
 
    TestCaseBasicDatabase_1_register();
+
+   TestCaseDummyDatabase_1_register();
 }
