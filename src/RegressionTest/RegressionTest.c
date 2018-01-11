@@ -35,6 +35,7 @@
 #include "TestCaseProfileList_1.h"
 #include "TestCaseBasicDatabase_1.h"
 #include "TestCaseDummyDatabase_1.h" 
+#include "TestCaseDataItem_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -106,6 +107,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseBasicDatabase_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyDatabase_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseDataItem_1_new());
 
 
 	// Run the test suite -- this causes all test cases in
