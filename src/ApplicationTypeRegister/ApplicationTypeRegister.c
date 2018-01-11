@@ -4,6 +4,7 @@
 #include "../Event/EventTypeRegister.h"
 #include "../Utilities/UtilitiesTypeRegister.h"
 #include "../FDIR/FDIRTypeRegister.h"
+#include "../Data/DataTypeRegister.h"
 #include "../Qom/object.h"
 
 void application_type_register(void)
@@ -15,6 +16,7 @@ void application_type_register(void)
     event_type_register();
     utilities_type_register();
     fdir_type_register();
+    data_type_register(); 
 }
 
 
