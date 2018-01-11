@@ -86,8 +86,6 @@ TestCaseDummyTracer_1* TestCaseDummyTracer_1_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseDummyTracer_1Class *tcdt_1c = TESTCASEDUMMYTRACER_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

@@ -136,8 +136,6 @@ TestCaseEventRepository_1* TestCaseEventRepository_1_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseEventRepository_1Class *tcer_1c = TESTCASEEVENTREPOSITORY_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

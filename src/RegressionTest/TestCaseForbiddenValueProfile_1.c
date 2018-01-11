@@ -118,8 +118,6 @@ TestCaseForbiddenValueProfile_1* TestCaseForbiddenValueProfile_1_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseForbiddenValueProfile_1Class *tcfvp_1c = TESTCASEFORBIDDENVALUEPROFILE_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

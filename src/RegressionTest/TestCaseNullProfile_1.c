@@ -93,8 +93,6 @@ TestCaseNullProfile_1* TestCaseNullProfile_1_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseNullProfile_1Class *tcnp_1c = TESTCASENULLPROFILE_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }
