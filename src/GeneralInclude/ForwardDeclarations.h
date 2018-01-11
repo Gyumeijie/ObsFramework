@@ -183,6 +183,9 @@ typedef struct ParameterDatabaseClass  ParameterDatabaseClass;
 typedef struct DC_BasicDatabase DC_BasicDatabase;
 typedef struct DC_BasicDatabaseClass DC_BasicDatabaseClass;
 
+typedef struct DC_DummyDatabase  DC_DummyDatabase;
+typedef struct DC_DummyDatabaseClass  DC_DummyDatabaseClass;
+
 typedef struct PUSTelecommand  PUSTelecommand;
 typedef struct PUSTelecommandClass  PUSTelecommandClass;
 
