@@ -174,7 +174,6 @@ struct ParameterDatabaseClass {
     bool* (*getParameterPointerBool)(void *obj, TD_DatabaseId parId);
     float* (*getParameterPointerFloat)(void *obj, TD_DatabaseId parId);
     double* (*getParameterPointerDouble)(void *obj, TD_DatabaseId parId);
- 
 };
 
 

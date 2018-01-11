@@ -180,6 +180,9 @@ typedef struct ObsClockClass  ObsClockClass;
 typedef struct ParameterDatabase  ParameterDatabase;
 typedef struct ParameterDatabaseClass  ParameterDatabaseClass;
 
+typedef struct DC_BasicDatabase DC_BasicDatabase;
+typedef struct DC_BasicDatabaseClass DC_BasicDatabaseClass;
+
 typedef struct PUSTelecommand  PUSTelecommand;
 typedef struct PUSTelecommandClass  PUSTelecommandClass;
 
