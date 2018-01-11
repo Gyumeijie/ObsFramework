@@ -23,25 +23,25 @@
 TD_Float DC_DataItem_getFloatValue(const DC_DataItem *This)
 {
 	assert(varType == DI_FLOAT);
-	return *(TD_Float *)This->pVar;
+	return *(TD_Float*)This->pVar;
 }
 
 void DC_DataItem_setFloatValue(DC_DataItem *This, TD_Float newValue)
 {
     assert(varType == DI_FLOAT);
-    *(TD_Float *)This->pVar = newValue;
+    *(TD_Float*)This->pVar = newValue;
 }
 
 TD_Integer DC_DataItem_getIntegerValue(const DC_DataItem *This)
 {
     assert(varType == DI_INT);
-	return *(TD_Integer *)This->pVar;
+	return *(TD_Integer*)This->pVar;
 }
 
 void DC_DataItem_setIntegerValue(DC_DataItem *This, TD_Integer newValue)
 {
    assert(varType == DI_INT);
-   *(TD_Integer *)This->pVar = newValue;
+   *(TD_Integer*)This->pVar = newValue;
 }
 
 
@@ -56,8 +56,8 @@ static void post_init(DC_DataItem *This, void *data, TD_DataItemType type)
 {
 	assert(data);
 
-	This->pVar=data;
-	This->varType=type;
+	This->pVar = data;
+	This->varType = type;
 }
 
 DC_DataItem* DC_DataItem_new(void *data, TD_DataItemType type)
