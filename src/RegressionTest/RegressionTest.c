@@ -32,6 +32,7 @@
 #include "TestCaseStuckDataProfile_1.h"
 #include "TestCaseInRangeProfile_1.h"
 #include "TestCaseOutOfRangeProfile_1.h"
+#include "TestCaseProfileList_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -97,6 +98,9 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseInRangeProfile_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseOutOfRangeProfile_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseProfileList_1_new());
+
 
 	// Run the test suite -- this causes all test cases in
 	// the test suite to be run in sequence

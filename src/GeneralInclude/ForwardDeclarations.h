@@ -171,6 +171,9 @@ typedef struct DC_InRangeProfileClass DC_InRangeProfileClass;
 typedef struct DC_OutOfRangeProfile DC_OutOfRangeProfile;
 typedef struct DC_OutOfRangeProfileClass DC_OutOfRangeProfileClass;
 
+typedef struct DC_ProfileList DC_ProfileList;
+typedef struct DC_ProfileListClass DC_ProfileListClass;
+
 typedef struct ObsClock  ObsClock;
 typedef struct ObsClockClass  ObsClockClass;
 
