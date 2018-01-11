@@ -104,8 +104,6 @@ TestCaseDummyObsClock_1* TestCaseDummyObsClock_1_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseDummyObsClock_1Class *tcdoc_1c = TESTCASEDUMMYOBSCLOCK_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

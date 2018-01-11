@@ -136,8 +136,6 @@ TestCaseFdirCheck_1* TestCaseFdirCheck_1_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseFdirCheck_1Class *tcfc_1c = TESTCASEFDIRCHECK_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

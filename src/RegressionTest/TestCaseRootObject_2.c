@@ -85,8 +85,6 @@ TestCaseRootObject_2* TestCaseRootObject_2_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseRootObject_2Class *tcro_2c = TESTCASEROOTOBJECT_2_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

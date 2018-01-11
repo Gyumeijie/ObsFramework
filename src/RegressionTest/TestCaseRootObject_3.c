@@ -32,14 +32,14 @@ static void runTestCase(void *obj)
 
    CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
    if ((cc_roc->isObjectConfigured(cc_ro1) == NOT_CONFIGURED) ||
-       (cc_roc->isObjectConfigured(cc_ro2) == NOT_CONFIGURED)){
+       (cc_roc->isObjectConfigured(cc_ro2) == NOT_CONFIGURED)) {
         TestCase_setTestResult((TestCase*)obj,
                                TEST_FAILURE, 
                                "Failure to report correct object configuration status");
 		return;
 	}
 
-	if (CC_RootObject_isSystemConfigured() == NOT_CONFIGURED){
+	if (CC_RootObject_isSystemConfigured() == NOT_CONFIGURED) {
         TestCase_setTestResult((TestCase*)obj,
                                 TEST_FAILURE,
                                 "Failure to report correct system configuration status");
@@ -49,7 +49,7 @@ static void runTestCase(void *obj)
    // Create but do not configure an event repository. This should cause the
    // system configuration check to fail.
    DC_EventRepository* dc_er = DC_EventRepository_new();
-   if (CC_RootObject_isSystemConfigured() != NOT_CONFIGURED){
+   if (CC_RootObject_isSystemConfigured() != NOT_CONFIGURED) {
         TestCase_setTestResult((TestCase*)obj,
                                TEST_FAILURE,
                                "Failure to report correct system configuration status");
@@ -93,8 +93,6 @@ TestCaseRootObject_3* TestCaseRootObject_3_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseRootObject_3Class *tcro_3c = TESTCASEROOTOBJECT_3_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

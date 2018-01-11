@@ -131,8 +131,6 @@ TestCaseRecoveryAction_1* TestCaseRecoveryAction_1_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseRecoveryAction_1Class *tcra_1c = TESTCASERECOVERYACTION_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }

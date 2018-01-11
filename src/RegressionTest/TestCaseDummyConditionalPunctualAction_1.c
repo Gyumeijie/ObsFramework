@@ -87,9 +87,6 @@ TestCaseDummyConditionalPunctualAction_1* TestCaseDummyConditionalPunctualAction
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseDummyConditionalPunctualAction_1Class *tcdcpa_1c =
-                            TESTCASEDUMMYCONDITIONALPUNCTUALACTION_1_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->runTestCase = runTestCase;
 }
