@@ -30,9 +30,11 @@
 
 /**
  * Execute the test case. See class comment for details.
- * 
+ * Warining: When compiled without --std=c99, the following condition is
+ * false, but with --std=c99 it is true. So to work in c99, we multiply
+ * FLT_EPSILON and DBL_EPSILON with 100, which will make it work and doesn't
+ * have much effect on the assertion.
  */	
-
 static void runTestCase(void *obj)
 {
 
