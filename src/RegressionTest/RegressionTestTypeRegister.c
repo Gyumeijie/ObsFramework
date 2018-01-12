@@ -28,6 +28,7 @@
 #include "TestCaseDummyCopyControlBlock_1.h"
 #include "TestCaseDummyDataItemControlBlock_1.h" 
 #include "TestCaseDummyDataPoolControlBlock_1.h"
+#include "TestCaseDummyPointerControlBlock_1.h"
 
 void regression_test_type_register()
 {
@@ -84,4 +85,7 @@ void regression_test_type_register()
    TestCaseDummyDataItemControlBlock_1_register();
 
    TestCaseDummyDataPoolControlBlock_1_register();
+
+   TestCaseDummyPointerControlBlock_1_register();
+
 }

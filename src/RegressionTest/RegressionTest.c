@@ -42,6 +42,7 @@
 #include "TestCaseDummyCopyControlBlock_1.h"
 #include "TestCaseDummyDataItemControlBlock_1.h" 
 #include "TestCaseDummyDataPoolControlBlock_1.h"
+#include "TestCaseDummyPointerControlBlock_1.h"
 
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
@@ -129,6 +130,7 @@ int main(int argc, char* argv[]) {
     
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyDataPoolControlBlock_1_new());
 
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyPointerControlBlock_1_new());
 
 	// Run the test suite -- this causes all test cases in
 	// the test suite to be run in sequence
