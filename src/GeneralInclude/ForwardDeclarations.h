@@ -51,6 +51,9 @@ typedef struct CopyControlBlockClass CopyControlBlockClass;
 typedef struct DC_DummyCopyControlBlock DC_DummyCopyControlBlock;
 typedef struct DC_DummyCopyControlBlockClass DC_DummyCopyControlBlockClass;
 
+typedef struct PointerControlBlock PointerControlBlock;
+typedef struct PointerControlBlockClass PointerControlBlockClass;
+
 typedef struct DataItemControlBlock DataItemControlBlock;
 typedef struct DataItemControlBlockClass DataItemControlBlockClass;
 
