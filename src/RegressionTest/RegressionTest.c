@@ -38,6 +38,7 @@
 #include "TestCaseDataItem_1.h"
 #include "TestCaseRawDataItem_1.h"
 #include "TestCaseBasicDataPool_1.h"
+#include "TestCaseDummyDataPool_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -115,6 +116,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRawDataItem_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseBasicDataPool_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyDataPool_1_new());
 
 
 	// Run the test suite -- this causes all test cases in
