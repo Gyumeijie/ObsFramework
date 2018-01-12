@@ -11,6 +11,8 @@
 #include "ControlBlock.h"
 #include "CopyControlBlock.h"
 #include "DC_DummyCopyControlBlock.h"
+#include "DataItemControlBlock.h"
+#include "DC_DummyDataItemControlBlock.h"
 
 void data_type_register(void)
 {
@@ -25,4 +27,6 @@ void data_type_register(void)
     ControlBlock_register();
     CopyControlBlock_register();
     DC_DummyCopyControlBlock_register();
+    DataItemControlBlock_register();
+    DC_DummyDataItemControlBlock_register();
 }
