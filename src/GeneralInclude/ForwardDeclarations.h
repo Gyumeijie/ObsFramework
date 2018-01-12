@@ -45,6 +45,12 @@ typedef struct DC_RawDataItemClass DC_RawDataItemClass;
 typedef struct ControlBlock ControlBlock;
 typedef struct ControlBlockClass ControlBlockClass;
 
+typedef struct CopyControlBlock CopyControlBlock;
+typedef struct CopyControlBlockClass CopyControlBlockClass;
+
+typedef struct DC_DummyCopyControlBlock DC_DummyCopyControlBlock;
+typedef struct DC_DummyCopyControlBlockClass DC_DummyCopyControlBlockClass;
+
 typedef struct DC_DummyTelemetryPacket  DC_DummyTelemetryPacket;
 typedef struct DC_DummyTelemetryPacketClass  DC_DummyTelemetryPacketClass;
 

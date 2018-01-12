@@ -9,6 +9,8 @@
 #include "DC_BasicDataPool.h" 
 #include "DC_DummyDataPool.h"
 #include "ControlBlock.h"
+#include "CopyControlBlock.h"
+#include "DC_DummyCopyControlBlock.h"
 
 void data_type_register(void)
 {
@@ -21,4 +23,6 @@ void data_type_register(void)
     DataPool_register();
     DC_DummyDataPool_register();
     ControlBlock_register();
+    CopyControlBlock_register();
+    DC_DummyCopyControlBlock_register();
 }
