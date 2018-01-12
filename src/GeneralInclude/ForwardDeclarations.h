@@ -57,6 +57,9 @@ typedef struct DataItemControlBlockClass DataItemControlBlockClass;
 typedef struct DC_DummyDataItemControlBlock DC_DummyDataItemControlBlock;
 typedef struct DC_DummyDataItemControlBlockClass DC_DummyDataItemControlBlockClass;
 
+typedef struct DataPoolControlBlock DataPoolControlBlock;
+typedef struct DataPoolControlBlockClass DataPoolControlBlockClass;
+
 typedef struct DC_DummyTelemetryPacket  DC_DummyTelemetryPacket;
 typedef struct DC_DummyTelemetryPacketClass  DC_DummyTelemetryPacketClass;
 
