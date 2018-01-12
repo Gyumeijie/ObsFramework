@@ -8,6 +8,7 @@
 #include "DataPool.h"
 #include "DC_BasicDataPool.h" 
 #include "DC_DummyDataPool.h"
+#include "ControlBlock.h"
 
 void data_type_register(void)
 {
@@ -19,4 +20,5 @@ void data_type_register(void)
     DC_BasicDataPool_register();
     DataPool_register();
     DC_DummyDataPool_register();
+    ControlBlock_register();
 }
