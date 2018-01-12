@@ -60,6 +60,9 @@ typedef struct DC_DummyDataItemControlBlockClass DC_DummyDataItemControlBlockCla
 typedef struct DataPoolControlBlock DataPoolControlBlock;
 typedef struct DataPoolControlBlockClass DataPoolControlBlockClass;
 
+typedef struct DC_DummyDataPoolControlBlock DC_DummyDataPoolControlBlock;
+typedef struct DC_DummyDataPoolControlBlockClass DC_DummyDataPoolControlBlockClass;
+
 typedef struct DC_DummyTelemetryPacket  DC_DummyTelemetryPacket;
 typedef struct DC_DummyTelemetryPacketClass  DC_DummyTelemetryPacketClass;
 
