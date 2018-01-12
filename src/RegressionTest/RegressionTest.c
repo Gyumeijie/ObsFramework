@@ -40,6 +40,8 @@
 #include "TestCaseBasicDataPool_1.h"
 #include "TestCaseDummyDataPool_1.h"
 #include "TestCaseDummyCopyControlBlock_1.h"
+#include "TestCaseDummyDataItemControlBlock_1.h" 
+
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -121,6 +123,9 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyDataPool_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyCopyControlBlock_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyDataItemControlBlock_1_new());
+
 
 
 	// Run the test suite -- this causes all test cases in
