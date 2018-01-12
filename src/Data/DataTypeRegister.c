@@ -16,6 +16,7 @@
 #include "DataPoolControlBlock.h"
 #include "DC_DummyDataPoolControlBlock.h"
 #include "PointerControlBlock.h" 
+#include "DC_DummyPointerControlBlock.h"
 
 void data_type_register(void)
 {
@@ -35,4 +36,5 @@ void data_type_register(void)
     DataPoolControlBlock_register();
     DC_DummyDataPoolControlBlock_register();
     PointerControlBlock_register();
+    DC_DummyPointerControlBlock_register();
 }
