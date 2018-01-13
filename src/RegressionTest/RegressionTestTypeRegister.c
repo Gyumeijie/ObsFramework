@@ -30,6 +30,7 @@
 #include "TestCaseDummyDataPoolControlBlock_1.h"
 #include "TestCaseDummyPointerControlBlock_1.h"
 #include "TestCaseDummyFsmState_1.h"
+#include "TestCaseFSM_1.h"
 
 void regression_test_type_register()
 {
@@ -90,4 +91,6 @@ void regression_test_type_register()
    TestCaseDummyPointerControlBlock_1_register();
    
    TestCaseDummyFsmState_1_register();
+
+   TestCaseFSM_1_register();
 }

@@ -46,7 +46,7 @@ static void runTestCase(void *obj)
 	}
 
    // Load a "next state" and check correctness
-   DC_DummyFsmState* pNextState = DC_DummyFsmState_new();
+   DC_DummyFsmState *pNextState = DC_DummyFsmState_new();
    FsmState_setNextState((FsmState*)pFsmState, (FsmState*)pNextState);
    if (FsmState_getNextState((FsmState*)pFsmState) != (FsmState*)pNextState) {	
         TestCase_setTestResult((TestCase*)obj, TEST_FAILURE, 
