@@ -239,9 +239,10 @@ void CC_FSM_makeTransitionRequest(CC_FSM *This, TD_FsmStateIndex targetState)
 void CC_FSM_activate(CC_FSM *This)
 {
    CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
-   FsmStateClass *fsc = FSMSTATE_GET_CLASS(This);  
 
    assert(cc_roc->isObjectConfigured(This));
+
+   FsmStateClass *fsc = FSMSTATE_GET_CLASS(This->pCurrentState);  
 
    // a state transition request is pending
    if (This->requestedTargetState >= 0) {  
