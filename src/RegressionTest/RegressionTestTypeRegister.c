@@ -32,6 +32,7 @@
 #include "TestCaseDummyFsmState_1.h"
 #include "TestCaseFSM_1.h"
 #include "TestCaseFsmEvent_1.h" 
+#include "TestCaseFromFsmEvent_1.h" 
 
 void regression_test_type_register()
 {
@@ -96,4 +97,6 @@ void regression_test_type_register()
    TestCaseFSM_1_register();
 
    TestCaseFsmEvent_1_register();
+
+   TestCaseFromFsmEvent_1_register();
 }
