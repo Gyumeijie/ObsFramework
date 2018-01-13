@@ -5,6 +5,7 @@
 #include "../Utilities/UtilitiesTypeRegister.h"
 #include "../FDIR/FDIRTypeRegister.h"
 #include "../Data/DataTypeRegister.h"
+#include "../FSM/FSMTypeRegister.h" 
 #include "../Qom/object.h"
 
 void application_type_register(void)
@@ -17,6 +18,7 @@ void application_type_register(void)
     utilities_type_register();
     fdir_type_register();
     data_type_register(); 
+    fsm_type_register(); 
 }
 
 
