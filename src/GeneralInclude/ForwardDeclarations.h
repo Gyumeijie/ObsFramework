@@ -96,6 +96,12 @@ typedef struct DC_SettableDataItemClass  DC_SettableDataItemClass;
 typedef struct CC_FSM  CC_FSM;
 typedef struct CC_FSMClass  CC_FSMClass;
 
+typedef struct FsmState FsmState;
+typedef struct FsmStateClass FsmStateClass;
+
+typedef struct DC_DummyFsmState DC_DummyFsmState;
+typedef struct DC_DummyFsmStateClass DC_DummyFsmStateClass;
+
 typedef struct CC_TelecommandManager  CC_TelecommandManager;
 typedef struct CC_TelecommandManagerClass  CC_TelecommandManagerClass;
 
