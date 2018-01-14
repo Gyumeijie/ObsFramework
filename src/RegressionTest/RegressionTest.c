@@ -46,6 +46,7 @@
 #include "TestCaseDummyFsmState_1.h"
 #include "TestCaseFSM_1.h"
 #include "TestCaseFSM_2.h"
+#include "TestCaseFSM_3.h"
 #include "TestCaseFsmEvent_1.h"
 #include "TestCaseFromFsmEvent_1.h" 
 
@@ -142,6 +143,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFSM_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFSM_2_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseFSM_3_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFsmEvent_1_new());
 
