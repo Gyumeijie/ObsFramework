@@ -7,6 +7,7 @@
 #include "DC_DummyConfigurableFsmState.h"
 #include "DC_UnstableFsmState.h" 
 #include "DC_NestedFsmActivator.h"
+#include "DC_NestedFsmActivatorWithEndState.h" 
 
 void fsm_type_register(void)
 {
@@ -18,5 +19,6 @@ void fsm_type_register(void)
    DC_DummyConfigurableFsmState_register();
    DC_UnstableFsmState_register();
    DC_NestedFsmActivator_register();
+   DC_NestedFsmActivatorWithEndState_register();
 }
 
