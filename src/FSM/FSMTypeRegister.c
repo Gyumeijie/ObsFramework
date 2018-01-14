@@ -6,6 +6,7 @@
 #include "DC_FromFsmEvent.h"
 #include "DC_DummyConfigurableFsmState.h"
 #include "DC_UnstableFsmState.h" 
+#include "DC_NestedFsmActivator.h"
 
 void fsm_type_register(void)
 {
@@ -16,4 +17,6 @@ void fsm_type_register(void)
    DC_FromFsmEvent_register();
    DC_DummyConfigurableFsmState_register();
    DC_UnstableFsmState_register();
+   DC_NestedFsmActivator_register();
 }
+
