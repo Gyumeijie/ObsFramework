@@ -181,7 +181,7 @@ inline TD_FsmStateIndex CC_FSM_getCurrentState(const CC_FSM *This)
 	return This->currentState;
 }
 
-void CC_FSM_setAllTransitionEnableStatus(CC_FSM *This, bool enabled)
+void CC_FSM_setTransitionEnableStatus(CC_FSM *This, bool enabled)
 {
     This->allTransitionEnabled = enabled;
 }
