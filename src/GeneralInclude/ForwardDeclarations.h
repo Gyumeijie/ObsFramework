@@ -102,6 +102,9 @@ typedef struct FsmStateClass FsmStateClass;
 typedef struct DC_DummyFsmState DC_DummyFsmState;
 typedef struct DC_DummyFsmStateClass DC_DummyFsmStateClass;
 
+typedef struct DC_DummyConfigurableFsmState DC_DummyConfigurableFsmState;
+typedef struct DC_DummyConfigurableFsmStateClass DC_DummyConfigurableFsmStateClass;
+
 typedef struct DC_FsmEvent DC_FsmEvent;
 typedef struct DC_FsmEventClass DC_FsmEventClass;
 
