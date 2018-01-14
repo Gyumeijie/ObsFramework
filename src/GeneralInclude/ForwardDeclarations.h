@@ -111,6 +111,9 @@ typedef struct DC_UnstableFsmStateClass DC_UnstableFsmStateClass;
 typedef struct DC_NestedFsmActivator DC_NestedFsmActivator;
 typedef struct DC_NestedFsmActivatorClass DC_NestedFsmActivatorClass;
 
+typedef struct DC_NestedFsmActivatorWithEndState DC_NestedFsmActivatorWithEndState;
+typedef struct DC_NestedFsmActivatorWithEndStateClass DC_NestedFsmActivatorWithEndStateClass;
+
 typedef struct DC_FsmEvent DC_FsmEvent;
 typedef struct DC_FsmEventClass DC_FsmEventClass;
 
