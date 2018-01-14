@@ -4,6 +4,7 @@
 #include "CC_FSM.h"
 #include "DC_FsmEvent.h"
 #include "DC_FromFsmEvent.h"
+#include "DC_DummyConfigurableFsmState.h"
 
 void fsm_type_register(void)
 {
@@ -12,4 +13,5 @@ void fsm_type_register(void)
    CC_FSM_register();   
    DC_FsmEvent_register();
    DC_FromFsmEvent_register();
+   DC_DummyConfigurableFsmState_register();
 }
