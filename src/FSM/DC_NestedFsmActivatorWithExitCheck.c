@@ -1,10 +1,10 @@
 //
 // Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
-// DC_NestedFsmActivatorWithEndState.c
+// DC_NestedFsmActivatorWithExitCheck.c
 //
 // Version	1.0
-// Date		23.06.03
+// Date		08.07.03
 // Author	R. Totaro
 
 #include "../GeneralInclude/CompilerSwitches.h"
@@ -13,7 +13,7 @@
 #include "../GeneralInclude/Constants.h"
 #include "../Base/CC_RootObject.h"
 #include "../FSM/CC_FSM.h"
-#include "DC_NestedFsmActivatorWithEndState.h"
+#include "DC_NestedFsmActivatorWithExitCheck.h"
 
 
 
@@ -23,9 +23,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void DC_NestedFsmActivatorWithEndState_setTargetState
+void DC_NestedFsmActivatorWithExitCheck_setTargetState
 (
-    DC_NestedFsmActivatorWithEndState *This, 
+    DC_NestedFsmActivatorWithExitCheck *This, 
     TD_FsmStateIndex targetState
 )
 {
@@ -33,9 +33,9 @@ void DC_NestedFsmActivatorWithEndState_setTargetState
 	This->targetState = targetState;
 }
 
-TD_FsmStateIndex DC_NestedFsmActivatorWithEndState_getTargetState
+TD_FsmStateIndex DC_NestedFsmActivatorWithExitCheck_getTargetState
 (
-    DC_NestedFsmActivatorWithEndState *This
+    DC_NestedFsmActivatorWithExitCheck *This
 )
 {
 	assert(This->targetState >= 0);
@@ -51,16 +51,17 @@ TD_FsmStateIndex DC_NestedFsmActivatorWithEndState_getTargetState
 ///////////////////////////////////////////////////////////////////////////////
 
 /**
- * Return true if the target FSM has reached the target state.
- * @see FsmState#isFinished
+ * Return true(state can be exited) if the target FSM has reached
+ * the target state.
+ * @see FsmState#canExit
  * @return true if the target FSM has reached the target state
  */
-static bool isFinished(void *obj)
+static bool canExit(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
 	assert(cc_roc->isObjectConfigured(obj));
 
-    DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
+    DC_NestedFsmActivatorWithExitCheck *This = DC_NESTEDFSMACTIVATORWITHEXITCHECK(obj);
     CC_FSM *targetFsm = DC_NestedFsmActivator_getTargetFsm(obj);
 
 	return (CC_FSM_getCurrentState(targetFsm) == This->targetState);
@@ -73,7 +74,7 @@ static bool isFinished(void *obj)
  */
 static bool isObjectConfigured(void *obj)
 {
-    DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
+    DC_NestedFsmActivatorWithExitCheck *This = DC_NESTEDFSMACTIVATORWITHEXITCHECK(obj);
     DC_NestedFsmActivatorClass *dc_nfac = GET_CLASS(TYPE_DC_NESTEDFSMACTIVATOR);
 
 	return ((CC_ROOTOBJECT_CLASS(dc_nfac)->isObjectConfigured(obj)) && 
@@ -90,14 +91,14 @@ static bool isObjectConfigured(void *obj)
 
 static void instance_init(Object *obj)
 {
-    DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
+    DC_NestedFsmActivatorWithExitCheck *This = DC_NESTEDFSMACTIVATORWITHEXITCHECK(obj);
 	This->targetState = -1;
-	CC_RootObject_setClassId((CC_RootObject*)obj, ID_NESTEDFSMACTIVATORWITHENDSTATE);
+	CC_RootObject_setClassId((CC_RootObject*)obj, ID_NESTEDFSMACTIVATORWITHEXITCHECK);
 }
 
-DC_NestedFsmActivatorWithEndState* DC_NestedFsmActivatorWithEndState_new(void)
+DC_NestedFsmActivatorWithExitCheck* DC_NestedFsmActivatorWithExitCheck_new(void)
 {
-    return (DC_NestedFsmActivatorWithEndState*)object_new(TYPE_DC_NESTEDFSMACTIVATORWITHENDSTATE);
+    return (DC_NestedFsmActivatorWithExitCheck*)object_new(TYPE_DC_NESTEDFSMACTIVATORWITHEXITCHECK);
 }
 
 
@@ -110,25 +111,24 @@ DC_NestedFsmActivatorWithEndState* DC_NestedFsmActivatorWithEndState_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-
     FsmStateClass *fsc = FSMSTATE_CLASS(oc);
-    fsc->isFinished = isFinished;
+    fsc->canExit = canExit;
 
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_CLASS(oc);
     cc_roc->isObjectConfigured = isObjectConfigured;
 }
 
 static const TypeInfo type_info = {
-    .name = TYPE_DC_NESTEDFSMACTIVATORWITHENDSTATE,
+    .name = TYPE_DC_NESTEDFSMACTIVATORWITHEXITCHECK,
     .parent = TYPE_DC_NESTEDFSMACTIVATOR,
-    .instance_size = sizeof(DC_NestedFsmActivatorWithEndState),
+    .instance_size = sizeof(DC_NestedFsmActivatorWithExitCheck),
     .abstract = false,
-    .class_size = sizeof(DC_NestedFsmActivatorWithEndStateClass),
+    .class_size = sizeof(DC_NestedFsmActivatorWithExitCheckClass),
     .instance_init = instance_init,
     .class_init = class_init,
 };
 
-void DC_NestedFsmActivatorWithEndState_register(void)
+void DC_NestedFsmActivatorWithExitCheck_register(void)
 {
     type_register_static(&type_info);
 }
