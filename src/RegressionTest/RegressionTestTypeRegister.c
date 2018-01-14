@@ -35,6 +35,7 @@
 #include "TestCaseFSM_3.h"
 #include "TestCaseFsmEvent_1.h" 
 #include "TestCaseFromFsmEvent_1.h" 
+#include "TestCaseUnstableFsmState_1.h"
 
 void regression_test_type_register()
 {
@@ -105,4 +106,6 @@ void regression_test_type_register()
    TestCaseFsmEvent_1_register();
 
    TestCaseFromFsmEvent_1_register();
+
+   TestCaseUnstableFsmState_1_register();
 }
