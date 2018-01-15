@@ -198,6 +198,12 @@ typedef struct DC_PUSMemoryLoadOffsetClass  DC_PUSMemoryLoadOffsetClass;
 typedef struct DC_PUSTcVerificationPacket  DC_PUSTcVerificationPacket;
 typedef struct DC_PUSTcVerificationPacketClass  DC_PUSTcVerificationPacketClass;
 
+typedef struct ModeManager ModeManager;
+typedef struct ModeManagerClass ModeManagerClass;
+
+typedef struct DC_DummyModeManager DC_DummyModeManager;
+typedef struct DC_DummyModeManagerClass DC_DummyModeManagerClass;
+
 typedef struct DC_PUSTelemetryModeManager  DC_PUSTelemetryModeManager;
 typedef struct DC_PUSTelemetryModeManagerClass  DC_PUSTelemetryModeManagerClass;
 
