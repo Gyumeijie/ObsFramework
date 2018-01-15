@@ -39,6 +39,7 @@
 #include "TestCaseNestedFsmActivator_1.h"
 #include "TestCaseNestedFsmActivatorWithEndState_1.h"  
 #include "TestCaseNestedFsmActivatorWithExitCheck_1.h"
+#include "TestCaseDummyModeManager_1.h"
 
 void regression_test_type_register()
 {
@@ -117,4 +118,6 @@ void regression_test_type_register()
    TestCaseNestedFsmActivatorWithEndState_1_register();
 
    TestCaseNestedFsmActivatorWithExitCheck_1_register();
+
+   TestCaseDummyModeManager_1_register(); 
 }
