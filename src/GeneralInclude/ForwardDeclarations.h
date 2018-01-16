@@ -204,6 +204,9 @@ typedef struct ModeManagerClass ModeManagerClass;
 typedef struct DC_DummyModeManager DC_DummyModeManager;
 typedef struct DC_DummyModeManagerClass DC_DummyModeManagerClass;
 
+typedef struct PunctualActionModeManager PunctualActionModeManager;
+typedef struct PunctualActionModeManagerClass PunctualActionModeManagerClass;
+
 typedef struct DC_PUSTelemetryModeManager  DC_PUSTelemetryModeManager;
 typedef struct DC_PUSTelemetryModeManagerClass  DC_PUSTelemetryModeManagerClass;
 

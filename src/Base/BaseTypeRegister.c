@@ -6,6 +6,7 @@
 #include "DC_DummyConditionalPunctualAction.h"
 #include "ModeManager.h" 
 #include "DC_DummyModeManager.h"
+#include "PunctualActionModeManager.h"
 
 void base_type_register(void)
 {
@@ -19,4 +20,5 @@ void base_type_register(void)
 
     ModeManager_register();
     DC_DummyModeManager_register();
+    PunctualActionModeManager_register();
 }
