@@ -6,6 +6,7 @@
 #include "../FDIR/FDIRTypeRegister.h"
 #include "../Data/DataTypeRegister.h"
 #include "../FSM/FSMTypeRegister.h" 
+#include "../Telemetry/TelemetryTypeRegister.h"
 #include "../Qom/object.h"
 
 void application_type_register(void)
@@ -19,6 +20,7 @@ void application_type_register(void)
     fdir_type_register();
     data_type_register(); 
     fsm_type_register(); 
+    telemetry_type_register();
 }
 
 
