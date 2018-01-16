@@ -54,6 +54,7 @@
 #include "TestCaseNestedFsmActivatorWithEndState_1.h"
 #include "TestCaseNestedFsmActivatorWithExitCheck_1.h"
 #include "TestCaseDummyModeManager_1.h" 
+#include "TestCaseCyclingPunctualActionModeManager_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -163,6 +164,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseNestedFsmActivatorWithExitCheck_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyModeManager_1_new());
+    
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseCyclingPunctualActionModeManager_1_new());
 
 
 	// Run the test suite -- this causes all test cases in

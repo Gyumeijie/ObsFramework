@@ -7,6 +7,8 @@
 #include "ModeManager.h" 
 #include "DC_DummyModeManager.h"
 #include "PunctualActionModeManager.h"
+#include "PunctualActionListModeManager.h"
+#include "DC_CyclingPunctualActionModeManager.h"
 
 void base_type_register(void)
 {
@@ -21,4 +23,6 @@ void base_type_register(void)
     ModeManager_register();
     DC_DummyModeManager_register();
     PunctualActionModeManager_register();
+    PunctualActionListModeManager_register();
+    DC_CyclingPunctualActionModeManager_register();
 }
