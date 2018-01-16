@@ -18,11 +18,11 @@
 //#include "../Data/DC_DummyDatabase.h"
 #include "../System/DC_DummyObsClock.h"
 #include "../System/DC_DummyTracer.h"
-//#include "../Telemetry/PUSTelemetryPacket.h"
+#include "../Telemetry/PUSTelemetryPacket.h"
 //#include "../Telemetry/CC_TelemetryPacketFactory.h"
 //#include "../Telemetry/DC_PUSTcVerificationPacket.h"
 //#include "../Telemetry/DC_PUSDataReportingPacket.h"
-//#include "../Telemetry/DC_DummyPUSTelemetryPacket.h"
+#include "../Telemetry/DC_DummyPUSTelemetryPacket.h"
 //#include "../Telecommand/PUSTelecommand.h"
 #include "../Qom/object.h"
 
@@ -101,11 +101,12 @@ static bool setUpTestCase(void *obj)
          return INITIALIZATION_FAILURE;
      }
 
-     #if 0
      // Configure the static part of PUS telecommand and telemetry classes
-     PUSTelemetryPacket::setDefaultDestination(TEST_TM_DEF_DEST);
-     PUSTelemetryPacket::setApplicationId(TEST_TM_APID);
-     PUSTelemetryPacket::setObsClock(pClk);
+     PUSTelemetryPacket_setDefaultDestination(TEST_TM_DEF_DEST);
+     PUSTelemetryPacket_setApplicationId(TEST_TM_APID);
+     PUSTelemetryPacket_setObsClock((ObsClock*)pClk);
+
+     #if 0
      PUSTelecommand::setApplicationId(TEST_TC_APID);
      #endif
 
