@@ -41,6 +41,7 @@
 #include "TestCaseNestedFsmActivatorWithExitCheck_1.h"
 #include "TestCaseDummyModeManager_1.h"
 #include "TestCaseCyclingPunctualActionModeManager_1.h"
+#include "TestCaseSimplePunctualActionModeManager_1.h"
 
 void regression_test_type_register()
 {
@@ -123,4 +124,6 @@ void regression_test_type_register()
    TestCaseDummyModeManager_1_register(); 
 
    TestCaseCyclingPunctualActionModeManager_1_register();
+
+   TestCaseSimplePunctualActionModeManager_1_register();
 }
