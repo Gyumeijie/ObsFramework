@@ -58,6 +58,7 @@
 #include "TestCaseSimplePunctualActionModeManager_1.h"
 #include "TestCaseDummyTelemetryPacket_1.h" 
 #include "TestCaseDummyPUSTelemetryPacket_1.h"
+#include "TestCaseChecksum_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -175,6 +176,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTelemetryPacket_1_new());
     
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyPUSTelemetryPacket_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseChecksum_1_new());
 
 
 	// Run the test suite -- this causes all test cases in

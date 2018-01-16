@@ -186,6 +186,9 @@ typedef struct DC_PUSDumpMemoryOffsetClass  DC_PUSDumpMemoryOffsetClass;
 typedef struct DC_PUSEventRepository  DC_PUSEventRepository;
 typedef struct DC_PUSEventRepositoryClass  DC_PUSEventRepositoryClass;
 
+typedef struct PUSMemoryDump PUSMemoryDump;
+typedef struct PUSMemoryDumpClass PUSMemoryDumpClass;
+
 typedef struct DC_PUSMemoryDumpAbsolute  DC_PUSMemoryDumpAbsolute;
 typedef struct DC_PUSMemoryDumpAbsoluteClass  DC_PUSMemoryDumpAbsoluteClass;
 
