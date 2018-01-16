@@ -43,7 +43,7 @@
 #include "TestCaseCyclingPunctualActionModeManager_1.h"
 #include "TestCaseSimplePunctualActionModeManager_1.h"
 #include "TestCaseDummyTelemetryPacket_1.h" 
-
+#include "TestCaseDummyPUSTelemetryPacket_1.h" 
 
 void regression_test_type_register()
 {
@@ -130,4 +130,6 @@ void regression_test_type_register()
    TestCaseSimplePunctualActionModeManager_1_register();
 
    TestCaseDummyTelemetryPacket_1_register();
+
+   TestCaseDummyPUSTelemetryPacket_1_register(); 
 }
