@@ -210,6 +210,12 @@ typedef struct StructuredTelemetryPacketClass StructuredTelemetryPacketClass;
 typedef struct DC_DataItem16TmWord DC_DataItem16TmWord;
 typedef struct DC_DataItem16TmWordClass DC_DataItem16TmWordClass;
 
+typedef struct TelemetryStream TelemetryStream;
+typedef struct TelemetryStreamClass TelemetryStreamClass;
+
+typedef struct DC_ByteArrayTelemetryStream DC_ByteArrayTelemetryStream;
+typedef struct DC_ByteArrayTelemetryStreamClass DC_ByteArrayTelemetryStreamClass;
+
 typedef struct ModeManager ModeManager;
 typedef struct ModeManagerClass ModeManagerClass;
 
