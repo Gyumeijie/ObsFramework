@@ -49,6 +49,7 @@
 #include "TestCaseDataItem16TmWord_1.h"
 #include "TestCaseByteArrayTelemetryStream_1.h"  
 #include "TestCaseDummyTelemetryStream_1.h"
+#include "TestCaseCycleDataItem16TmStream_1.h"
 
 void regression_test_type_register()
 {
@@ -147,4 +148,6 @@ void regression_test_type_register()
    TestCaseByteArrayTelemetryStream_1_register(); 
    
    TestCaseDummyTelemetryStream_1_register();
+
+   TestCaseCycleDataItem16TmStream_1_register();
 }

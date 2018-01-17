@@ -132,9 +132,6 @@ typedef struct CC_TelemetryManagerClass  CC_TelemetryManagerClass;
 typedef struct CC_ManoeuvreManager  CC_ManoeuvreManager;
 typedef struct CC_ManoeuvreManagerClass  CC_ManoeuvreManagerClass;
 
-typedef struct DC_BasicPUSTmStream  DC_BasicPUSTmStream;
-typedef struct DC_BasicPUSTmStreamClass  DC_BasicPUSTmStreamClass;
-
 typedef struct DC_DummyObsClock  DC_DummyObsClock;
 typedef struct DC_DummyObsClockClass  DC_DummyObsClockClass;
 
@@ -218,6 +215,12 @@ typedef struct DC_ByteArrayTelemetryStreamClass DC_ByteArrayTelemetryStreamClass
 
 typedef struct DC_DummyTelemetryStream DC_DummyTelemetryStream;
 typedef struct DC_DummyTelemetryStreamClass DC_DummyTelemetryStreamClass;
+
+typedef struct DC_CycleDataItem16TmStream DC_CycleDataItem16TmStream;
+typedef struct DC_CycleDataItem16TmStreamClass DC_CycleDataItem16TmStreamClass;
+
+typedef struct DC_BasicPUSTmStream  DC_BasicPUSTmStream;
+typedef struct DC_BasicPUSTmStreamClass  DC_BasicPUSTmStreamClass;
 
 typedef struct ModeManager ModeManager;
 typedef struct ModeManagerClass ModeManagerClass;

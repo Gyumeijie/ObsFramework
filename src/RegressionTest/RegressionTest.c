@@ -63,6 +63,7 @@
 #include "TestCaseDataItem16TmWord_1.h"
 #include "TestCaseByteArrayTelemetryStream_1.h"  
 #include "TestCaseDummyTelemetryStream_1.h"
+#include "TestCaseCycleDataItem16TmStream_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -190,6 +191,9 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseByteArrayTelemetryStream_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTelemetryStream_1_new());
+    
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseCycleDataItem16TmStream_1_new());
+
 
 	// Run the test suite -- this causes all test cases in
 	// the test suite to be run in sequence

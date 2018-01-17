@@ -11,6 +11,7 @@
 #include "TelemetryStream.h"
 #include "DC_ByteArrayTelemetryStream.h"
 #include "DC_DummyTelemetryStream.h" 
+#include "DC_CycleDataItem16TmStream.h" 
 
 void telemetry_type_register(void)
 {
@@ -27,4 +28,5 @@ void telemetry_type_register(void)
     TelemetryStream_register(); 
     DC_ByteArrayTelemetryStream_register();
     DC_DummyTelemetryStream_register();
+    DC_CycleDataItem16TmStream_register();
 }
