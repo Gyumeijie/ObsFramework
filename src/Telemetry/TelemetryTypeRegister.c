@@ -8,6 +8,8 @@
 #include "DC_PUSMemoryDumpAbsolute.h"
 #include "StructuredTelemetryPacket.h"
 #include "DC_DataItem16TmWord.h"
+#include "TelemetryStream.h"
+#include "DC_ByteArrayTelemetryStream.h"
 
 void telemetry_type_register(void)
 {
@@ -20,4 +22,7 @@ void telemetry_type_register(void)
     DC_PUSMemoryDumpAbsolute_register();
     StructuredTelemetryPacket_register();
     DC_DataItem16TmWord_register();
+
+    TelemetryStream_register(); 
+    DC_ByteArrayTelemetryStream_register();
 }
