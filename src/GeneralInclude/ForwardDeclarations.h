@@ -222,6 +222,9 @@ typedef struct DC_CycleDataItem16TmStreamClass DC_CycleDataItem16TmStreamClass;
 typedef struct DC_BasicPUSTmStream  DC_BasicPUSTmStream;
 typedef struct DC_BasicPUSTmStreamClass  DC_BasicPUSTmStreamClass;
 
+typedef struct DC_FileTelemetryStream DC_FileTelemetryStream;
+typedef struct DC_FileTelemetryStreamClass DC_FileTelemetryStreamClass;
+
 typedef struct ModeManager ModeManager;
 typedef struct ModeManagerClass ModeManagerClass;
 
@@ -333,6 +336,9 @@ typedef struct TestSuiteClass TestSuiteClass;
 
 typedef struct TestCaseWithEvtCheck  TestCaseWithEvtCheck;
 typedef struct TestCaseWithEvtCheckClass  TestCaseWithEvtCheckClass;
+
+typedef struct TestCaseWithFactories TestCaseWithFactories;
+typedef struct TestCaseWithFactoriesClass TestCaseWithFactoriesClass;
 
 #endif
 

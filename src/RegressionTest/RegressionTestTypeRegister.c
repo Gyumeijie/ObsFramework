@@ -50,6 +50,7 @@
 #include "TestCaseByteArrayTelemetryStream_1.h"  
 #include "TestCaseDummyTelemetryStream_1.h"
 #include "TestCaseCycleDataItem16TmStream_1.h"
+#include "TestCaseFileTelemetryStream_1.h"
 
 void regression_test_type_register()
 {
@@ -150,4 +151,6 @@ void regression_test_type_register()
    TestCaseDummyTelemetryStream_1_register();
 
    TestCaseCycleDataItem16TmStream_1_register();
+
+   TestCaseFileTelemetryStream_1_register();
 }
