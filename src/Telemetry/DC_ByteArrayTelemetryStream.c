@@ -76,7 +76,8 @@ static void reset(void *obj)
  */
 static void flush(void *obj)
 {
-    reset(obj);
+    TelemetryStreamClass *tsc = TELEMETRYSTREAM_GET_CLASS(obj);
+    tsc->reset(obj);
 }
 
 /**
