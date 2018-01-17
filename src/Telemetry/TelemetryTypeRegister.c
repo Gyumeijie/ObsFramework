@@ -6,6 +6,8 @@
 #include "PUSMemoryDump.h"
 #include "DC_PUSMemoryDumpOffset.h"
 #include "DC_PUSMemoryDumpAbsolute.h"
+#include "StructuredTelemetryPacket.h"
+#include "DC_DataItem16TmWord.h"
 
 void telemetry_type_register(void)
 {
@@ -16,4 +18,6 @@ void telemetry_type_register(void)
     PUSMemoryDump_register();
     DC_PUSMemoryDumpOffset_register();
     DC_PUSMemoryDumpAbsolute_register();
+    StructuredTelemetryPacket_register();
+    DC_DataItem16TmWord_register();
 }
