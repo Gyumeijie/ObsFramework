@@ -10,6 +10,7 @@
 #include "DC_DataItem16TmWord.h"
 #include "TelemetryStream.h"
 #include "DC_ByteArrayTelemetryStream.h"
+#include "DC_DummyTelemetryStream.h" 
 
 void telemetry_type_register(void)
 {
@@ -25,4 +26,5 @@ void telemetry_type_register(void)
 
     TelemetryStream_register(); 
     DC_ByteArrayTelemetryStream_register();
+    DC_DummyTelemetryStream_register();
 }
