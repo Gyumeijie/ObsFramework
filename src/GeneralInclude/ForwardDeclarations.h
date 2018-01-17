@@ -216,6 +216,9 @@ typedef struct TelemetryStreamClass TelemetryStreamClass;
 typedef struct DC_ByteArrayTelemetryStream DC_ByteArrayTelemetryStream;
 typedef struct DC_ByteArrayTelemetryStreamClass DC_ByteArrayTelemetryStreamClass;
 
+typedef struct DC_DummyTelemetryStream DC_DummyTelemetryStream;
+typedef struct DC_DummyTelemetryStreamClass DC_DummyTelemetryStreamClass;
+
 typedef struct ModeManager ModeManager;
 typedef struct ModeManagerClass ModeManagerClass;
 

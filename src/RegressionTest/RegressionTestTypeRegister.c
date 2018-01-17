@@ -48,6 +48,7 @@
 #include "TestCasePUSMemoryDumpOffset_1.h" 
 #include "TestCaseDataItem16TmWord_1.h"
 #include "TestCaseByteArrayTelemetryStream_1.h"  
+#include "TestCaseDummyTelemetryStream_1.h"
 
 void regression_test_type_register()
 {
@@ -144,4 +145,6 @@ void regression_test_type_register()
    TestCaseDataItem16TmWord_1_register();
 
    TestCaseByteArrayTelemetryStream_1_register(); 
+   
+   TestCaseDummyTelemetryStream_1_register();
 }
