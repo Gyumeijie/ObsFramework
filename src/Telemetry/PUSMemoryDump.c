@@ -59,7 +59,7 @@ void PUSMemoryDump_setMaxNumberBlocks(PUSMemoryDump *This,
                                       TD_PUSNumberMemBlocks maxNumberBlocks)
 {
     assert(maxNumberBlocks > 0);
-    assert(block == pNULL);     // must be called only once
+    assert(This->block == pNULL);     // must be called only once
 
     This->maxNumberBlocks = maxNumberBlocks;
     This->block = g_malloc(sizeof(MemBlockType)*maxNumberBlocks);

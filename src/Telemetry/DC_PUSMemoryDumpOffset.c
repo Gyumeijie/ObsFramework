@@ -80,7 +80,7 @@ static void update(void *obj)
 
     assert(This->base != pNULL);
     assert(parent->memId != 0);
-    assert(tpc->isObjectConfigured(obj));
+    assert(CC_ROOTOBJECT_CLASS(tpc)->isObjectConfigured(obj));
         
     // compute the number of bytes in the packet. Compute first the size of the
     // fixed part of the packet and then the size of each block.

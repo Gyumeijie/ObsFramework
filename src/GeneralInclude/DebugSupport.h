@@ -23,10 +23,10 @@
  * situation.
  */
 
-#ifndef DebugSupportH
-#define DebugSupportH
+#ifndef DEBUGSUPPORT_H
+#define DEBUGSUPPORT_H
 
-#ifndef CompilerSwitchesH
+#ifndef COMPILERSWITCHES_H
 #error The "CompilerSwitches.h" header file must be included before this file.
 #endif
 
@@ -35,7 +35,9 @@
 #else
 #include <stdio.h>
 #undef assert
-#define assert(expr) ((expr) || fprintf(stderr,"*** WARNING ***: Assertion (%s) failed in file %s at line %d.\n",#expr,__FILE__,__LINE__))
+#define assert(expr) ((expr) || fprintf(stderr, \
+        "*** WARNING ***: Assertion (%s) failed in file %s at line %d.\n", \
+        #expr, __FILE__, __LINE__))
 #endif
 
 #endif

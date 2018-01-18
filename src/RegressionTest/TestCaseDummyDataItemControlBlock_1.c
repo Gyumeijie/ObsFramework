@@ -54,8 +54,8 @@ static void runTestCase(void *obj)
         pInputs[i] = DC_DataItem_new(&inputs[i], DI_FLOAT);
     }
 
-    for (int i=0;i<numOutputs;i++) {
-        pOutputs[i] = DC_DataItem_new(&outputs[i], DI_INT);
+    for (int i=0; i<numOutputs; i++) {
+        pOutputs[i] = DC_DataItem_new(&outputs[i], DI_FLOAT);
     }
 
 	// Verify the correctness of the class identifier
