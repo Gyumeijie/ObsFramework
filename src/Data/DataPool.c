@@ -42,7 +42,8 @@
  */
 static DC_DataItem* getDataItem(void *obj, TD_DataPoolId id)
 {
-    return DATAPOOL(obj)->pDummyDataItem;
+    DataPool *This = DATAPOOL(obj);
+    return This->pDummyDataItem;
 }
 
 /**
@@ -366,7 +367,8 @@ static void instance_init(Object *obj)
 
 DataPool* DataPool_new(void)
 {
-    return (DataPool*)object_new(TYPE_DATAPOOL);
+    Object *obj = object_new(TYPE_DATAPOOL);
+    return (DataPool*)obj;
 }
 
 

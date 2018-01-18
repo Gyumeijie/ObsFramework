@@ -53,9 +53,10 @@ CC_FSM* DC_NestedFsmActivator_getTargetFsm(DC_NestedFsmActivator *This)
 static void doContinue(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    DC_NestedFsmActivator *This = DC_NESTEDFSMACTIVATOR(obj);
+
 	assert(cc_roc->isObjectConfigured(obj));
 
-    DC_NestedFsmActivator *This = DC_NESTEDFSMACTIVATOR(obj);
 	CC_FSM_activate(This->pTargetFsm);
 }
 
@@ -66,9 +67,10 @@ static void doContinue(void *obj)
 static void doInit(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    DC_NestedFsmActivator *This = DC_NESTEDFSMACTIVATOR(obj);
+
 	assert(cc_roc->isObjectConfigured(obj));
 
-    DC_NestedFsmActivator *This = DC_NESTEDFSMACTIVATOR(obj);
 	CC_FSM_reset(This->pTargetFsm);
 }
 
@@ -82,8 +84,8 @@ static bool isObjectConfigured(void *obj)
     DC_NestedFsmActivator *This = DC_NESTEDFSMACTIVATOR(obj);
     FsmStateClass *fsc = GET_CLASS(TYPE_FSMSTATE);
 
-	return (CC_ROOTOBJECT_CLASS(fsc)->isObjectConfigured(obj) && 
-            This->pTargetFsm != pNULL);
+	return ((CC_ROOTOBJECT_CLASS(fsc)->isObjectConfigured(obj)) && 
+            (This->pTargetFsm != pNULL));
 }
 
 
@@ -97,14 +99,15 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_NestedFsmActivator *This = DC_NESTEDFSMACTIVATOR(obj);
-
 	This->pTargetFsm = pNULL;
+
 	CC_RootObject_setClassId((CC_RootObject*)obj, ID_NESTEDFSMACTIVATOR);
 }
 
 DC_NestedFsmActivator* DC_NestedFsmActivator_new(void)
 {
-    return (DC_NestedFsmActivator*)object_new(TYPE_DC_NESTEDFSMACTIVATOR);
+    Object *obj = object_new(TYPE_DC_NESTEDFSMACTIVATOR);
+    return (DC_NestedFsmActivator*)obj;
 }
 
 

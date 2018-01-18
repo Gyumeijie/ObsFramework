@@ -44,7 +44,8 @@ static void instance_init(Object *obj)
 
 DC_DummyTelemetryStream* DC_DummyTelemetryStream_new(void)
 {
-    return (DC_DummyTelemetryStream*)object_new(TYPE_DC_DUMMYTELEMETRYSTREAM);
+    Object *obj = object_new(TYPE_DC_DUMMYTELEMETRYSTREAM);
+    return (DC_DummyTelemetryStream*)obj;
 }
 
 

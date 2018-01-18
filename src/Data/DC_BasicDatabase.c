@@ -67,11 +67,11 @@ static void reset(void *obj)
 { 
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
-   assert((This->pDefaultTable != pNULL) && (This->pOperationalTable != pNULL));
+   assert((This->pDefaultTable != pNULL) && 
+          (This->pOperationalTable != pNULL));
    assert(This->tableLength > 0);
 
-   TD_DatabaseId i;
-   for (i=0; i<This->tableLength; i++) {
+   for (TD_DatabaseId i=0; i<This->tableLength; i++) {
       This->pOperationalTable[i] = This->pDefaultTable[i];
    }
    This->resetWasCalled = true;
@@ -82,17 +82,14 @@ static void reset(void *obj)
  * @param parId the identifier of the parameter to be set
  * @param newValue the new current value of the parameter
  */
-static void setParameterUnsignedInt
-(
-   void *obj, 
-   TD_DatabaseId parId, 
-   unsigned int newValue
-)
+static void setParameterUnsignedInt(void *obj, 
+                                    TD_DatabaseId parId, 
+                                    unsigned int newValue)
 {
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   *((unsigned int*)(This->pOperationalTable+parId)) = newValue;
+   *((unsigned int*)(This->pOperationalTable + parId)) = newValue;
 }
 
 /**
@@ -136,7 +133,7 @@ static void setParameterShort(void *obj, TD_DatabaseId parId, short newValue)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   *((short*)(This->pOperationalTable+parId)) = newValue;
+   *((short*)(This->pOperationalTable + parId)) = newValue;
 }
 
 /**
@@ -149,7 +146,7 @@ static void setParameterBool(void *obj, TD_DatabaseId parId, bool newValue)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   *((bool*)(This->pOperationalTable+parId)) = newValue;
+   *((bool*)(This->pOperationalTable + parId)) = newValue;
 }
 
 /**
@@ -162,7 +159,7 @@ static void setParameterChar(void *obj, TD_DatabaseId parId, char newValue)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   *((char*)(This->pOperationalTable+parId)) = newValue;
+   *((char*)(This->pOperationalTable + parId)) = newValue;
 }
 
 /**
@@ -170,17 +167,14 @@ static void setParameterChar(void *obj, TD_DatabaseId parId, char newValue)
  * @param parId the identifier of the parameter to be set
  * @param newValue the new current value of the parameter
  */
-static void setParameterUnsignedChar
-(
-   void *obj, 
-   TD_DatabaseId parId, 
-   unsigned char newValue
-)
+static void setParameterUnsignedChar(void *obj, 
+                                     TD_DatabaseId parId, 
+                                     unsigned char newValue)
 {
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   *((unsigned char*)(This->pOperationalTable+parId)) = newValue;
+   *((unsigned char*)(This->pOperationalTable + parId)) = newValue;
 }
 
 /**
@@ -193,7 +187,7 @@ static void setParameterFloat(void *obj, TD_DatabaseId parId, float newValue)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   *((float*)(This->pOperationalTable+parId)) = newValue;
+   *((float*)(This->pOperationalTable + parId)) = newValue;
 }
 
 /**
@@ -206,7 +200,7 @@ static void setParameterDouble(void *obj, TD_DatabaseId parId, double newValue)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   *((double*)(This->pOperationalTable+parId)) = newValue;
+   *((double*)(This->pOperationalTable + parId)) = newValue;
 }
 
 /**
@@ -219,7 +213,7 @@ static unsigned int getParameterUnsignedInt(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(unsigned int*)(This->pOperationalTable+parId);
+   return *(unsigned int*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -232,7 +226,7 @@ static int getParameterInt(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(int*)(This->pOperationalTable+parId);
+   return *(int*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -245,7 +239,7 @@ static unsigned short getParameterUnsignedShort(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(unsigned short*)(This->pOperationalTable+parId);
+   return *(unsigned short*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -258,7 +252,7 @@ static short getParameterShort(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(short*)(This->pOperationalTable+parId);
+   return *(short*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -271,7 +265,7 @@ static bool getParameterBool(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(bool*)(This->pOperationalTable+parId);
+   return *(bool*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -284,7 +278,7 @@ static unsigned char getParameterUnsignedChar(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(unsigned char*)(This->pOperationalTable+parId);
+   return *(unsigned char*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -297,7 +291,7 @@ static char getParameterChar(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
    
    assert(This->pOperationalTable != pNULL);
-   return *(char*)(This->pOperationalTable+parId);
+   return *(char*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -310,7 +304,7 @@ static float getParameterFloat(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(float*)(This->pOperationalTable+parId);
+   return *(float*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -323,7 +317,7 @@ static double getParameterDouble(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return *(double*)(This->pOperationalTable+parId);
+   return *(double*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -342,7 +336,7 @@ static unsigned int* getParameterPointerUnsignedInt
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (unsigned int*)(This->pOperationalTable+parId);
+   return (unsigned int*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -357,7 +351,7 @@ static int* getParameterPointerInt(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (int*)(This->pOperationalTable+parId);
+   return (int*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -376,7 +370,7 @@ static unsigned short* getParameterPointerUnsignedShort
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (unsigned short*)(This->pOperationalTable+parId);
+   return (unsigned short*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -391,7 +385,7 @@ static short* getParameterPointerShort(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (short*)(This->pOperationalTable+parId);
+   return (short*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -410,7 +404,7 @@ static unsigned char* getParameterPointerUnsignedChar
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (unsigned char*)(This->pOperationalTable+parId);
+   return (unsigned char*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -425,7 +419,7 @@ static char* getParameterPointerChar(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (char*)(This->pOperationalTable+parId);
+   return (char*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -440,7 +434,7 @@ static bool* getParameterPointerBool(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (bool*)(This->pOperationalTable+parId);
+   return (bool*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -455,7 +449,7 @@ static float* getParameterPointerFloat(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (float*)(This->pOperationalTable+parId);
+   return (float*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -470,7 +464,7 @@ static double* getParameterPointerDouble(void *obj, TD_DatabaseId parId)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
 
    assert(This->pOperationalTable != pNULL);
-   return (double*)(This->pOperationalTable+parId);
+   return (double*)(This->pOperationalTable + parId);
 }
 
 /**
@@ -486,11 +480,11 @@ static bool isObjectConfigured(void *obj)
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
    CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
 
-   return (cc_roc->isObjectConfigured(obj) &&
-           This->tableLength > 0 && 
-           This->pDefaultTable != pNULL && 
-           This->pOperationalTable != pNULL && 
-           This->resetWasCalled);
+   return ((cc_roc->isObjectConfigured(obj)) &&
+           (This->tableLength > 0) && 
+           (This->pDefaultTable != pNULL) && 
+           (This->pOperationalTable != pNULL) && 
+           (This->resetWasCalled));
 }
 
 
@@ -504,7 +498,6 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
    DC_BasicDatabase *This = DC_BASICDATABASE(obj);
-
    This->pDefaultTable = pNULL;
    This->pOperationalTable = pNULL;
    This->resetWasCalled = false;
@@ -515,7 +508,8 @@ static void instance_init(Object *obj)
 
 DC_BasicDatabase* DC_BasicDatabase_new(void)
 {
-    return (DC_BasicDatabase*)object_new(TYPE_DC_BASICDATABASE);
+    Object *obj = object_new(TYPE_DC_BASICDATABASE);
+    return (DC_BasicDatabase*)obj;
 }
 
 

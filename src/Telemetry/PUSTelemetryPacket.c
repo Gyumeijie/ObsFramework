@@ -208,6 +208,7 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     PUSTelemetryPacket *This = PUSTELEMETRYPACKET(obj);
+
     This->type = 0;
     This->subType = 0;
     This->timeTag = -1;
@@ -216,7 +217,8 @@ static void instance_init(Object *obj)
 
 PUSTelemetryPacket* PUSTelemetryPacket_new(void)
 {
-    return (PUSTelemetryPacket*)object_new(TYPE_PUSTELEMETRYPACKET);
+    Object *obj = object_new(TYPE_PUSTELEMETRYPACKET);
+    return (PUSTelemetryPacket*)obj;
 }
 
 

@@ -87,6 +87,7 @@ void DC_DummyConfigurableFsmState_setTerminationCheckValue
 static void doContinue(void *obj)
 {
    DC_DummyConfigurableFsmState *This = DC_DUMMYCONFIGURABLEFSMSTATE(obj);
+
    This->activationCounter++;
    return;
 }
@@ -115,6 +116,7 @@ static bool canEnter(void *obj)
 static void doInit(void *obj)
 {
    DC_DummyConfigurableFsmState *This = DC_DUMMYCONFIGURABLEFSMSTATE(obj);
+   
    This->initializationCounter++;
    return;
 }
@@ -143,6 +145,7 @@ static bool canExit(void *obj)
 static void doExit(void *obj)
 {
    DC_DummyConfigurableFsmState *This = DC_DUMMYCONFIGURABLEFSMSTATE(obj);
+
    This->exitCounter++;
    return;
 }
@@ -170,11 +173,9 @@ static bool isFinished(void *obj)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// the following may be useful if you don't need it, just delete.
 static void instance_init(Object *obj)
 {
    DC_DummyConfigurableFsmState *This = DC_DUMMYCONFIGURABLEFSMSTATE(obj);
-
    This->activationCounter = 0;
    This->initializationCounter = 0;
    This->exitCounter = 0;
@@ -187,7 +188,8 @@ static void instance_init(Object *obj)
 
 DC_DummyConfigurableFsmState* DC_DummyConfigurableFsmState_new(void)
 {
-    return (DC_DummyConfigurableFsmState*)object_new(TYPE_DC_DUMMYCONFIGURABLEFSMSTATE);
+    Object *obj = object_new(TYPE_DC_DUMMYCONFIGURABLEFSMSTATE);
+    return (DC_DummyConfigurableFsmState*)obj;
 }
 
 

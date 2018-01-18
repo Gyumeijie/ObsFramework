@@ -36,10 +36,10 @@
 static void propagateState(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-    assert(cc_roc->isObjectConfigured(obj));
-
     ControlBlock *cb = CONTROLBLOCK(obj);
     CopyControlBlock *ccb = COPYCONTROLBLOCK(obj); 
+
+    assert(cc_roc->isObjectConfigured(obj));
 
     cb->x[0] = (cb->p[0]*cb->x[0]) + ccb->u[0] + ccb->u[1] + ccb->u[2];
 }
@@ -51,10 +51,10 @@ static void propagateState(void *obj)
 static void updateOutput(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-    assert(cc_roc->isObjectConfigured(obj));
-
     ControlBlock *cb = CONTROLBLOCK(obj);
     CopyControlBlock *ccb = COPYCONTROLBLOCK(obj); 
+
+    assert(cc_roc->isObjectConfigured(obj));
 
     ccb->y[0] = cb->x[0];
     ccb->y[1] = cb->p[1] * cb->x[0];
@@ -66,13 +66,14 @@ static void updateOutput(void *obj)
 static void reset(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK); 
+    ControlBlock *cb = CONTROLBLOCK(obj);
+
     assert(cc_roc->isObjectConfigured(obj));
 
-    ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK); 
     cbc->reset(obj);
 
     // Set initial state to 1.0
-    ControlBlock *cb = CONTROLBLOCK(obj);
     cb->x[0] = (TD_Float)1.0;
 }
 
@@ -87,6 +88,7 @@ static void reset(void *obj)
 static void instance_init(Object *obj)
 {
     ControlBlockClass *cbc = CONTROLBLOCK_GET_CLASS(obj);
+
     cbc->setNumberOfInputs((ControlBlock*)obj, 3);
     cbc->setNumberOfOutputs(obj, 2);
 
@@ -100,7 +102,8 @@ static void instance_init(Object *obj)
 
 DC_DummyCopyControlBlock* DC_DummyCopyControlBlock_new(void)
 {
-    return (DC_DummyCopyControlBlock*)object_new(TYPE_DC_DUMMYCOPYCONTROLBLOCK);
+    Object *obj = object_new(TYPE_DC_DUMMYCOPYCONTROLBLOCK);
+    return (DC_DummyCopyControlBlock*)obj;
 }
 
 

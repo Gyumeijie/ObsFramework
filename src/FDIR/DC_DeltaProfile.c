@@ -27,11 +27,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void DC_DeltaProfile_setDeltaThreshold
-(
-    DC_DeltaProfile *This, 
-    TD_Float deltaThreshold
-)
+void DC_DeltaProfile_setDeltaThreshold(DC_DeltaProfile *This, 
+                                       TD_Float deltaThreshold)
 {
     assert(deltaThreshold > (TD_Float)0.0);
     This->deltaThreshold = deltaThreshold;
@@ -77,8 +74,8 @@ static bool doProfileCheckForFloat(void *obj, TD_Float value)
 
     assert(This->deltaThreshold > (TD_Float)0.0);
 
-    if (This->notFirst && 
-        fabs(value - This->previousValue) > (double)This->deltaThreshold) {
+    if ((This->notFirst) && 
+        (fabs(value - This->previousValue) > (double)This->deltaThreshold)) {
         This->previousValue = value;
         return MON_PROFILE_DEVIATION;
     } else {
@@ -115,8 +112,8 @@ static bool isObjectConfigured(void *obj)
    MonitoringProfileClass *mpc = GET_CLASS(TYPE_MONITORINGPROFILE);
    DC_DeltaProfile *This = DC_DELTAPROFILE(obj);
 
-   return (CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj) &&
-           This->deltaThreshold > (TD_Float)0.0);
+   return ((CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj)) &&
+           (This->deltaThreshold > (TD_Float)0.0));
 }
 
 /**
@@ -127,7 +124,8 @@ static bool isObjectConfigured(void *obj)
  */
 static void reset(void *obj)
 {
-    DC_DELTAPROFILE(obj)->notFirst = false;
+    DC_DeltaProfile *This = DC_DELTAPROFILE(obj);
+    This->notFirst = false;
 }
 
 
@@ -141,16 +139,18 @@ static void reset(void *obj)
 static void instance_init(Object *obj)
 {
     DC_DeltaProfile *This = DC_DELTAPROFILE(obj);
-
-    CC_RootObject_setClassId((CC_RootObject*)obj, ID_DELTAPROFILE);
     This->deltaThreshold = (TD_Float)0.0;
     This->previousValue = (TD_Float)0.0;
+
     reset(obj);
+
+    CC_RootObject_setClassId((CC_RootObject*)obj, ID_DELTAPROFILE);
 }
 
 DC_DeltaProfile* DC_DeltaProfile_new(void)
 {
-    return (DC_DeltaProfile*)object_new(TYPE_DC_DELTAPROFILE);
+    Object *obj = object_new(TYPE_DC_DELTAPROFILE);
+    return (DC_DeltaProfile*)obj;
 }
 
 

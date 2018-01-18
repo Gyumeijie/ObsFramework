@@ -137,6 +137,7 @@ static void post_init(DC_RawDataItem *This, void *data)
 DC_RawDataItem* DC_RawDataItem_new(void *data)
 {
    Object *obj = object_new(TYPE_DC_RAWDATAITEM);
+
    post_init((DC_RawDataItem*)obj, data);
 
    return (DC_RawDataItem*)obj;

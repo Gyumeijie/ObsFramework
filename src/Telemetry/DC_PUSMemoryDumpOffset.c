@@ -151,17 +151,18 @@ static void update(void *obj)
 static void instance_init(Object *obj)
 {
     DC_PUSMemoryDumpOffset *This = DC_PUSMEMORYDUMPOFFSET(obj);
-    TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(obj);
-   
-    tpc->setSubType(obj, PUS_ST_TM_DMP_OFF);
     This->base = pNULL;
+   
+    TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(obj);
+    tpc->setSubType(obj, PUS_ST_TM_DMP_OFF);
 
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_PUSMEMORYDUMPOFFSET);
 }
 
 DC_PUSMemoryDumpOffset* DC_PUSMemoryDumpOffset_new(void)
 {
-    return (DC_PUSMemoryDumpOffset*)object_new(TYPE_DC_PUSMEMORYDUMPOFFSET);
+    Object *obj = object_new(TYPE_DC_PUSMEMORYDUMPOFFSET);
+    return (DC_PUSMemoryDumpOffset*)obj;
 }
 
 

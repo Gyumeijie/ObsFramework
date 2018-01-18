@@ -53,7 +53,8 @@ static void instance_init(Object *obj)
 
 DC_UnstableFsmState* DC_UnstableFsmState_new(void)
 {
-    return (DC_UnstableFsmState*)object_new(TYPE_DC_UNSTABLEFSMSTATE);
+    Object *obj = object_new(TYPE_DC_UNSTABLEFSMSTATE);
+    return (DC_UnstableFsmState*)obj;
 }
 
 
@@ -67,6 +68,7 @@ DC_UnstableFsmState* DC_UnstableFsmState_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     FsmStateClass *fsc = FSMSTATE_CLASS(oc);
+
     fsc->doContinue = doContinue;
     fsc->isFinished = isFinished;
 }

@@ -45,7 +45,8 @@ static void instance_init(Object *obj)
 
 DC_DummyFsmState* DC_DummyFsmState_new(void)
 {
-    return (DC_DummyFsmState*)object_new(TYPE_DC_DUMMYFSMSTATE);
+    Object *obj = object_new(TYPE_DC_DUMMYFSMSTATE);
+    return (DC_DummyFsmState*)obj;
 }
 
 

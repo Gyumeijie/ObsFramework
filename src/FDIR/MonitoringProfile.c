@@ -29,17 +29,14 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-bool MonitoringProfile_floatDeviatesFromProfile
-(
-    MonitoringProfile *This, 
-    TD_Float value
-)
+bool MonitoringProfile_floatDeviatesFromProfile(MonitoringProfile *This, 
+                                                TD_Float value)
 {
-    bool outcome = NO_MON_PROFILE_DEVIATION;
-
     DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
     DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
     MonitoringProfileClass *mpc = MONITORINGPROFILE_GET_CLASS(This);
+
+    bool outcome = NO_MON_PROFILE_DEVIATION;
 
     if (MonitoringProfile_isEnabled(This)) {
         if (mpc->doProfileCheckForFloat(This, value)) {
@@ -57,17 +54,14 @@ bool MonitoringProfile_floatDeviatesFromProfile
     return outcome;
 }
 
-bool MonitoringProfile_integerDeviatesFromProfile
-(
-    MonitoringProfile *This,
-    TD_Integer value
-)
+bool MonitoringProfile_integerDeviatesFromProfile(MonitoringProfile *This,
+                                                  TD_Integer value)
 {
-    bool outcome = NO_MON_PROFILE_DEVIATION;
-
     DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
     DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
     MonitoringProfileClass *mpc = MONITORINGPROFILE_GET_CLASS(This);
+
+    bool outcome = NO_MON_PROFILE_DEVIATION;
 
     if (MonitoringProfile_isEnabled(This)) {
         if (mpc->doProfileCheckForInteger(This, value)) {
@@ -187,7 +181,8 @@ static void instance_init(Object *obj)
 
 MonitoringProfile* MonitoringProfile_new(void)
 {
-    return (MonitoringProfile*)object_new(TYPE_MONITORINGPROFILE);
+    Object *obj = object_new(TYPE_MONITORINGPROFILE);
+    return (MonitoringProfile*)obj;
 }
 
 

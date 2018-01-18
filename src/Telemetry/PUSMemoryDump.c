@@ -187,8 +187,8 @@ static unsigned int getNumberOfBytes(void *obj)
     PUSMemoryDump *This = PUSMEMORYDUMP(obj);
 
     assert(cc_roc->isObjectConfigured(obj));
-    assert(tpc->getSubType(obj) == PUS_ST_TM_DMP_OFF || 
-           tpc->getSubType(obj) == PUS_ST_TM_DMP_ABS);
+    assert((tpc->getSubType(obj) == PUS_ST_TM_DMP_OFF) || 
+           (tpc->getSubType(obj) == PUS_ST_TM_DMP_ABS));
 
     return This->tmPacketSize;
 }
@@ -214,8 +214,8 @@ static unsigned char getUnsignedByte(void *obj, unsigned int n)
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(obj);
 
     assert(cc_roc->isObjectConfigured(obj));
-    assert(tpc->getSubType(obj) == PUS_ST_TM_DMP_OFF || 
-           tpc->getSubType(obj) == PUS_ST_TM_DMP_ABS);
+    assert((tpc->getSubType(obj) == PUS_ST_TM_DMP_OFF) || 
+           (tpc->getSubType(obj) == PUS_ST_TM_DMP_ABS));
     assert(n < This->tmPacketSize);
 
     return This->data[n];
@@ -284,7 +284,8 @@ static void instance_init(Object *obj)
 
 PUSMemoryDump* PUSMemoryDump_new(void)
 {
-    return (PUSMemoryDump*)object_new(TYPE_PUSMEMORYDUMP);
+    Object *obj = object_new(TYPE_PUSMEMORYDUMP);
+    return (PUSMemoryDump*)obj;
 }
 
 

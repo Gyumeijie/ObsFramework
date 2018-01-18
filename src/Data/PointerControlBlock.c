@@ -31,7 +31,9 @@ void PointerControlBlock_setInputLink(PointerControlBlock *This,
 {
     ControlBlock *parent = (ControlBlock*)This;
 
-    assert(This->pU!=pNULL && pInput!=pNULL && (int)i<parent->nInputs);
+    assert((This->pU != pNULL) && 
+           (pInput != pNULL) && 
+           ((int)i < parent->nInputs));
 
     if ((int)i < parent->nInputs) {
         This->pU[i] = pInput;
@@ -47,7 +49,9 @@ void PointerControlBlock_setOutputLink(PointerControlBlock *This,
 {
     ControlBlock *parent = (ControlBlock*)This;
 
-    assert(This->pY!=pNULL && pOutput!=pNULL && (int)i<parent->nOutputs);
+    assert((This->pY != pNULL) && 
+           (pOutput != pNULL) && 
+           ((int)i < parent->nOutputs));
 
     if ((int)i < parent->nOutputs) {
         This->pY[i] = pOutput;
@@ -77,14 +81,13 @@ static void setNumberOfInputs(void *obj, unsigned int n)
     ControlBlock *parent = CONTROLBLOCK(obj);
     PointerControlBlock *This = POINTERCONTROLBLOCK(obj);
 
-    assert(parent->nInputs<0);
-    assert(n>0);
+    assert(parent->nInputs < 0);
+    assert(n > 0);
 
     parent->nInputs = n;
     This->pU = g_malloc(sizeof(TD_Float)*n);
 
-    unsigned int i;
-    for (i=0; i<n; i++) {
+    for (unsigned int i=0; i<n; i++) {
         This->pU[i] = pNULL;
     }
 }
@@ -100,14 +103,13 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
     ControlBlock *parent = CONTROLBLOCK(obj);
     PointerControlBlock *This = POINTERCONTROLBLOCK(obj);
     
-    assert(parent->nOutputs<0);
-    assert(n>0);
+    assert(parent->nOutputs < 0);
+    assert(n > 0);
 
     parent->nOutputs = n;
     This->pY = g_malloc(sizeof(TD_Float)*n);
 
-    unsigned int i;
-    for (i=0; i<n; i++) {
+    for (unsigned int i=0; i<n; i++) {
         This->pY[i] = pNULL;
     }
 }
@@ -119,20 +121,18 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
 static bool isObjectConfigured(void *obj)
 {
     ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK);
+    ControlBlock *parent = CONTROLBLOCK(obj);
+    PointerControlBlock *This = POINTERCONTROLBLOCK(obj);
 
     if (!CC_ROOTOBJECT_CLASS(cbc)->isObjectConfigured(obj)) {
         return false;
     }
 
-    ControlBlock *parent = CONTROLBLOCK(obj);
-    PointerControlBlock *This = POINTERCONTROLBLOCK(obj);
-    int i;
-
-    for (i=0; i<parent->nInputs; i++) {
+    for (int i=0; i<parent->nInputs; i++) {
         if (This->pU[i] == pNULL) return false;
     }
 
-    for (i=0; i<parent->nOutputs; i++)
+    for (int i=0; i<parent->nOutputs; i++)
         if (This->pY[i] == pNULL) return false;
 
     return true;
@@ -156,7 +156,8 @@ static void instance_init(Object *obj)
 
 PointerControlBlock* PointerControlBlock_new(void)
 {
-    return (PointerControlBlock*)object_new(TYPE_POINTERCONTROLBLOCK);
+    Object *obj = object_new(TYPE_POINTERCONTROLBLOCK);
+    return (PointerControlBlock*)obj;
 }
 
 

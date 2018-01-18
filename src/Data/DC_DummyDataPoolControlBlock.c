@@ -32,13 +32,12 @@
 static void propagateState(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-    assert(cc_roc->isObjectConfigured(obj));
-
-    DataPool *pDP = CC_RootObject_getDataPool();
-
     ControlBlock *cb = CONTROLBLOCK(obj);
     DataPoolControlBlock *dpcb = DATAPOOLCONTROLBLOCK(obj); 
 
+    assert(cc_roc->isObjectConfigured(obj));
+
+    DataPool *pDP = CC_RootObject_getDataPool();
     // Warining: Not use "obj" but pDP, for DC_DummyDataPoolControlBlock does't
     // inherit(indirectly) from DataPool.
     DataPoolClass *dpc = DATAPOOL_GET_CLASS(pDP);
@@ -56,13 +55,13 @@ static void propagateState(void *obj)
 static void updateOutput(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    ControlBlock *cb = CONTROLBLOCK(obj);
+    DataPoolControlBlock *dpcb = DATAPOOLCONTROLBLOCK(obj); 
+
     assert(cc_roc->isObjectConfigured(obj));
 
     DataPool *pDP = CC_RootObject_getDataPool();
-    
-    ControlBlock *cb = CONTROLBLOCK(obj);
     DataPoolClass *dpc = DATAPOOL_GET_CLASS(pDP);
-    DataPoolControlBlock *dpcb = DATAPOOLCONTROLBLOCK(obj); 
 
     dpc->setFloatValue(pDP, dpcb->dpy[0], cb->x[0]);
     dpc->setFloatValue(pDP, dpcb->dpy[1], cb->p[1]*cb->x[0]);
@@ -105,7 +104,8 @@ static void instance_init(Object *obj)
 
 DC_DummyDataPoolControlBlock* DC_DummyDataPoolControlBlock_new(void)
 {
-    return (DC_DummyDataPoolControlBlock*)object_new(TYPE_DC_DUMMYDATAPOOLCONTROLBLOCK);
+    Object *obj = object_new(TYPE_DC_DUMMYDATAPOOLCONTROLBLOCK);
+    return (DC_DummyDataPoolControlBlock*)obj;
 }
 
 
@@ -118,7 +118,6 @@ DC_DummyDataPoolControlBlock* DC_DummyDataPoolControlBlock_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-
     ControlBlockClass *cb = CONTROLBLOCK_CLASS(oc);
 
     cb->propagateState = propagateState;

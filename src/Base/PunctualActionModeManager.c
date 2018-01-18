@@ -91,7 +91,8 @@ static void instance_init(Object *obj){}
 
 PunctualActionModeManager* PunctualActionModeManager_new(void)
 {
-    return (PunctualActionModeManager*)object_new(TYPE_PUNCTUALACTIONMODEMANAGER);
+    Object *obj = object_new(TYPE_PUNCTUALACTIONMODEMANAGER);
+    return (PunctualActionModeManager*)obj;
 }
 
 

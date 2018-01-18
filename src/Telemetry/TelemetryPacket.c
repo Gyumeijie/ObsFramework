@@ -241,7 +241,8 @@ static void instance_init(Object *obj)
 
 TelemetryPacket* TelemetryPacket_new(void)
 {
-    return (TelemetryPacket*)object_new(TYPE_TELEMETRYPACKET);
+    Object *obj = object_new(TYPE_TELEMETRYPACKET);
+    return (TelemetryPacket*)obj;
 }
 
 

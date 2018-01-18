@@ -73,6 +73,7 @@ static unsigned int getNumberOfBytes(void *obj)
 static unsigned char getUnsignedByte(void *obj, unsigned int n)
 {
     DC_DummyTelemetryPacket *This = DC_DUMMYTELEMETRYPACKET(obj);
+
     assert((This->item!=pNULL) && (n<This->nOfBytes));
 	return This->item[n];
 }

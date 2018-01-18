@@ -91,7 +91,8 @@ static void instance_init(Object *obj){}
 
 TelemetryModeManager* TelemetryModeManager_new(void)
 {
-    return (TelemetryModeManager*)object_new(TYPE_TELEMETRYMODEMANAGER);
+    Object *obj = object_new(TYPE_TELEMETRYMODEMANAGER);
+    return (TelemetryModeManager*)obj;
 }
 
 

@@ -29,8 +29,7 @@ TD_Float CopyControlBlock_getInput(const CopyControlBlock *This, unsigned int i)
 {
     ControlBlock *parent = (ControlBlock*)This;
 
-    assert((This->u != pNULL) && ((int) i< parent->nInputs));
-
+    assert((This->u != pNULL) && ((int)i < parent->nInputs));
     return This->u[i];
 }
 
@@ -39,11 +38,10 @@ TD_Float CopyControlBlock_getOutput(const CopyControlBlock *This, unsigned int i
     ControlBlock *parent = (ControlBlock*)This;
 
     assert((This->y != pNULL) && ((int)i < parent->nOutputs));
-
     return This->y[i];
 }
 
-void CopyControlBlock_setInput(CopyControlBlock *This, 
+void CopyControlBlock_setInput(CopyControlBlock *This,
                                unsigned int i, TD_Float newValue)
 {
     ControlBlock *parent = (ControlBlock*)This;
@@ -59,8 +57,8 @@ void CopyControlBlock_setInput(CopyControlBlock *This,
     }
 }
 
-void CopyControlBlock_setOutput (CopyControlBlock *This, 
-                                 unsigned int i, TD_Float newValue)
+void CopyControlBlock_setOutput(CopyControlBlock *This, 
+                                unsigned int i, TD_Float newValue)
 {
     ControlBlock *parent = (ControlBlock*)This;
 
@@ -125,8 +123,7 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
     parent->nOutputs = n;
     This->y = g_malloc(sizeof(TD_Float)*n);
 
-    unsigned int i;
-    for (i=0; i<n; i++) {
+    for (unsigned int i=0; i<n; i++) {
         This->y[i] = (TD_Float)0.0;
     }
 }
@@ -143,15 +140,14 @@ static void reset(void *obj)
 {
     CopyControlBlock *This = COPYCONTROLBLOCK(obj);
     ControlBlock *parent = CONTROLBLOCK(obj);
+    ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK);
 
     assert((parent->x != pNULL) && (This->u != pNULL));
 
     // Reset the state variables
-    ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK);
     cbc->reset(obj);
 
-    int i;
-    for (i=0; i<parent->nInputs; i++) {
+    for (int i=0; i<parent->nInputs; i++) {
         This->u[i] = (TD_Float)0.0;
     }
 }
@@ -174,7 +170,8 @@ static void instance_init(Object *obj)
 
 CopyControlBlock* CopyControlBlock_new(void)
 {
-    return (CopyControlBlock*)object_new(TYPE_COPYCONTROLBLOCK);
+    Object *obj = object_new(TYPE_COPYCONTROLBLOCK);
+    return (CopyControlBlock*)obj;
 }
 
 
@@ -188,6 +185,7 @@ CopyControlBlock* CopyControlBlock_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     ControlBlockClass *cbc = CONTROLBLOCK_CLASS(oc);
+
     cbc->setNumberOfInputs = setNumberOfInputs;
     cbc->setNumberOfOutputs = setNumberOfOutputs;
     cbc->reset = reset;

@@ -40,12 +40,12 @@
  */
 static TD_ActionOutcome doAction(void *obj)
 {
-
     /**
-     * The function canExecute is a virtual function and here should call child's
-     * canExecute and so does doConditionalAction.
+     * The function canExecute is a virtual function and here should call
+     * class-specific canExecute and so does doConditionalAction.
      */
     ConditionalPunctualActionClass *cpac = CONDITIONALPUNCTUALACTION_GET_CLASS(obj);
+
     if (cpac->canExecute(obj)) {
         return cpac->doConditionalAction(obj);
     } else {
@@ -101,7 +101,8 @@ static void instance_init(Object *obj){}
 
 ConditionalPunctualAction* ConditionalPunctualAction_new(void)
 {
-    return (ConditionalPunctualAction*)object_new(TYPE_CONDITIONALPUNCTUALACTION);
+    Object *obj = object_new(TYPE_CONDITIONALPUNCTUALACTION);
+    return (ConditionalPunctualAction*)obj;
 }
 
 

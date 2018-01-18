@@ -80,9 +80,10 @@ static void flush(void *obj)
  */
 static void write(void *obj, TelemetryPacket *tmItem)
 {
-    assert(tmItem != pNULL);
     DC_FileTelemetryStream *This = DC_FILETELEMETRYSTREAM(obj);
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(tmItem);
+
+    assert(tmItem != pNULL);
 
     FILE *out = This->out;
     if (out!=pNULL) {
@@ -119,14 +120,15 @@ static void write(void *obj, TelemetryPacket *tmItem)
 static void instance_init(Object *obj)
 {
     DC_FileTelemetryStream *This = DC_FILETELEMETRYSTREAM(obj);
-
     This->out = pNULL;
+
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_FILETELEMETRYSTREAM);
 }
 
 DC_FileTelemetryStream* DC_FileTelemetryStream_new(void)
 {
-    return (DC_FileTelemetryStream*)object_new(TYPE_DC_FILETELEMETRYSTREAM);
+    Object *obj = object_new(TYPE_DC_FILETELEMETRYSTREAM);
+    return (DC_FileTelemetryStream*)obj;
 }
 
 
@@ -140,6 +142,7 @@ DC_FileTelemetryStream* DC_FileTelemetryStream_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     TelemetryStreamClass *tsc = TELEMETRYSTREAM_CLASS(oc);
+
     tsc->flush = flush;
     tsc->write = write;
 }

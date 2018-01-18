@@ -46,8 +46,7 @@ static ParameterDatabase* CC_RootObject_pParameterDatabase = pNULL;
 
 bool CC_RootObject_isSystemConfigured(void) 
 {
-   TD_InstanceId i;
-   for (i=0; i<CC_RootObject_instanceCounter; i++) {
+   for (TD_InstanceId i=0; i<CC_RootObject_instanceCounter; i++) {
       CC_RootObject* ro = CC_RootObject_pSystemList[i];
 
       if (!CC_ROOTOBJECT_GET_CLASS(ro)->isObjectConfigured(ro)) {
@@ -66,8 +65,7 @@ void CC_RootObject_setSystemListSize(TD_InstanceId sysListSize)
    CC_RootObject_systemListSize = sysListSize;
    CC_RootObject_pSystemList = g_malloc(sysListSize*sizeof(CC_RootObject*));
 
-   TD_InstanceId i;
-   for (i=0; i<CC_RootObject_systemListSize; i++) {
+   for (TD_InstanceId i=0; i<CC_RootObject_systemListSize; i++) {
        CC_RootObject_pSystemList[i] = pNULL;
    }
 }
@@ -79,7 +77,7 @@ TD_InstanceId CC_RootObject_getSystemListSize(void)
 }
 
 
-void CC_RootObject_setEventRepository(DC_EventRepository* pEventRep)
+void CC_RootObject_setEventRepository(DC_EventRepository *pEventRep)
 {
     assert(pEventRep != pNULL);
     CC_RootObject_pEventRepository = pEventRep;
@@ -93,7 +91,7 @@ DC_EventRepository* CC_RootObject_getEventRepository(void)
 }
 
 
-void CC_RootObject_setParameterDatabase(ParameterDatabase* pDatabase)
+void CC_RootObject_setParameterDatabase(ParameterDatabase *pDatabase)
 {
     assert(pDatabase != pNULL);
     CC_RootObject_pParameterDatabase = pDatabase;
@@ -107,7 +105,7 @@ ParameterDatabase* CC_RootObject_getParameterDatabase(void)
 }
 
 
-void CC_RootObject_setDataPool(DataPool* pPool)
+void CC_RootObject_setDataPool(DataPool *pPool)
 {
     assert(pPool != pNULL);
     CC_RootObject_pDataPool = pPool;
@@ -121,7 +119,7 @@ DataPool* CC_RootObject_getDataPool(void)
 }
 
 
-void CC_RootObject_setTracer(Tracer* pTrace) 
+void CC_RootObject_setTracer(Tracer *pTrace) 
 {
     assert(pTrace != pNULL);
     CC_RootObject_pTracer = pTrace;
@@ -237,7 +235,8 @@ static void instance_init(Object *obj)
 
 CC_RootObject* CC_RootObject_new(void)
 {
-    return (CC_RootObject*)object_new(TYPE_CC_ROOTOBJECT);
+    Object *obj = object_new(TYPE_CC_ROOTOBJECT);
+    return (CC_RootObject*)obj;
 }
 
 

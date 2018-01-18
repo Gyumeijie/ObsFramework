@@ -58,9 +58,10 @@ TD_FsmStateIndex DC_NestedFsmActivatorWithEndState_getTargetState
 static bool isFinished(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
+
 	assert(cc_roc->isObjectConfigured(obj));
 
-    DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
     CC_FSM *targetFsm = DC_NestedFsmActivator_getTargetFsm(obj);
 
 	return (CC_FSM_getCurrentState(targetFsm) == This->targetState);
@@ -73,8 +74,8 @@ static bool isFinished(void *obj)
  */
 static bool isObjectConfigured(void *obj)
 {
-    DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
     DC_NestedFsmActivatorClass *dc_nfac = GET_CLASS(TYPE_DC_NESTEDFSMACTIVATOR);
+    DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
 
 	return ((CC_ROOTOBJECT_CLASS(dc_nfac)->isObjectConfigured(obj)) && 
             (This->targetState >= 0));
@@ -91,13 +92,15 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_NestedFsmActivatorWithEndState *This = DC_NESTEDFSMACTIVATORWITHENDSTATE(obj);
+
 	This->targetState = -1;
 	CC_RootObject_setClassId((CC_RootObject*)obj, ID_NESTEDFSMACTIVATORWITHENDSTATE);
 }
 
 DC_NestedFsmActivatorWithEndState* DC_NestedFsmActivatorWithEndState_new(void)
 {
-    return (DC_NestedFsmActivatorWithEndState*)object_new(TYPE_DC_NESTEDFSMACTIVATORWITHENDSTATE);
+    Object *obj = object_new(TYPE_DC_NESTEDFSMACTIVATORWITHENDSTATE);
+    return (DC_NestedFsmActivatorWithEndState*)obj;
 }
 
 
@@ -110,7 +113,6 @@ DC_NestedFsmActivatorWithEndState* DC_NestedFsmActivatorWithEndState_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-
     FsmStateClass *fsc = FSMSTATE_CLASS(oc);
     fsc->isFinished = isFinished;
 

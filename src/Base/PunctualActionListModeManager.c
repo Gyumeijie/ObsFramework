@@ -25,11 +25,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 void PunctualActionListModeManager_setListItem(PunctualActionListModeManager *This, 
-                                               unsigned int n, 
-                                               unsigned int pos, 
+                                               unsigned int n, unsigned int pos, 
                                                PunctualAction* pItem)
 {
-    const unsigned int nModes = ModeManager_getNumberOfModes((ModeManager*)This);
+    unsigned int nModes = ModeManager_getNumberOfModes((ModeManager*)This);
 
     assert(n < nModes);
     assert(This->listLength != pNULL);
@@ -48,12 +47,13 @@ void PunctualActionListModeManager_setListItem(PunctualActionListModeManager *Th
 }
 
 void PunctualActionListModeManager_setListLength(PunctualActionListModeManager *This, 
-                                                 unsigned int n, 
-                                                 unsigned int length)
+                                                 unsigned int n, unsigned int length)
 {
+    unsigned int nModes = ModeManager_getNumberOfModes((ModeManager*)This);
+
     assert(This->listLength != pNULL);
     assert(This->list != pNULL);
-    assert(n < (unsigned int)ModeManager_getNumberOfModes((ModeManager*)This));
+    assert(n < nModes);
     assert(length > 0);
 
     This->listLength[n] = length;
@@ -196,7 +196,7 @@ static bool isIterationFinished(void *obj)
     PunctualActionListModeManager *This = PUNCTUALACTIONLISTMODEMANAGER(obj);
 
     assert(cc_roc->isObjectConfigured(obj));
-    return(This->counter == This->listLength[This->iterationListIndex]);
+    return (This->counter == This->listLength[This->iterationListIndex]);
 }
 
 /**
@@ -211,8 +211,8 @@ static bool isObjectConfigured(void *obj)
     PunctualActionModeManagerClass *pammc = GET_CLASS(TYPE_PUNCTUALACTIONMODEMANAGER);
     PunctualActionListModeManager *This = PUNCTUALACTIONLISTMODEMANAGER(obj);
 
-    if (!CC_ROOTOBJECT_CLASS(pammc)->isObjectConfigured(obj) || 
-         This->list == pNULL || This->listLength == pNULL) {
+    if (!(CC_ROOTOBJECT_CLASS(pammc)->isObjectConfigured(obj)) || 
+         (This->list == pNULL) || (This->listLength == pNULL)) {
         return NOT_CONFIGURED;
     }
 
@@ -250,7 +250,8 @@ static void instance_init(Object *obj)
 
 PunctualActionListModeManager* PunctualActionListModeManager_new(void)
 {
-    return (PunctualActionListModeManager*)object_new(TYPE_PUNCTUALACTIONLISTMODEMANAGER);
+    Object *obj = object_new(TYPE_PUNCTUALACTIONLISTMODEMANAGER);
+    return (PunctualActionListModeManager*)obj;
 }
 
 
@@ -263,7 +264,6 @@ PunctualActionListModeManager* PunctualActionListModeManager_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-
     ModeManagerClass *mmc = MODEMANAGER_CLASS(oc);
     mmc->allocateMemory = allocateMemory;
 

@@ -33,10 +33,10 @@
 static void propagateState(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-    assert(cc_roc->isObjectConfigured(obj));
-
     ControlBlock *cb = CONTROLBLOCK(obj);
     PointerControlBlock *pcb = POINTERCONTROLBLOCK(obj);
+
+    assert(cc_roc->isObjectConfigured(obj));
 
     cb->x[0] = (cb->p[0])*(cb->x[0]) + 
                 *(pcb->pU[0]) + *(pcb->pU[1]) + *(pcb->pU[2]);
@@ -49,10 +49,10 @@ static void propagateState(void *obj)
 static void updateOutput(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-    assert(cc_roc->isObjectConfigured(obj));
-
     ControlBlock *cb = CONTROLBLOCK(obj);
     PointerControlBlock *pcb = POINTERCONTROLBLOCK(obj);
+
+    assert(cc_roc->isObjectConfigured(obj));
 
     *(pcb->pY[0]) = cb->x[0];
     *(pcb->pY[1]) = (cb->p[1])*(cb->x[0]);
@@ -96,7 +96,8 @@ static void instance_init(Object *obj)
 
 DC_DummyPointerControlBlock* DC_DummyPointerControlBlock_new(void)
 {
-    return (DC_DummyPointerControlBlock*)object_new(TYPE_DC_DUMMYPOINTERCONTROLBLOCK);
+    Object *obj = object_new(TYPE_DC_DUMMYPOINTERCONTROLBLOCK);
+    return (DC_DummyPointerControlBlock*)obj;
 }
 
 

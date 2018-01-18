@@ -56,7 +56,8 @@ static void instance_init(Object *obj){}
 
 DC_Event* DC_Event_new(void)
 {
-    return (DC_Event*)object_new(TYPE_DC_EVENT);
+    Object *obj = object_new(TYPE_DC_EVENT);
+    return (DC_Event*)obj;
 }
 
 

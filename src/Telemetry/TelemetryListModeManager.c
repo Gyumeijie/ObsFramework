@@ -247,6 +247,7 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     TelemetryListModeManager *This = TELEMETRYLISTMODEMANAGER(obj);
+
     This->counter = 0;
 	This->list = pNULL;
 	This->listLength = pNULL;
@@ -255,7 +256,8 @@ static void instance_init(Object *obj)
 
 TelemetryListModeManager* TelemetryListModeManager_new(void)
 {
-    return (TelemetryListModeManager*)object_new(TYPE_TELEMETRYLISTMODEMANAGER);
+    Object *obj = object_new(TYPE_TELEMETRYLISTMODEMANAGER);
+    return (TelemetryListModeManager*)obj;
 }
 
 

@@ -59,9 +59,10 @@ TD_FsmStateIndex DC_NestedFsmActivatorWithExitCheck_getTargetState
 static bool canExit(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    DC_NestedFsmActivatorWithExitCheck *This = DC_NESTEDFSMACTIVATORWITHEXITCHECK(obj);
+
 	assert(cc_roc->isObjectConfigured(obj));
 
-    DC_NestedFsmActivatorWithExitCheck *This = DC_NESTEDFSMACTIVATORWITHEXITCHECK(obj);
     CC_FSM *targetFsm = DC_NestedFsmActivator_getTargetFsm(obj);
 
 	return (CC_FSM_getCurrentState(targetFsm) == This->targetState);
@@ -93,12 +94,14 @@ static void instance_init(Object *obj)
 {
     DC_NestedFsmActivatorWithExitCheck *This = DC_NESTEDFSMACTIVATORWITHEXITCHECK(obj);
 	This->targetState = -1;
+
 	CC_RootObject_setClassId((CC_RootObject*)obj, ID_NESTEDFSMACTIVATORWITHEXITCHECK);
 }
 
 DC_NestedFsmActivatorWithExitCheck* DC_NestedFsmActivatorWithExitCheck_new(void)
 {
-    return (DC_NestedFsmActivatorWithExitCheck*)object_new(TYPE_DC_NESTEDFSMACTIVATORWITHEXITCHECK);
+    Object *obj = object_new(TYPE_DC_NESTEDFSMACTIVATORWITHEXITCHECK);
+    return (DC_NestedFsmActivatorWithExitCheck*)obj;
 }
 
 
