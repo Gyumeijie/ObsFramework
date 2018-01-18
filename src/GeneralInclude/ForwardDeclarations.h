@@ -252,6 +252,9 @@ typedef struct DC_PUSTelemetryModeManagerClass  DC_PUSTelemetryModeManagerClass;
 typedef struct TelemetryListModeManager TelemetryListModeManager;
 typedef struct TelemetryListModeManagerClass TelemetryListModeManagerClass;
 
+typedef struct DC_SimpleTelemetryModeManager DC_SimpleTelemetryModeManager;
+typedef struct DC_SimpleTelemetryModeManagerClass DC_SimpleTelemetryModeManagerClass;
+
 typedef struct DC_PUSTmLogger  DC_PUSTmLogger;
 typedef struct DC_PUSTmLoggerClass  DC_PUSTmLoggerClass;
 
