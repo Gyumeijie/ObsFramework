@@ -13,6 +13,8 @@
 #include "DC_DummyTelemetryStream.h" 
 #include "DC_CycleDataItem16TmStream.h" 
 #include "DC_FileTelemetryStream.h"
+#include "TelemetryModeManager.h"
+#include "TelemetryListModeManager.h"
 
 void telemetry_type_register(void)
 {
@@ -31,4 +33,7 @@ void telemetry_type_register(void)
     DC_DummyTelemetryStream_register();
     DC_CycleDataItem16TmStream_register();
     DC_FileTelemetryStream_register();
+
+    TelemetryModeManager_register();
+    TelemetryListModeManager_register();
 }
