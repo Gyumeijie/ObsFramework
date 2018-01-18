@@ -14,8 +14,8 @@
  * classes are defined in a dedicated header file (<code>TestCompilerSwitches</code>)
  */
 
-#ifndef TestCompilerSwitchesH
-#define TestCompilerSwitchesH
+#ifndef TESTCOMPILERSWITCHES_H
+#define TESTCOMPILERSWITCHES_H
 
 // MS_HOST must be defined when running in a desktop environment
 // (as opposed to running in the embedded target).
