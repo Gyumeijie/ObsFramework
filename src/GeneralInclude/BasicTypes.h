@@ -12,8 +12,8 @@
  * This file defines the <code>typedef</code> types that are used in the OBS Framework.
  */
 
-#ifndef BasicTypesH
-#define BasicTypesH
+#ifndef BASICTYPES_H
+#define BASICTYPES_H
 
 /**
  * Type for instance identifiers. The constructor of the root class
