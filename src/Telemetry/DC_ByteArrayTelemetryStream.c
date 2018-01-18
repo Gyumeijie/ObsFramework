@@ -28,7 +28,7 @@ void DC_ByteArrayTelemetryStream_setCapacity
     unsigned int n
 )
 {
-    g_assert(n > 0);
+    assert(n > 0);
     This->size = n;
 }
 
@@ -38,7 +38,7 @@ void DC_ByteArrayTelemetryStream_setStartingAddress
     unsigned char *pAddress
 )
 {
-    g_assert(pAddress != pNULL);
+    assert(pAddress != pNULL);
     This->tmData = pAddress;
 }
 
@@ -47,7 +47,7 @@ unsigned char* DC_ByteArrayTelemetryStream_getStartingAddress
     const DC_ByteArrayTelemetryStream *This
 )
 {
-    g_assert(This->tmData != pNULL);
+    assert(This->tmData != pNULL);
     return This->tmData;
 }
 
@@ -66,7 +66,7 @@ static void reset(void *obj)
 {
     DC_ByteArrayTelemetryStream *This = DC_BYTEARRAYTELEMETRYSTREAM(obj);
 
-    g_assert((This->size > 0) && (This->tmData != pNULL));
+    assert((This->size > 0) && (This->tmData != pNULL));
     This->writeCounter = 0;
 }
 
@@ -89,7 +89,7 @@ static unsigned int getCapacity(void *obj)
 {
     DC_ByteArrayTelemetryStream *This = DC_BYTEARRAYTELEMETRYSTREAM(obj);
 
-    g_assert(This->size > 0);
+    assert(This->size > 0);
     return This->size;
 }
 
@@ -114,7 +114,7 @@ static bool doesPacketFit(void *obj, TelemetryPacket *pItem)
     DC_ByteArrayTelemetryStream *This = DC_BYTEARRAYTELEMETRYSTREAM(obj);
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(pItem);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
 
     const unsigned int nBytes = tpc->getNumberOfBytes(pItem); 
     return (nBytes <= (This->size - This->writeCounter));
@@ -134,7 +134,7 @@ static void write(void *obj, TelemetryPacket *pItem)
     DC_ByteArrayTelemetryStream *This = DC_BYTEARRAYTELEMETRYSTREAM(obj);
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(pItem);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
 
     unsigned int base = This->writeCounter;
     const unsigned int nBytes = tpc->getNumberOfBytes(pItem); 
