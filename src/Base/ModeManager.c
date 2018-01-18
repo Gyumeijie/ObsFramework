@@ -26,6 +26,8 @@
 
 void ModeManager_setNumberOfModes(ModeManager *This, TD_Mode numberOfModes)
 {
+    ModeManagerClass *mmc = MODEMANAGER_GET_CLASS(This);
+
     assert(This->numberOfModes == 0);  // should be called only once
     assert(numberOfModes > 0);
 
@@ -35,13 +37,13 @@ void ModeManager_setNumberOfModes(ModeManager *This, TD_Mode numberOfModes)
        This->enabledStatus[i] = ENABLED;
     }
 
-    ModeManagerClass *mmc = MODEMANAGER_GET_CLASS(This);
     mmc->allocateMemory(This, numberOfModes);
 }
 
 void ModeManager_setDefaultMode(ModeManager *This, TD_Mode defaultMode)
 {
     assert((defaultMode >= 0) && (defaultMode < This->numberOfModes));
+
     if ((defaultMode >= 0) && (defaultMode < This->numberOfModes)) {
         This->defaultMode = defaultMode;
     } else {
@@ -89,6 +91,7 @@ bool ModeManager_isTransitionEnabledToMode(const ModeManager *This, TD_Mode toMo
 {
     assert(toMode < This->numberOfModes);
     assert(toMode >= 0);
+
     return This->enabledStatus[toMode];
 }
 
@@ -97,6 +100,7 @@ TD_Mode ModeManager_getCurrentMode(const ModeManager *This)
     assert(This->numberOfModes > 0); 
     assert(This->currentMode >= 0);
     assert(This->currentMode < This->numberOfModes);
+
     return This->currentMode;
 }
 
@@ -108,14 +112,14 @@ TD_Mode ModeManager_getNumberOfModes(const ModeManager *This)
 void ModeManager_setMode(ModeManager *This, TD_Mode newMode)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
+    DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
+    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er); 
 
     assert((newMode >= 0) && (newMode < This->numberOfModes));
     assert(cc_roc->isObjectConfigured(This));
 
     if (newMode == This->currentMode) return;
 
-    DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
-    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er); 
     if (ModeManager_isTransitionEnabled(This) && 
         ModeManager_isTransitionEnabledToMode(This, newMode)) {
         This->currentMode = newMode;
@@ -144,6 +148,7 @@ static void reset(void *obj)
     ModeManager *This = MODEMANAGER(obj);
 
     assert(cc_roc->isObjectConfigured(obj));
+
     This->currentMode = This->defaultMode;
     for (int i=0; i<This->numberOfModes; i++) {
         This->enabledStatus[i] = ENABLED;
@@ -162,9 +167,9 @@ static bool isObjectConfigured(void *obj)
     CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
     ModeManager *This = MODEMANAGER(obj);
 
-    return (cc_roc->isObjectConfigured(obj) &&
-            This->numberOfModes > 0 && 
-            This->defaultMode >= 0);
+    return ((cc_roc->isObjectConfigured(obj)) &&
+            (This->numberOfModes > 0) && 
+            (This->defaultMode >= 0));
 }
 
 
@@ -230,7 +235,8 @@ static void instance_init(Object *obj)
 
 ModeManager* ModeManager_new(void)
 {
-    return (ModeManager*)object_new(TYPE_MODEMANAGER);
+    Object *obj = object_new(TYPE_MODEMANAGER);
+    return (ModeManager*)obj;
 }
 
 

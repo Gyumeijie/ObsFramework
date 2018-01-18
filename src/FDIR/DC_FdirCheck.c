@@ -34,11 +34,8 @@ PunctualAction* DC_FdirCheck_getFdiCheck(DC_FdirCheck *This)
 	return This->pFdiCheck;
 }
 
-void DC_FdirCheck_setRecoveryAction
-(
-    DC_FdirCheck *This,
-    RecoveryAction *pRecoveryAction
-)
+void DC_FdirCheck_setRecoveryAction(DC_FdirCheck *This,
+                                    RecoveryAction *pRecoveryAction)
 {
 	assert(pRecoveryAction);
 	This->pRecoveryAction = pRecoveryAction;
@@ -76,9 +73,9 @@ RecoveryAction* DC_FdirCheck_getRecoveryAction(DC_FdirCheck *This)
 static TD_ActionOutcome doAction(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-	assert(cc_roc->isObjectConfigured(obj));
-
     DC_FdirCheck *This = DC_FDIRCHECK(obj);
+
+	assert(cc_roc->isObjectConfigured(obj));
 
 	TD_ActionOutcome outcome = PunctualAction_execute(This->pFdiCheck);
 	if (outcome == ACTION_FAILURE){
@@ -98,9 +95,9 @@ static bool isObjectConfigured(void *obj)
     PunctualActionClass *pac = GET_CLASS(TYPE_PUNCTUALACTION);
     DC_FdirCheck *This = DC_FDIRCHECK(obj);
 
-	return (CC_ROOTOBJECT_CLASS(pac)->isObjectConfigured(obj) &&
-            This->pRecoveryAction != pNULL && 
-            This->pFdiCheck != pNULL);
+	return ((CC_ROOTOBJECT_CLASS(pac)->isObjectConfigured(obj)) &&
+            (This->pRecoveryAction != pNULL) && 
+            (This->pFdiCheck != pNULL));
 }
 
 
@@ -114,15 +111,16 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_FdirCheck *This = DC_FDIRCHECK(obj);
-
 	This->pRecoveryAction = pNULL;
 	This->pFdiCheck = pNULL;
+
 	CC_RootObject_setClassId((CC_RootObject*)obj, ID_FDIRCHECK);
 }
 
 DC_FdirCheck* DC_FdirCheck_new(void)
 {
-    return (DC_FdirCheck*)object_new(TYPE_DC_FDIRCHECK);
+    Object *obj = object_new(TYPE_DC_FDIRCHECK);
+    return (DC_FdirCheck*)obj;
 }
 
 

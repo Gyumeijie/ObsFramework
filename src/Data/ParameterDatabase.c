@@ -389,7 +389,8 @@ static void instance_init(Object *obj){}
 
 ParameterDatabase* ParameterDatabase_new(void)
 {
-    return (ParameterDatabase*)object_new(TYPE_PARAMETERDATABASE);
+    Object *obj = object_new(TYPE_PARAMETERDATABASE);
+    return (ParameterDatabase*)obj;
 }
 
 

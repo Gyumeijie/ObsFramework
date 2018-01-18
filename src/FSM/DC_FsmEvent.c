@@ -114,15 +114,16 @@ static TD_ActionOutcome doAction(void *obj)
 static void instance_init(Object *obj)
 {
    DC_FsmEvent *This = DC_FSMEVENT(obj);
-
    This->pTargetFsm = pNULL;
    This->targetState = -1;
+
    CC_RootObject_setClassId((CC_RootObject*)obj, ID_FSMEVENT);
 }
 
 DC_FsmEvent* DC_FsmEvent_new(void)
 {
-    return (DC_FsmEvent*)object_new(TYPE_DC_FSMEVENT);
+    Object *obj = object_new(TYPE_DC_FSMEVENT);
+    return (DC_FsmEvent*)obj;
 }
 
 

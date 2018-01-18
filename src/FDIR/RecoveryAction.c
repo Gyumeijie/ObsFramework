@@ -67,14 +67,15 @@ RecoveryAction* RecoveryAction_getNextRecoveryAction(RecoveryAction *This)
  */
 static TD_ActionOutcome doAction(void *obj)
 {
+    RecoveryActionClass* rac = RECOVERYACTION_GET_CLASS(obj);
+    RecoveryAction *This = RECOVERYACTION(obj);
+
 	TD_ActionOutcome outcome = ACTION_CANNOT_EXECUTE;
 
-    RecoveryActionClass* rac = RECOVERYACTION_GET_CLASS(obj);
 	if (rac->canExecute(obj)) {
 		outcome = rac->doRecoveryAction(obj);
     }
 
-    RecoveryAction *This = RECOVERYACTION(obj);
 	if (This->pNextRecoveryAction) {
 		outcome = PunctualAction_execute((PunctualAction*)This->pNextRecoveryAction);
     }
@@ -127,12 +128,14 @@ static TD_ActionOutcome doRecoveryAction(void *obj)
 
 static void instance_init(Object *obj)
 {
-	RECOVERYACTION(obj)->pNextRecoveryAction = pNULL;
+    RecoveryAction *This = RECOVERYACTION(obj);
+	This->pNextRecoveryAction = pNULL;
 }
 
 RecoveryAction* RecoveryAction_new(void)
 {
-    return (RecoveryAction*)object_new(TYPE_RECOVERYACTION);
+    Object *obj = object_new(TYPE_RECOVERYACTION);
+    return (RecoveryAction*)obj;
 }
 
 

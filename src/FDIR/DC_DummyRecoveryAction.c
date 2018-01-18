@@ -55,7 +55,8 @@ void DC_DummyRecoveryAction_setExecutionFlag
  */
 static TD_ActionOutcome doRecoveryAction(void *obj)
 {
-	return DC_DUMMYRECOVERYACTION(obj)->actionOutcome;
+    DC_DummyRecoveryAction *This = DC_DUMMYRECOVERYACTION(obj);
+	return This->actionOutcome;
 }
 
 /**
@@ -67,7 +68,8 @@ static TD_ActionOutcome doRecoveryAction(void *obj)
  */
 static bool canExecute(void *obj)
 {
-	return DC_DUMMYRECOVERYACTION(obj)->actionCanExecute;
+    DC_DummyRecoveryAction *This = DC_DUMMYRECOVERYACTION(obj);
+	return This->actionCanExecute;
 }
 
 
@@ -81,15 +83,16 @@ static bool canExecute(void *obj)
 static void instance_init(Object *obj)
 {
     DC_DummyRecoveryAction *This = DC_DUMMYRECOVERYACTION(obj);
-
 	This->actionCanExecute = true;
 	This->actionOutcome = ACTION_SUCCESS;
+
 	CC_RootObject_setClassId((CC_RootObject*)obj, ID_DUMMYRECOVERYACTION);
 }
 
 DC_DummyRecoveryAction* DC_DummyRecoveryAction_new(void)
 {
-    return (DC_DummyRecoveryAction*)object_new(TYPE_DC_DUMMYRECOVERYACTION);
+    Object *obj = object_new(TYPE_DC_DUMMYRECOVERYACTION);
+    return (DC_DummyRecoveryAction*)obj;
 }
 
 

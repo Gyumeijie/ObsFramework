@@ -83,18 +83,20 @@ static void update(void *obj)
 static void instance_init(Object *obj)
 {
     DC_DummyPUSTelemetryPacket *This = DC_DUMMYPUSTELEMETRYPACKET(obj);
-    TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(obj);
-
     This->item = 0;
+
+    TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(obj);
     tpc->setType(obj, TEST_TM_TYPE);
     tpc->setSubType(obj, TEST_TM_SUBTYPE);
     tpc->setTimeTag(obj, TEST_TM_TIMETAG);
+
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_DUMMYPUSTELEMETRYPACKET);
 }
 
 DC_DummyPUSTelemetryPacket* DC_DummyPUSTelemetryPacket_new(void)
 {
-    return (DC_DummyPUSTelemetryPacket*)object_new(TYPE_DC_DUMMYPUSTELEMETRYPACKET);
+    Object *obj = object_new(TYPE_DC_DUMMYPUSTELEMETRYPACKET);
+    return (DC_DummyPUSTelemetryPacket*)obj;
 }
 
 
@@ -108,6 +110,7 @@ DC_DummyPUSTelemetryPacket* DC_DummyPUSTelemetryPacket_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     TelemetryPacketClass *tpc = TELEMETRYPACKET_CLASS(oc);
+
     tpc->getNumberOfBytes = getNumberOfBytes;
     tpc->getUnsignedByte = getUnsignedByte;
     tpc->update = update;

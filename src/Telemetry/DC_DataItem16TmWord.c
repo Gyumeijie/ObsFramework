@@ -79,16 +79,18 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_DataItem16TmWord *This = DC_DATAITEM16TMWORD(obj);
-
     This->pDataItem = pNULL;
+
     StructuredTelemetryPacket_setNumberOfBytes((StructuredTelemetryPacket*)obj, 2);
     StructuredTelemetryPacket_setUnsignedShort((StructuredTelemetryPacket*)obj, 0, 0);
+
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_DATAITEM16TMWORD);
 }
 
 DC_DataItem16TmWord* DC_DataItem16TmWord_new(void)
 {
-    return (DC_DataItem16TmWord*)object_new(TYPE_DC_DATAITEM16TMWORD);
+    Object *obj = object_new(TYPE_DC_DATAITEM16TMWORD);
+    return (DC_DataItem16TmWord*)obj;
 }
 
 

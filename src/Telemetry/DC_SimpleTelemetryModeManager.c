@@ -38,14 +38,16 @@ static void update(void *obj)
 
 static void instance_init(Object *obj)
 {
-    CC_RootObject_setClassId((CC_RootObject*)obj, ID_SIMPLETELEMETRYMODEMANAGER);
     ModeManager_setNumberOfModes((ModeManager*)obj, 1);
     ModeManager_setDefaultMode((ModeManager*)obj, 0);
+
+    CC_RootObject_setClassId((CC_RootObject*)obj, ID_SIMPLETELEMETRYMODEMANAGER);
 }
 
 DC_SimpleTelemetryModeManager* DC_SimpleTelemetryModeManager_new(void)
 {
-    return (DC_SimpleTelemetryModeManager*)object_new(TYPE_DC_SIMPLETELEMETRYMODEMANAGER);
+    Object *obj = object_new(TYPE_DC_SIMPLETELEMETRYMODEMANAGER);
+    return (DC_SimpleTelemetryModeManager*)obj;
 }
 
 

@@ -63,10 +63,10 @@ TD_Float RangeProfile_getUpperBound(const RangeProfile *This)
  */
 static bool doProfileCheckForInteger(void *obj, TD_Integer value)
 {
-    RangeProfile *This = RANGEPROFILE(obj);
-    assert(This->lowerBound < This->upperBound);
-    
     MonitoringProfileClass *mpc = MONITORINGPROFILE_GET_CLASS(obj);
+    RangeProfile *This = RANGEPROFILE(obj);
+
+    assert(This->lowerBound < This->upperBound);
     return mpc->doProfileCheckForFloat(obj, (TD_Float)value);
 }
 
@@ -80,8 +80,8 @@ static bool isObjectConfigured(void *obj)
     MonitoringProfileClass *mpc = GET_CLASS(TYPE_MONITORINGPROFILE);
     RangeProfile *This = RANGEPROFILE(obj);
 
-    return (CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj) &&
-            This->lowerBound < This->upperBound);
+    return ((CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj)) &&
+            (This->lowerBound < This->upperBound));
 }
 
 
@@ -118,7 +118,8 @@ static void instance_init(Object *obj)
 
 RangeProfile* RangeProfile_new(void)
 {
-    return (RangeProfile*)object_new(TYPE_RANGEPROFILE);
+    Object *obj = object_new(TYPE_RANGEPROFILE);
+    return (RangeProfile*)obj;
 }
 
 

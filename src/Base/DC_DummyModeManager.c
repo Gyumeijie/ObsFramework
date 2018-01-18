@@ -29,8 +29,11 @@
  */
 static void update(void *obj)
 {
-    if (ModeManager_getCurrentMode(obj) < (ModeManager_getNumberOfModes(obj)-1)) {
-        ModeManager_setMode(obj, ModeManager_getCurrentMode(obj)+1);
+    TD_Mode curMode = ModeManager_getCurrentMode(obj);
+    TD_Mode nModes  = ModeManager_getNumberOfModes(obj);
+
+    if (curMode < (nModes - 1)) {
+        ModeManager_setMode(obj, (curMode + 1));
     } else {
         ModeManager_setMode(obj, 0);
     }
@@ -61,7 +64,8 @@ static void instance_init(Object *obj)
 
 DC_DummyModeManager* DC_DummyModeManager_new(void)
 {
-    return (DC_DummyModeManager*)object_new(TYPE_DC_DUMMYMODEMANAGER);
+    Object *obj = object_new(TYPE_DC_DUMMYMODEMANAGER);
+    return (DC_DummyModeManager*)obj;
 }
 
 

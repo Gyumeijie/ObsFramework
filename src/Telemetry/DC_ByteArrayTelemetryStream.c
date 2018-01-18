@@ -172,16 +172,17 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_ByteArrayTelemetryStream *This = DC_BYTEARRAYTELEMETRYSTREAM(obj);
-
     This->size = 0;
     This->tmData = pNULL;
     This->writeCounter = 0;
+
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_BYTEARRAYTELEMETRYSTREAM);
 }
 
 DC_ByteArrayTelemetryStream* DC_ByteArrayTelemetryStream_new(void)
 {
-    return (DC_ByteArrayTelemetryStream*)object_new(TYPE_DC_BYTEARRAYTELEMETRYSTREAM);
+    Object *obj = object_new(TYPE_DC_BYTEARRAYTELEMETRYSTREAM);
+    return (DC_ByteArrayTelemetryStream*)obj;
 }
 
 

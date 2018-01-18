@@ -32,10 +32,10 @@
 static void propagateState(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-    assert(cc_roc->isObjectConfigured(obj));
-
     ControlBlock *cb = CONTROLBLOCK(obj);
     DataItemControlBlock *dicb = DATAITEMCONTROLBLOCK(obj); 
+
+    assert(cc_roc->isObjectConfigured(obj));
 
     cb->x[0] = cb->p[0]*cb->x[0] +
                DC_DataItem_getFloatValue(dicb->pDIU[0]) +
@@ -50,10 +50,10 @@ static void propagateState(void *obj)
 static void updateOutput(void *obj)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
-    assert(cc_roc->isObjectConfigured(obj));
-
     ControlBlock *cb = CONTROLBLOCK(obj);
     DataItemControlBlock *dicb = DATAITEMCONTROLBLOCK(obj); 
+
+    assert(cc_roc->isObjectConfigured(obj));
 
     DC_DataItem_setFloatValue(dicb->pDIY[0], cb->x[0]);
     DC_DataItem_setFloatValue(dicb->pDIY[1], cb->p[1]*cb->x[0]);
@@ -96,7 +96,8 @@ static void instance_init(Object *obj)
 
 DC_DummyDataItemControlBlock* DC_DummyDataItemControlBlock_new(void)
 {
-    return (DC_DummyDataItemControlBlock*)object_new(TYPE_DC_DUMMYDATAITEMCONTROLBLOCK);
+    Object *obj = object_new(TYPE_DC_DUMMYDATAITEMCONTROLBLOCK);
+    return (DC_DummyDataItemControlBlock*)obj;
 }
 
 

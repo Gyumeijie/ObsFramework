@@ -24,16 +24,17 @@
 static void instance_init(Object *obj)
 {
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_DUMMYDATAPOOL);
+    DataPoolClass *dpc = DATAPOOL_GET_CLASS(obj);
 
     DC_BasicDataPool_setDataPoolSize((DC_BasicDataPool*)obj, sizeof(TD_Integer));
 
-    DataPoolClass *dpc = DATAPOOL_GET_CLASS(obj);
     dpc->setIntegerValue(obj, 0, 0);
 }
 
 DC_DummyDataPool* DC_DummyDataPool_new(void)
 {
-    return (DC_DummyDataPool*)object_new(TYPE_DC_DUMMYDATAPOOL);
+    Object *obj = object_new(TYPE_DC_DUMMYDATAPOOL);
+    return (DC_DummyDataPool*)obj;
 }
 
 

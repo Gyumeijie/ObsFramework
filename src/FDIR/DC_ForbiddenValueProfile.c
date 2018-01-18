@@ -34,8 +34,10 @@ void DC_ForbiddenValueProfile_setForbiddenValue
     This->forbiddenValue = forbiddenValue;
 }
 
-TD_Integer 
-DC_ForbiddenValueProfile_getForbiddenValue(const DC_ForbiddenValueProfile *This)
+TD_Integer DC_ForbiddenValueProfile_getForbiddenValue
+(
+    const DC_ForbiddenValueProfile *This
+)
 {
     return This->forbiddenValue;
 }
@@ -93,14 +95,15 @@ static bool doProfileCheckForFloat(void *obj, TD_Float value)
 static void instance_init(Object *obj)
 {
     DC_ForbiddenValueProfile *This = DC_FORBIDDENVALUEPROFILE(obj);
+    This->forbiddenValue = 0;
 
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_FORBIDDENVALUEPROFILE);
-    This->forbiddenValue = 0;
 }
 
 DC_ForbiddenValueProfile* DC_ForbiddenValueProfile_new(void)
 {
-    return (DC_ForbiddenValueProfile*)object_new(TYPE_DC_FORBIDDENVALUEPROFILE);
+    Object *obj = object_new(TYPE_DC_FORBIDDENVALUEPROFILE);
+    return (DC_ForbiddenValueProfile*)obj;
 }
 
 
@@ -114,6 +117,7 @@ DC_ForbiddenValueProfile* DC_ForbiddenValueProfile_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     MonitoringProfileClass *mpc = MONITORINGPROFILE_CLASS(oc);
+
     mpc->doProfileCheckForInteger = doProfileCheckForInteger;
     mpc->doProfileCheckForFloat = doProfileCheckForFloat;
 }

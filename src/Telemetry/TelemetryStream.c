@@ -105,7 +105,8 @@ static void instance_init(Object *obj){}
 
 TelemetryStream* TelemetryStream_new(void)
 {
-    return (TelemetryStream*)object_new(TYPE_TELEMETRYSTREAM);
+    Object *obj = object_new(TYPE_TELEMETRYSTREAM);
+    return (TelemetryStream*)obj;
 }
 
 

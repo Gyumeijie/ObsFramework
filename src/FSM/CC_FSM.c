@@ -30,13 +30,12 @@
 void CC_FSM_tryTransition(CC_FSM *This, TD_FsmStateIndex targetState)
 {
    CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
+   DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
+   DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
 
    assert(cc_roc->isObjectConfigured(This));
    assert(targetState >= 0);
    assert(targetState < This->numberOfStates);
-
-   DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
-   DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
 
    if (!CC_FSM_isTransitionEnabled(This)) {  
       dc_erc->create(dc_er, (CC_RootObject*)This, EVT_FSM_ALL_TRANSITION_DISABLED);
@@ -92,9 +91,10 @@ void CC_FSM_reset(CC_FSM *This)
    for (TD_FsmStateIndex i=0; i<nStates; i++) {  
       FsmState *pNS = FsmState_getNextState(This->pState[i]);
       if (pNS != pNULL) {   
-          TD_FsmStateIndex j;
-          for (j=0; j<nStates; j++) {
-              if (pNS == This->pState[j]) This->pNextState[i] = j;
+          for (TD_FsmStateIndex j=0; j<nStates; j++) {
+              if (pNS == This->pState[j]) {
+                  This->pNextState[i] = j;
+              }
           }
       }
    }
@@ -186,12 +186,9 @@ void CC_FSM_setTransitionEnableStatus(CC_FSM *This, bool enabled)
     This->allTransitionEnabled = enabled;
 }
 
-void CC_FSM_setTransitionEnableStatusToState
-(
-    CC_FSM *This, 
-    TD_FsmStateIndex toState, 
-    bool enabled
-)
+void CC_FSM_setTransitionEnableStatusToState(CC_FSM *This, 
+                                             TD_FsmStateIndex toState, 
+                                             bool enabled)
 {
     assert(toState < This->numberOfStates);
     assert(This->transitionEnabled != pNULL);
@@ -239,10 +236,9 @@ void CC_FSM_makeTransitionRequest(CC_FSM *This, TD_FsmStateIndex targetState)
 void CC_FSM_activate(CC_FSM *This)
 {
    CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
+   FsmStateClass *fsc = FSMSTATE_GET_CLASS(This->pCurrentState);  
 
    assert(cc_roc->isObjectConfigured(This));
-
-   FsmStateClass *fsc = FSMSTATE_GET_CLASS(This->pCurrentState);  
 
    // a state transition request is pending
    if (This->requestedTargetState >= 0) {  
@@ -277,17 +273,16 @@ void CC_FSM_activate(CC_FSM *This)
  */
 static bool isObjectConfigured(void *obj)
 {
-   CC_FSM *This = CC_FSM(obj);
    CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
+   CC_FSM *This = CC_FSM(obj);
 
-   if (!cc_roc->isObjectConfigured(obj) || 
-       This->numberOfStates <= 0 || 
-       This->pCurrentState == pNULL) {
+   if (!(cc_roc->isObjectConfigured(obj)) || 
+        (This->numberOfStates <= 0) || 
+        (This->pCurrentState == pNULL)) {
        return NOT_CONFIGURED;
    }
 
-   TD_FsmStateIndex i;
-   for (i=0; i<This->numberOfStates; i++) {
+   for (TD_FsmStateIndex i=0; i<This->numberOfStates; i++) {
        if (This->pState[i] == pNULL) return NOT_CONFIGURED;
    }
 
@@ -305,7 +300,6 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
    CC_FSM *This = CC_FSM(obj);
-
    This->pCurrentState = pNULL;
    This->numberOfStates = 0;
    This->currentState = -1;
@@ -316,7 +310,8 @@ static void instance_init(Object *obj)
 
 CC_FSM* CC_FSM_new(void)
 {
-    return (CC_FSM*)object_new(TYPE_CC_FSM);
+    Object *obj = object_new(TYPE_CC_FSM);
+    return (CC_FSM*)obj;
 }
 
 

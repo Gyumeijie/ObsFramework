@@ -24,8 +24,10 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-unsigned int 
-DC_DummyPunctualAction_getActivationCounter(const DC_DummyPunctualAction *This)
+unsigned int DC_DummyPunctualAction_getActivationCounter
+(
+    const DC_DummyPunctualAction *This
+)
 {
     return This->counter;
 }
@@ -47,8 +49,8 @@ DC_DummyPunctualAction_getActivationCounter(const DC_DummyPunctualAction *This)
 static TD_ActionOutcome doAction(void *obj)
 {
     DC_DummyPunctualAction *This = DC_DUMMYPUNCTUALACTION(obj);
-
     ++This->counter;
+
     return ACTION_SUCCESS;
 }
 
@@ -63,14 +65,15 @@ static TD_ActionOutcome doAction(void *obj)
 static void instance_init(Object *obj)
 {
     DC_DummyPunctualAction *This = DC_DUMMYPUNCTUALACTION(obj);
-
     This->counter = 0;
+
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_DUMMYPUNCTUALACTION);
 }
 
 DC_DummyPunctualAction* DC_DummyPunctualAction_new(void)
 {
-    return (DC_DummyPunctualAction*)object_new(TYPE_DC_DUMMYPUNCTUALACTION);
+    Object *obj = object_new(TYPE_DC_DUMMYPUNCTUALACTION);
+    return (DC_DummyPunctualAction*)obj;
 }
 
 

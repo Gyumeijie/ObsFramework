@@ -45,7 +45,7 @@ static bool doProfileCheckForFloat(void *obj, TD_Float value)
 
     assert(low < upper);
 
-    return (value>low && value<upper);
+    return ((value > low) && (value < upper));
 }
 
 
@@ -63,7 +63,8 @@ static void instance_init(Object *obj)
 
 DC_InRangeProfile* DC_InRangeProfile_new(void)
 {
-    return (DC_InRangeProfile*)object_new(TYPE_DC_INRANGEPROFILE);
+    Object *obj = object_new(TYPE_DC_INRANGEPROFILE);
+    return (DC_InRangeProfile*)obj;
 }
 
 

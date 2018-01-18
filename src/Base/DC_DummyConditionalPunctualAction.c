@@ -47,7 +47,8 @@ void DC_DummyConditionalPunctualAction_setExecutionFlag
  */
 static bool canExecute(void *obj)
 {
-	return DC_DUMMYCONDITIONALPUNCTUALACTION(obj)->executionFlag;
+    DC_DummyConditionalPunctualAction *This = DC_DUMMYCONDITIONALPUNCTUALACTION(obj);
+	return This->executionFlag;
 }
 
 /**
@@ -72,14 +73,15 @@ static TD_ActionOutcome doConditionalAction(void *obj)
 static void instance_init(Object *obj)
 {
     DC_DummyConditionalPunctualAction *This = DC_DUMMYCONDITIONALPUNCTUALACTION(obj);
-
 	This->executionFlag = false;
+
 	CC_RootObject_setClassId((CC_RootObject*)obj, ID_DUMMYCONDITIONALPUNCTUALACTION);
 }
 
 DC_DummyConditionalPunctualAction* DC_DummyConditionalPunctualAction_new(void)
 {
-    return (DC_DummyConditionalPunctualAction*)object_new(TYPE_DC_DUMMYCONDITIONALPUNCTUALACTION);
+    Object *obj = object_new(TYPE_DC_DUMMYCONDITIONALPUNCTUALACTION);
+    return (DC_DummyConditionalPunctualAction*)obj;
 }
 
 
@@ -92,8 +94,6 @@ DC_DummyConditionalPunctualAction* DC_DummyConditionalPunctualAction_new(void)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    DC_DummyConditionalPunctualActionClass *dc_dcpac = DC_DUMMYCONDITIONALPUNCTUALACTION_CLASS(oc);
-
     ConditionalPunctualActionClass *cpac = CONDITIONALPUNCTUALACTION_CLASS(oc);
     cpac->canExecute = canExecute;
     cpac->doConditionalAction = doConditionalAction;

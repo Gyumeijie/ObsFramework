@@ -35,13 +35,12 @@
 void DC_ProfileList_setListSize(DC_ProfileList *This, unsigned int listSize)
 {
 
-    assert(This->listSize==0 && listSize!=0);
+    assert((This->listSize == 0) && (listSize != 0));
 
     This->listSize = listSize;
     This->pList = g_malloc(sizeof(MonitoringProfile*)*listSize);
 
-    unsigned int i;
-    for (i=0; i<This->listSize; i++) {
+    for (unsigned int i=0; i<This->listSize; i++) {
         This->pList[i] = pNULL;
     }
 }
@@ -51,15 +50,12 @@ unsigned int DC_ProfileList_getListSize(const DC_ProfileList *This)
 	return This->listSize;
 }
 
-void DC_ProfileList_setMonitoringProfile
-(
-    DC_ProfileList *This, 
-    unsigned int i,
-    MonitoringProfile *item
-)
+void DC_ProfileList_setMonitoringProfile(DC_ProfileList *This, 
+                                         unsigned int i, 
+                                         MonitoringProfile *item)
 {
     // Note that, being i unsigned, if i<listSize, then listSize must be >0!
-	assert(i<This->listSize && item!=pNULL);
+	assert((i < This->listSize) && (item != pNULL));
 
 	if (i<This->listSize) {
 		This->pList[i] = item;
@@ -99,12 +95,12 @@ MonitoringProfile* DC_ProfileList_getMonitoringProfile
 static bool doProfileCheckForInteger(void *obj, TD_Integer value)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    DC_ProfileList *This = DC_PROFILELIST(obj);
+
 	assert(cc_roc->isObjectConfigured(obj));
 
 	bool retVal = false;
-    unsigned int i;
-    DC_ProfileList *This = DC_PROFILELIST(obj);
-	for (i=0; i<This->listSize; i++) {
+	for (unsigned int i=0; i<This->listSize; i++) {
         MonitoringProfile* mp = This->pList[i];
 		if (MonitoringProfile_integerDeviatesFromProfile(mp, value)) {
 			retVal = true;
@@ -134,12 +130,12 @@ static bool doProfileCheckForInteger(void *obj, TD_Integer value)
 static bool doProfileCheckForFloat(void *obj, TD_Float value)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    DC_ProfileList *This = DC_PROFILELIST(obj);
+
 	assert(cc_roc->isObjectConfigured(obj));
 
 	bool retVal = false;
-    unsigned int i;
-    DC_ProfileList *This = DC_PROFILELIST(obj);
-	for (i=0; i<This->listSize; i++) {
+	for (unsigned int i=0; i<This->listSize; i++) {
         MonitoringProfile* mp = This->pList[i];
 		if (MonitoringProfile_floatDeviatesFromProfile(mp, value)) {
 			retVal = true;
@@ -158,15 +154,15 @@ static bool doProfileCheckForFloat(void *obj, TD_Float value)
  */
 static bool isObjectConfigured(void *obj)
 {
+    MonitoringProfileClass *mpc = GET_CLASS(TYPE_MONITORINGPROFILE);
     DC_ProfileList *This = DC_PROFILELIST(obj);
 
-    MonitoringProfileClass *mpc = GET_CLASS(TYPE_MONITORINGPROFILE);
-    if (!CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj) || This->listSize==0) {
+    if (!(CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj)) || 
+         (This->listSize == 0)) {
         return NOT_CONFIGURED;
     }
 
-    unsigned int i;
-    for (i=0; i<This->listSize; i++) {
+    for (unsigned int i=0; i<This->listSize; i++) {
         if (This->pList[i] == pNULL) {
             return NOT_CONFIGURED;
         }
@@ -186,15 +182,16 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_ProfileList *This = DC_PROFILELIST(obj);
-
-	CC_RootObject_setClassId((CC_RootObject*)obj, ID_PROFILELIST);
 	This->listSize = 0;
 	This->pList = pNULL;
+
+	CC_RootObject_setClassId((CC_RootObject*)obj, ID_PROFILELIST);
 }
 
 DC_ProfileList* DC_ProfileList_new(void)
 {
-    return (DC_ProfileList*)object_new(TYPE_DC_PROFILELIST);
+    Object *obj = object_new(TYPE_DC_PROFILELIST);
+    return (DC_ProfileList*)obj;
 }
 
 

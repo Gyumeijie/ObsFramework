@@ -29,8 +29,11 @@
  */
 static void update(void *obj)
 {
-    if (ModeManager_getCurrentMode(obj)<(ModeManager_getNumberOfModes(obj)-1)) {
-        ModeManager_setMode(obj, ModeManager_getCurrentMode(obj)+1);
+    TD_Mode curMode = ModeManager_getCurrentMode(obj);
+    TD_Mode nModes  = ModeManager_getNumberOfModes(obj);
+
+    if (curMode < (nModes - 1)) {
+        ModeManager_setMode(obj, (curMode + 1));
     } else {
         ModeManager_setMode(obj, 0);
     }
@@ -51,7 +54,8 @@ static void instance_init(Object *obj)
 
 DC_CyclingPunctualActionModeManager* DC_CyclingPunctualActionModeManager_new(void)
 {
-    return (DC_CyclingPunctualActionModeManager*)object_new(TYPE_DC_CYCLINGPUNCTUALACTIONMODEMANAGER);
+    Object *obj = object_new(TYPE_DC_CYCLINGPUNCTUALACTIONMODEMANAGER);
+    return (DC_CyclingPunctualActionModeManager*)obj;
 }
 
 
@@ -65,7 +69,6 @@ DC_CyclingPunctualActionModeManager* DC_CyclingPunctualActionModeManager_new(voi
 static void class_init(ObjectClass *oc, void *data)
 {
     ModeManagerClass *mmc = MODEMANAGER_CLASS(oc);
-
     mmc->update = update;
 }
 

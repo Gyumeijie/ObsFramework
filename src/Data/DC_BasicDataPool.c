@@ -30,8 +30,7 @@ void DC_BasicDataPool_setDataPoolSize(DC_BasicDataPool *This, TD_DataPoolId size
     This->size = size;
     This->value = g_malloc(sizeof(double)*((size/sizeof(double))+1));
 
-    TD_DataPoolId i;
-    for (i=0; i<size; i++) {
+    for (TD_DataPoolId i=0; i<size; i++) {
         This->value[i] = 0;
     }
 }
@@ -61,7 +60,7 @@ static void setFloatValue(void *obj, TD_DataPoolId id, TD_Float newValue)
     assert((This->value != pNULL) && 
            (id <= (int)(This->size - sizeof(TD_Float))));
 
-    *(TD_Float*)(This->value+id) = newValue;
+    *(TD_Float*)(This->value + id) = newValue;
 }
 
 /**
@@ -76,7 +75,7 @@ static void setIntegerValue(void *obj, TD_DataPoolId id, TD_Integer newValue)
     assert((This->value != pNULL) && 
            (id <= (int)(This->size - sizeof(TD_Integer))));
 
-    *(TD_Integer*)(This->value+id) = newValue;
+    *(TD_Integer*)(This->value + id) = newValue;
 }
 
 /**
@@ -93,7 +92,7 @@ static TD_Float getFloatValue(void *obj, TD_DataPoolId id)
     assert((This->value != pNULL) && 
            (id <= (int)(This->size - sizeof(TD_Float))));
 
-    return *(TD_Float*)(This->value+id);
+    return *(TD_Float*)(This->value + id);
 }
 
 /**
@@ -110,7 +109,7 @@ static TD_Integer getIntegerValue(void *obj, TD_DataPoolId id)
     assert((This->value != pNULL) && 
            (id <= (int)(This->size - sizeof(TD_Integer))));
 
-    return *(TD_Integer*)(This->value+id);
+    return *(TD_Integer*)(This->value + id);
 }
 
 /**
@@ -127,7 +126,7 @@ static TD_Float* getPointerFloatValue(void *obj, TD_DataPoolId id)
     assert((This->value != pNULL) && 
            (id <= (int)(This->size - sizeof(TD_Float))));
 
-    return (TD_Float*)(This->value+id);
+    return (TD_Float*)(This->value + id);
 }
 
 /**
@@ -144,7 +143,7 @@ static TD_Integer* getPointerIntegerValue(void *obj, TD_DataPoolId id)
     assert((This->value != pNULL) && 
            (id <= (int)(This->size - sizeof(TD_Integer))));
 
-    return (TD_Integer*)(This->value+id);
+    return (TD_Integer*)(This->value + id);
 }
 
 /**
@@ -158,8 +157,8 @@ static bool isObjectConfigured(void *obj)
     CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
         
-    return (cc_roc->isObjectConfigured(obj) && 
-            This->value != pNULL);
+    return ((cc_roc->isObjectConfigured(obj)) && 
+            (This->value != pNULL));
 }
 
 
@@ -173,15 +172,16 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
-
     This->value = pNULL;
     This->size = 0;
+
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_BASICDATAPOOL);
 }
 
 DC_BasicDataPool* DC_BasicDataPool_new(void)
 {
-    return (DC_BasicDataPool*)object_new(TYPE_DC_BASICDATAPOOL);
+    Object *obj = object_new(TYPE_DC_BASICDATAPOOL);
+    return (DC_BasicDataPool*)obj;
 }
 
 

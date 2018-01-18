@@ -240,7 +240,7 @@ TD_InstanceId CC_RootObject_getSystemListSize(void);
  * framework objects are sent to the
  * same event repository.
  */
-void CC_RootObject_setEventRepository(DC_EventRepository* pEventRepository);
+void CC_RootObject_setEventRepository(DC_EventRepository *pEventRepository);
 
 /**
  * Getter method for the event repository plug-in component.
@@ -250,7 +250,7 @@ DC_EventRepository* CC_RootObject_getEventRepository(void);
 /**
  * Setter method for the system parameter database.
  */
-void CC_RootObject_setParameterDatabase(ParameterDatabase* pDatabase);
+void CC_RootObject_setParameterDatabase(ParameterDatabase *pDatabase);
 
 /**
  * Getter method for the system parameter database.
@@ -260,7 +260,7 @@ ParameterDatabase* CC_RootObject_getParameterDatabase(void);
 /**
  * Setter method for the system data pool.
  */
-void CC_RootObject_setDataPool(DataPool* pDataPool);
+void CC_RootObject_setDataPool(DataPool *pDataPool);
 
 /**
  * Getter method for the system data pool.
@@ -273,7 +273,7 @@ DataPool* CC_RootObject_getDataPool(void);
  * This method is static because all tracing signals are routed through
  * the same tracing interface
  */
-void CC_RootObject_setTracer(Tracer* pTracer);
+void CC_RootObject_setTracer(Tracer *pTracer);
 
 /**
  * Getter method for the tracer plug-in.

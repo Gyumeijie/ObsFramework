@@ -22,12 +22,12 @@
 
 TD_ActionOutcome PunctualAction_execute(PunctualAction *This)
 {
-    TD_ActionOutcome outcomeCode = ACTION_DISABLED;
-
     DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
     DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
-    if (PunctualAction_isEnabled(This)) {
 
+    TD_ActionOutcome outcomeCode = ACTION_DISABLED;
+
+    if (PunctualAction_isEnabled(This)) {
         // doAction is a vitual method and here should call child's doAction.
         PunctualActionClass *pac = PUNCTUALACTION_GET_CLASS(This);
         outcomeCode = pac->doAction(This);
@@ -104,7 +104,8 @@ static void instance_init(Object *obj)
 
 PunctualAction* PunctualAction_new(void)
 {
-    return (PunctualAction*)object_new(TYPE_PUNCTUALACTION);
+    Object *obj = object_new(TYPE_PUNCTUALACTION);
+    return (PunctualAction*)obj;
 }
 
 
@@ -118,7 +119,6 @@ PunctualAction* PunctualAction_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     PunctualActionClass *pac = PUNCTUALACTION_CLASS(oc);
-
     pac->doAction = doAction;
 }
 

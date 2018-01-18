@@ -23,12 +23,12 @@
 static void instance_init(Object *obj)
 {
    DC_DummyDatabase *This = DC_DUMMYDATABASE(obj);
+   ParameterDatabaseClass *pdc = PARAMETERDATABASE_GET_CLASS(obj);
 
    DC_BasicDatabase_setTableLength((DC_BasicDatabase*)obj, 1);
    DC_BasicDatabase_setOperationalTable((DC_BasicDatabase*)obj, &This->table);
    DC_BasicDatabase_setDefaultTable((DC_BasicDatabase*)obj, &This->table);
 
-   ParameterDatabaseClass *pdc = PARAMETERDATABASE_GET_CLASS(obj);
    pdc->reset(obj);
    pdc->setParameterChar((DC_BasicDatabase*)obj, 0, (char)0);
    
@@ -37,7 +37,8 @@ static void instance_init(Object *obj)
 
 DC_DummyDatabase* DC_DummyDatabase_new(void)
 {
-    return (DC_DummyDatabase*)object_new(TYPE_DC_DUMMYDATABASE);
+    Object *obj = object_new(TYPE_DC_DUMMYDATABASE);
+    return (DC_DummyDatabase*)obj;
 }
 
 

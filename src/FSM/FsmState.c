@@ -149,7 +149,8 @@ static void instance_init(Object *obj)
 
 FsmState* FsmState_new(void)
 {
-    return (FsmState*)object_new(TYPE_FSMSTATE);
+    Object *obj = object_new(TYPE_FSMSTATE);
+    return (FsmState*)obj;
 }
 
 

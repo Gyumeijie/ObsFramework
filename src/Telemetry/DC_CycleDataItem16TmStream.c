@@ -164,10 +164,9 @@ static void write(void *obj, TelemetryPacket *pItem)
 
     unsigned short tmValue;
     unsigned short temp;
-    const unsigned int nBytes = tpc->getNumberOfBytes(pItem)-1;
+    const unsigned int nBytes = tpc->getNumberOfBytes(pItem) - 1;
     for (unsigned int i=0; i<nBytes; i=i+2) {
         if (This->writeCounter < This->nDataItems) {
-
             tmValue = (unsigned short)tpc->getUnsignedByte(pItem, i);
             temp = ((unsigned short)tpc->getUnsignedByte(pItem, i+1))<<8;
             tmValue = tmValue + temp;
@@ -216,15 +215,16 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     DC_CycleDataItem16TmStream *This = DC_CYCLEDATAITEM16TMSTREAM(obj);
-
     This->nDataItems = 0;
     This->writeCounter = 0;
+
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_CYCLEDATAITEM16TMSTREAM);
 }
 
 DC_CycleDataItem16TmStream* DC_CycleDataItem16TmStream_new(void)
 {
-    return (DC_CycleDataItem16TmStream*)object_new(TYPE_DC_CYCLEDATAITEM16TMSTREAM);
+    Object *obj = object_new(TYPE_DC_CYCLEDATAITEM16TMSTREAM);
+    return (DC_CycleDataItem16TmStream*)obj;
 }
 
 

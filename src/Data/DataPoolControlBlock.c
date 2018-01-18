@@ -30,7 +30,9 @@ void DataPoolControlBlock_setInputLink(DataPoolControlBlock *This,
 {
     ControlBlock *parent = (ControlBlock*)This;
 
-    assert(This->dpu!=pNULL && dpIdentifier>-1 && (int)i<parent->nInputs);
+    assert((This->dpu != pNULL) && 
+           (dpIdentifier > -1) && 
+           ((int)i < parent->nInputs));
 
     if ((int)i < parent->nInputs) {
         This->dpu[i] = dpIdentifier;
@@ -47,7 +49,9 @@ void DataPoolControlBlock_setOutputLink(DataPoolControlBlock *This,
 {
     ControlBlock *parent = (ControlBlock*)This;
 
-    assert(This->dpy!=pNULL && dpIdentifier>-1 && (int)i<parent->nOutputs);
+    assert((This->dpy != pNULL) && 
+           (dpIdentifier > -1) && 
+           ((int)i < parent->nOutputs));
 
     if ((int)i < parent->nOutputs) {
         This->dpy[i] = dpIdentifier;
@@ -76,13 +80,12 @@ static void setNumberOfInputs(void *obj, unsigned int n)
     ControlBlock *parent = CONTROLBLOCK(obj);
     DataPoolControlBlock *This = DATAPOOLCONTROLBLOCK(obj);
 
-    assert(parent->nInputs<0 && n>0);
+    assert((parent->nInputs < 0) && (n > 0));
 
     parent->nInputs = n;
     This->dpu = g_malloc(sizeof(TD_DataPoolId)*n);
 
-    unsigned int i;
-    for (i=0; i<n; i++) {
+    for (unsigned int i=0; i<n; i++) {
         This->dpu[i] = -1;
     }
 }
@@ -97,13 +100,12 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
     ControlBlock *parent = CONTROLBLOCK(obj);
     DataPoolControlBlock *This = DATAPOOLCONTROLBLOCK(obj);
 
-    assert(parent->nOutputs<0 && n>0);
+    assert((parent->nOutputs < 0) && (n > 0));
 
     parent->nOutputs = n;
     This->dpy = g_malloc(sizeof(TD_DataPoolId)*n);
 
-    unsigned int i;
-    for (i=0; i<n; i++) {
+    for (unsigned int i=0; i<n; i++) {
         This->dpy[i] = -1;
     }
 }
@@ -116,20 +118,18 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
 static bool isObjectConfigured(void *obj)
 {
     ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK);
+    ControlBlock *parent = CONTROLBLOCK(obj);
+    DataPoolControlBlock *This = DATAPOOLCONTROLBLOCK(obj);
     
     if (!CC_ROOTOBJECT_CLASS(cbc)->isObjectConfigured(obj)) {
         return false;
     }
 
-    ControlBlock *parent = CONTROLBLOCK(obj);
-    DataPoolControlBlock *This = DATAPOOLCONTROLBLOCK(obj);
-    int i;
-
-    for (i=0; i<parent->nInputs; i++) {
+    for (int i=0; i<parent->nInputs; i++) {
         if (This->dpu[i] < 0) return false;
     }
 
-    for (i=0; i<parent->nOutputs; i++) {
+    for (int i=0; i<parent->nOutputs; i++) {
         if (This->dpy[i] < 0) return false;
     }
 
@@ -154,7 +154,8 @@ static void instance_init(Object *obj)
 
 DataPoolControlBlock* DataPoolControlBlock_new(void)
 {
-    return (DataPoolControlBlock*)object_new(TYPE_DATAPOOLCONTROLBLOCK);
+    Object *obj = object_new(TYPE_DATAPOOLCONTROLBLOCK);
+    return (DataPoolControlBlock*)obj;
 }
 
 

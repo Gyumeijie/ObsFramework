@@ -30,7 +30,9 @@ void DataItemControlBlock_setInputLink(DataItemControlBlock *This,
 {
     ControlBlock *parent = (ControlBlock*)This;
 
-    assert(This->pDIU!=pNULL && pDataItem!=pNULL && (int)i<parent->nInputs);
+    assert((This->pDIU != pNULL) && 
+           (pDataItem != pNULL) && 
+           ((int)i < parent->nInputs));
 
     if ((int)i < parent->nInputs) {
         This->pDIU[i] = pDataItem;
@@ -46,7 +48,9 @@ void DataItemControlBlock_setOutputLink(DataItemControlBlock *This,
 {
     ControlBlock *parent = (ControlBlock*)This;
 
-    assert(This->pDIY!=pNULL && pDataItem!=pNULL && (int)i<parent->nOutputs);
+    assert((This->pDIY != pNULL) && 
+           ((pDataItem != pNULL)) && 
+           ((int)i < parent->nOutputs));
 
     if ((int)i < parent->nOutputs) {
         This->pDIY[i] = pDataItem;
@@ -80,8 +84,7 @@ static void setNumberOfInputs(void *obj, unsigned int n)
     parent->nInputs = n;
     This->pDIU = g_malloc(sizeof(DC_DataItem)*n);
 
-    unsigned int i;
-    for (i=0; i<n; i++) {
+    for (unsigned int i=0; i<n; i++) {
         This->pDIU[i] = pNULL;
     }
 }
@@ -96,13 +99,12 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
     ControlBlock *parent = CONTROLBLOCK(obj);
     DataItemControlBlock *This = DATAITEMCONTROLBLOCK(obj);
 
-    assert(parent->nOutputs<0 && n>0);
+    assert((parent->nOutputs < 0) && (n > 0));
 
     parent->nOutputs = n;
     This->pDIY = g_malloc(sizeof(DC_DataItem)*n);
 
-    unsigned int i;
-    for (i=0; i<n; i++) {
+    for (unsigned int i=0; i<n; i++) {
         This->pDIY[i] = pNULL;
     }
 }
@@ -114,20 +116,18 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
 static bool isObjectConfigured(void *obj)
 {
     ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK);
+    ControlBlock *parent = CONTROLBLOCK(obj);
+    DataItemControlBlock *This = DATAITEMCONTROLBLOCK(obj);
 
     if (!CC_ROOTOBJECT_CLASS(cbc)->isObjectConfigured(obj)) {
         return false;
     }
 
-    ControlBlock *parent = CONTROLBLOCK(obj);
-    DataItemControlBlock *This = DATAITEMCONTROLBLOCK(obj);
-    int i; 
-
-    for (i=0; i<parent->nInputs; i++) {
+    for (int i=0; i<parent->nInputs; i++) {
         if (This->pDIU[i] == pNULL) return false;
     }
 
-    for (i=0; i<parent->nOutputs; i++) {
+    for (int i=0; i<parent->nOutputs; i++) {
         if (This->pDIY[i] == pNULL) return false;
     }
 
@@ -152,7 +152,8 @@ static void instance_init(Object *obj)
 
 DataItemControlBlock* DataItemControlBlock_new(void)
 {
-    return (DataItemControlBlock*)object_new(TYPE_DATAITEMCONTROLBLOCK);
+    Object *obj = object_new(TYPE_DATAITEMCONTROLBLOCK);
+    return (DataItemControlBlock*)obj;
 }
 
 

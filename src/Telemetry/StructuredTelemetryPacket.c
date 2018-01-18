@@ -75,7 +75,7 @@ void StructuredTelemetryPacket_setNumberOfBytes(StructuredTelemetryPacket *This,
 }
 
 unsigned short StructuredTelemetryPacket_getUnsignedShort(StructuredTelemetryPacket *This, 
-                                                          unsigned int index)
+                                                        unsigned int index)
 {
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(This);
 
@@ -143,8 +143,8 @@ static unsigned char getUnsignedByte(void *obj, unsigned int n)
  */
 static bool isObjectConfigured(void *obj)
 {
-    StructuredTelemetryPacket *This = STRUCTUREDTELEMETRYPACKET(obj);
     TelemetryPacketClass *tpc = GET_CLASS(TYPE_TELEMETRYPACKET);
+    StructuredTelemetryPacket *This = STRUCTUREDTELEMETRYPACKET(obj);
 
     return ((CC_ROOTOBJECT_CLASS(tpc)->isObjectConfigured(obj)) &&
             (This->numberOfBytes > 0) && 
@@ -191,7 +191,8 @@ static void instance_init(Object *obj)
 
 StructuredTelemetryPacket* StructuredTelemetryPacket_new(void)
 {
-    return (StructuredTelemetryPacket*)object_new(TYPE_STRUCTUREDTELEMETRYPACKET);
+    Object *obj = object_new(TYPE_STRUCTUREDTELEMETRYPACKET);
+    return (StructuredTelemetryPacket*)obj;
 }
 
 

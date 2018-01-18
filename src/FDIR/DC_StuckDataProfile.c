@@ -34,8 +34,10 @@ void DC_StuckDataProfile_setStuckThreshold
     This->stuckThreshold = stuckThreshold;
 }
 
-unsigned int 
-DC_StuckDataProfile_getStuckThreshold(const DC_StuckDataProfile *This)
+unsigned int DC_StuckDataProfile_getStuckThreshold
+(
+    const DC_StuckDataProfile *This
+)
 {
     return This->stuckThreshold;
 }
@@ -80,14 +82,13 @@ static bool doProfileCheckForInteger(void *obj, TD_Integer value)
 {
     DC_StuckDataProfile *This = DC_STUCKDATAPROFILE(obj);
 
-    assert(This->counter < (This->stuckThreshold+1));
+    assert(This->counter < (This->stuckThreshold + 1));
 
     if (value != This->previousValue) {
         This->counter = 0;
         This->previousValue = value;
     } else {
         This->counter++;
-
         if (This->counter == This->stuckThreshold) {
             This->counter = 0;
             return MON_PROFILE_DEVIATION; 
@@ -122,8 +123,8 @@ static bool isObjectConfigured(void *obj)
    MonitoringProfileClass *mpc = GET_CLASS(TYPE_MONITORINGPROFILE);
    DC_StuckDataProfile *This = DC_STUCKDATAPROFILE(obj);
 
-   return (CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj) &&
-           This->stuckThreshold > 0);
+   return ((CC_ROOTOBJECT_CLASS(mpc)->isObjectConfigured(obj)) &&
+           (This->stuckThreshold > 0));
 }
 
 /**
@@ -149,20 +150,20 @@ static void reset(void *obj)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// the following may be useful if you don't need it, just delete.
-// DC_StuckDataProfile *This = DC_STUCKDATAPROFILE(obj)
 static void instance_init(Object *obj)
 {
     DC_StuckDataProfile *This = DC_STUCKDATAPROFILE(obj);
+    This->stuckThreshold = 0;
+
+    reset(obj);
 
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_STUCKDATAPROFILE);
-    This->stuckThreshold = 0;
-    reset(obj);
 }
 
 DC_StuckDataProfile* DC_StuckDataProfile_new(void)
 {
-    return (DC_StuckDataProfile*)object_new(TYPE_DC_STUCKDATAPROFILE);
+    Object *obj = object_new(TYPE_DC_STUCKDATAPROFILE);
+    return (DC_StuckDataProfile*)obj;
 }
 
 

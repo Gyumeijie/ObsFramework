@@ -55,7 +55,8 @@ static void instance_init(Object *obj)
 
 DC_NullProfile* DC_NullProfile_new(void)
 {
-    return (DC_NullProfile*)object_new(TYPE_DC_NULLPROFILE);
+    Object *obj = object_new(TYPE_DC_NULLPROFILE);
+    return (DC_NullProfile*)obj;
 }
 
 
@@ -69,6 +70,7 @@ DC_NullProfile* DC_NullProfile_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     MonitoringProfileClass *mpc = MONITORINGPROFILE_CLASS(oc);
+
     mpc->doProfileCheckForInteger = doProfileCheckForInteger;
     mpc->doProfileCheckForFloat = doProfileCheckForFloat;
 }

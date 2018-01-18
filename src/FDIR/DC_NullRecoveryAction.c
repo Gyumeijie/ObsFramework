@@ -46,7 +46,8 @@ static void instance_init(Object *obj)
 
 DC_NullRecoveryAction* DC_NullRecoveryAction_new(void)
 {
-    return (DC_NullRecoveryAction*)object_new(TYPE_DC_NULLRECOVERYACTION);
+    Object *obj = object_new(TYPE_DC_NULLRECOVERYACTION);
+    return (DC_NullRecoveryAction*)obj;
 }
 
 

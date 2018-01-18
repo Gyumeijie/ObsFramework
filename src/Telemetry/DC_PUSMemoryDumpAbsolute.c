@@ -87,15 +87,16 @@ static void update(void *obj)
 
 static void instance_init(Object *obj)
 {
-    CC_RootObject_setClassId((CC_RootObject*)obj, ID_PUSMEMORYDUMPABSOLUTE);
-
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(obj);
     tpc->setSubType(obj, PUS_ST_TM_DMP_ABS);
+
+    CC_RootObject_setClassId((CC_RootObject*)obj, ID_PUSMEMORYDUMPABSOLUTE);
 }
 
 DC_PUSMemoryDumpAbsolute* DC_PUSMemoryDumpAbsolute_new(void)
 {
-    return (DC_PUSMemoryDumpAbsolute*)object_new(TYPE_DC_PUSMEMORYDUMPABSOLUTE);
+    Object *obj = object_new(TYPE_DC_PUSMEMORYDUMPABSOLUTE);
+    return (DC_PUSMemoryDumpAbsolute*)obj;
 }
 
 

@@ -63,7 +63,6 @@ static bool isObjectConfigured(void *obj)
      * DC_FromFsmEvent's isObjectConfigured return true.
      */ 
     if (CC_ROOTOBJECT_CLASS(dc_fec)->isObjectConfigured(obj)) {
-
         CC_FSM *targetFsm = DC_FsmEvent_getTargetFsm(obj);
         return ((This->startingState >= 0) &&
                 (This->startingState < CC_FSM_getNumberOfStates(targetFsm)));
@@ -112,14 +111,15 @@ static TD_ActionOutcome doAction(void *obj)
 static void instance_init(Object *obj)
 {
    DC_FromFsmEvent *This = DC_FROMFSMEVENT(obj);
-
    This->startingState = -1;
+
    CC_RootObject_setClassId((CC_RootObject*)obj, ID_FROMFSMEVENT);
 }
 
 DC_FromFsmEvent* DC_FromFsmEvent_new(void)
 {
-    return (DC_FromFsmEvent*)object_new(TYPE_DC_FROMFSMEVENT);
+    Object *obj = object_new(TYPE_DC_FROMFSMEVENT);
+    return (DC_FromFsmEvent*)obj;
 }
 
 

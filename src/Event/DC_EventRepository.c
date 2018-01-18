@@ -27,23 +27,21 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void DC_EventRepository_setRepositorySize
-(
-    DC_EventRepository *This,
-    unsigned int repositorySize
-)
+void DC_EventRepository_setRepositorySize(DC_EventRepository *This,
+                                          unsigned int repositorySize)
 {
-    assert(This->listSize==0 && repositorySize>0);
+    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(This);
+
+    assert((This->listSize == 0) && (repositorySize > 0));
 
     This->pList = g_malloc(repositorySize*sizeof(DC_Event*));
     This->listSize = repositorySize;
 
-    unsigned int i;
-    for (i=0; i<repositorySize; i++) {
+    for (unsigned int i=0; i<repositorySize; i++) {
         This->pList[i] = pNULL;
     }
 
-    DC_EVENTREPOSITORY_GET_CLASS(This)->createEventDataStructure(This);
+    dc_erc->createEventDataStructure(This);
 }
 
 void DC_EventRepository_setEnabled(DC_EventRepository *This, bool isEnabled)
@@ -58,7 +56,7 @@ void DC_EventRepository_setEnabledWithEventType
     bool isEnabled
 )
 {
-    assert(eventType>0 && eventType<=LAST_EVENT_TYPE);
+    assert((eventType > 0) && (eventType <= LAST_EVENT_TYPE));
     This->selectiveEnabled[eventType] = isEnabled;
 }
 
@@ -73,7 +71,7 @@ bool DC_EventRepository_isEnabledWithEventType
     TD_EventType eventType
 )
 {
-    assert(eventType>0 && eventType<=LAST_EVENT_TYPE);
+    assert((eventType > 0) && (eventType <= LAST_EVENT_TYPE));
 
     return This->selectiveEnabled[eventType];
 }
@@ -81,9 +79,9 @@ bool DC_EventRepository_isEnabledWithEventType
 void DC_EventRepository_latest(DC_EventRepository *This)
 {
 
-    This->eventPointer = (This->counter>0 ? This->counter-1 : 0);
-    This->iterationCounter = (This->counter >= This->listSize ?
-                                               This->listSize : This->counter);
+    This->eventPointer = ((This->counter > 0) ? (This->counter - 1) : 0);
+    This->iterationCounter = ((This->counter >= This->listSize) ?
+                                                This->listSize  : This->counter);
 }
 
 void DC_EventRepository_previous(DC_EventRepository *This)
@@ -103,18 +101,18 @@ TD_EventType DC_EventRepository_getEventType(const DC_EventRepository *This)
 {
     assert(This->pList != pNULL);
 
-    DC_Event *e = This->pList[This->eventPointer%This->listSize];
+    DC_Event *event = This->pList[This->eventPointer%This->listSize];
 
-    return DC_Event_getEventType((DC_Event*)e);
+    return DC_Event_getEventType(event);
 }
 
 TD_ObsTime DC_EventRepository_getTimeStamp(const DC_EventRepository *This)
 {
     assert(This->pList != pNULL);
 
-    DC_Event *e = This->pList[This->eventPointer%This->listSize];
+    DC_Event *event = This->pList[This->eventPointer%This->listSize];
 
-    return DC_Event_getTimeStamp((DC_Event*)e);
+    return DC_Event_getTimeStamp(event);
 }
 
 unsigned int DC_EventRepository_getCounter(const DC_EventRepository *This)
@@ -171,8 +169,7 @@ static void createEventDataStructure(void *obj)
 
     assert(This->pList != pNULL);
 
-    unsigned int i;
-    for (i=0; i<This->listSize; i++) {
+    for (unsigned int i=0; i<This->listSize; i++) {
         This->pList[i] = DC_Event_new();
         assert(This->pList[i]);
     }
@@ -207,28 +204,24 @@ static void createEventDataStructure(void *obj)
  * @param eventId the event type identifier
  */
 
-static void create
-(
-    void *obj,
-    CC_RootObject *originator, 
-    TD_EventType eventId
-) 
+static void create(void *obj, CC_RootObject *originator, TD_EventType eventId) 
 {
+    CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
     DC_EventRepository *This = DC_EVENTREPOSITORY(obj);
 
-    assert(CC_ROOTOBJECT_GET_CLASS(obj)->isObjectConfigured(obj) &&
-           originator != pNULL && 
-           eventId > 0 &&
-           eventId <= LAST_EVENT_TYPE);
+    assert((cc_roc->isObjectConfigured(obj)) &&
+           (originator != pNULL) && 
+           (eventId > 0) &&
+           (eventId <= LAST_EVENT_TYPE));
 
     // Only create event if creation is enabled
     if (DC_EventRepository_isEnabled(This) && 
         DC_EventRepository_isEnabledWithEventType(This, eventId)) {
 
-        DC_Event *item = This->pList[This->counter%This->listSize];
-
-        DC_Event_setEventType(item, eventId);
         ObsClockClass *occ = OBSCLOCK_GET_CLASS(This->pObsClock);
+
+        DC_Event *item = This->pList[This->counter%This->listSize];
+        DC_Event_setEventType(item, eventId);
         DC_Event_setTimeStamp(item, occ->getTime(This->pObsClock));
 
         This->counter++;
@@ -237,13 +230,13 @@ static void create
 
 static bool isObjectConfigured(void *obj) 
 {
-    DC_EventRepository *This = DC_EVENTREPOSITORY(obj);
-
     // Warning: not use CC_ROOTOBJECT_GET_CLASS(obj)
     CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
-    return (cc_roc->isObjectConfigured(This) &&
-            This->pList != pNULL && 
-            This->pObsClock != pNULL);
+    DC_EventRepository *This = DC_EVENTREPOSITORY(obj);
+
+    return ((cc_roc->isObjectConfigured(This)) &&
+            (This->pList != pNULL) && 
+            (This->pObsClock != pNULL));
 }
 
 
@@ -255,8 +248,6 @@ static bool isObjectConfigured(void *obj)
 
 static void instance_init(Object *obj) 
 {
-    CC_RootObject_setClassId((CC_RootObject*)obj, ID_EVENTREPOSITORY);
-
     DC_EventRepository *This = DC_EVENTREPOSITORY(obj);
     This->counter = 0;
     This->listSize = 0;
@@ -264,18 +255,20 @@ static void instance_init(Object *obj)
     This->pObsClock = pNULL;
     This->globalEnabled = ENABLED;
 
-    int i;
     bool *selectiveEnabled = This->selectiveEnabled;
-    for (i=0; i<=LAST_EVENT_TYPE;i++){
+    for (int i=0; i<=LAST_EVENT_TYPE;i++){
         selectiveEnabled[i] = ENABLED;
     }
 
     DC_EventRepository_reset((DC_EventRepository*)obj);
+
+    CC_RootObject_setClassId((CC_RootObject*)obj, ID_EVENTREPOSITORY);
 }
 
 DC_EventRepository* DC_EventRepository_new(void)
 {
-    return (DC_EventRepository*)object_new(TYPE_DC_EVENTREPOSITORY);
+    Object *obj = object_new(TYPE_DC_EVENTREPOSITORY);
+    return (DC_EventRepository*)obj;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -287,12 +280,11 @@ DC_EventRepository* DC_EventRepository_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {   
     DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_CLASS(oc);
+    dc_erc->createEventDataStructure = createEventDataStructure;
+    dc_erc->create = create;
 
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_CLASS(oc);
     cc_roc->isObjectConfigured = isObjectConfigured;
-
-    dc_erc->createEventDataStructure = createEventDataStructure;
-    dc_erc->create = create;
 }
 
 static const TypeInfo type_info = {

@@ -30,8 +30,7 @@ void ControlBlock_setNumberOfStates(ControlBlock *This, unsigned int n)
     This->nStates = n;
     This->x = g_malloc(sizeof(TD_Float)*n);
 
-    unsigned int i; 
-    for (i = 0; i<n; i++) {
+    for (unsigned int i = 0; i<n; i++) {
         This->x[i] = (TD_Float)0.0;
     }
 }
@@ -43,8 +42,7 @@ void ControlBlock_setNumberOfParameters(ControlBlock *This, unsigned int n)
     This->nParameters = n;
     This->p = g_malloc(sizeof(TD_Float)*n);
 
-    unsigned int i;
-    for (i = 0; i<n; i++) {
+    for (unsigned int i = 0; i<n; i++) {
         This->p[i] = (TD_Float)0.0;
     }
 }
@@ -162,9 +160,7 @@ static void reset(void *obj)
     ControlBlock *This = CONTROLBLOCK(obj);
 
     assert(This->x != pNULL);
-
-    int i; 
-    for (i=0; i<This->nStates; i++) {
+    for (int i=0; i<This->nStates; i++) {
         This->x[i] = (TD_Float)0.0;
     }
 }
@@ -179,11 +175,11 @@ static bool isObjectConfigured(void *obj)
     CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
     ControlBlock *This = CONTROLBLOCK(obj);
 
-    return (cc_roc->isObjectConfigured(obj) &&
-            This->nInputs != -1 &&
-            This->nOutputs != -1 && 
-            This->nStates != -1 && 
-            This->nParameters != -1);
+    return ((cc_roc->isObjectConfigured(obj)) &&
+            (This->nInputs != -1) &&
+            (This->nOutputs != -1) && 
+            (This->nStates != -1) && 
+            (This->nParameters != -1));
 }
 
 
@@ -279,12 +275,10 @@ ControlBlock* ControlBlock_new(void)
 static void class_init(ObjectClass *oc, void *data)
 {
     ControlBlockClass *cbc = CONTROLBLOCK_CLASS(oc);
-
     cbc->setNumberOfInputs = setNumberOfInputs;
     cbc->setNumberOfOutputs = setNumberOfOutputs;
     cbc->propagateState = propagateState;
     cbc->updateOutput = updateOutput;
-
     cbc->propagate = propagate;
     cbc->reset = reset;
 
