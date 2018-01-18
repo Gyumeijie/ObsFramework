@@ -26,7 +26,7 @@
 void DC_FromFsmEvent_setStartingState(DC_FromFsmEvent *This, 
                                       TD_FsmStateIndex startingState)
 {
-    assert(This->startingState >= 0);
+    assert(startingState >= 0);
     This->startingState = startingState;
 }
 
@@ -58,12 +58,16 @@ static bool isObjectConfigured(void *obj)
     DC_FsmEventClass *dc_fec = GET_CLASS(TYPE_DC_FSMEVENT);
     DC_FromFsmEvent *This = DC_FROMFSMEVENT(obj);
 
-    CC_FSM *targetFsm = DC_FsmEvent_getTargetFsm(obj);
-    if (targetFsm == NULL) return false;
+    /**
+     * There is no need to check whether targetFsm is NULL or not, If 
+     * DC_FromFsmEvent's isObjectConfigured return true.
+     */ 
+    if (CC_ROOTOBJECT_CLASS(dc_fec)->isObjectConfigured(obj)) {
 
-    return ((CC_ROOTOBJECT_CLASS(dc_fec)->isObjectConfigured(obj)) && 
-            (This->startingState >= 0) &&
-            (This->startingState < CC_FSM_getNumberOfStates(targetFsm)));
+        CC_FSM *targetFsm = DC_FsmEvent_getTargetFsm(obj);
+        return ((This->startingState >= 0) &&
+                (This->startingState < CC_FSM_getNumberOfStates(targetFsm)));
+    }
 }
 
 /**

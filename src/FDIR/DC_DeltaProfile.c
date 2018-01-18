@@ -98,7 +98,9 @@ static bool doProfileCheckForFloat(void *obj, TD_Float value)
  */
 static bool doProfileCheckForInteger(void *obj, TD_Integer value)
 {
-    assert(deltaThreshold > (TD_Float)0.0);
+    DC_DeltaProfile *This = DC_DELTAPROFILE(obj);
+
+    assert(This->deltaThreshold > (TD_Float)0.0);
     return doProfileCheckForFloat(obj, (TD_Float)value);
 }
 

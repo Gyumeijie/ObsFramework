@@ -22,25 +22,25 @@
 
 TD_ObsTime DC_Event_getTimeStamp(const DC_Event *This)
 {
-	assert ( timeStamp >= 0 );
+	assert(This->timeStamp >= 0);
 	return This->timeStamp;
 }
 
 TD_EventType DC_Event_getEventType(const DC_Event *This)
 {
-	assert ( evtType > 0 );
+	assert(This->evtType > 0);
 	return This->evtType;
 }
 
 void DC_Event_setTimeStamp(DC_Event *This, TD_ObsTime timeStamp)
 {
-	assert ( timeStamp >= 0 );
+	assert(timeStamp >= 0);
 	This->timeStamp = timeStamp;
 }
 
 void DC_Event_setEventType(DC_Event *This, TD_EventType eventType)
 {
-	assert ( eventType > 0 );
+	assert(eventType > 0);
 	This->evtType = eventType;
 }
 

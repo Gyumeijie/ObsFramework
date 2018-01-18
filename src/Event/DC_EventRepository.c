@@ -133,7 +133,7 @@ void DC_EventRepository_setObsClock
     ObsClock *pObsClock
 )
 {
-    assert(pClock != pNULL);
+    assert(pObsClock != pNULL);
     This->pObsClock = pObsClock;
 }
 

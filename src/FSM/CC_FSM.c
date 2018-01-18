@@ -193,7 +193,7 @@ void CC_FSM_setTransitionEnableStatusToState
     bool enabled
 )
 {
-    assert(toState < numberOfStates);
+    assert(toState < This->numberOfStates);
     assert(This->transitionEnabled != pNULL);
 
     if ((toState < This->numberOfStates) && (toState >= 0)) {
@@ -223,7 +223,7 @@ void CC_FSM_makeTransitionRequest(CC_FSM *This, TD_FsmStateIndex targetState)
 {
    CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
 
-   assert(cc_roc->isObjectConfigured(cc_roc));
+   assert(cc_roc->isObjectConfigured(This));
    assert(targetState >= 0);
    assert(targetState < This->numberOfStates);
 

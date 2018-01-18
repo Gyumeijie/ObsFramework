@@ -25,7 +25,7 @@
 
 void DC_BasicDataPool_setDataPoolSize(DC_BasicDataPool *This, TD_DataPoolId size)
 {
-    assert(This->value==pNULL && size>0);
+    assert((This->value == pNULL) && (size > 0));
 
     This->size = size;
     This->value = g_malloc(sizeof(double)*((size/sizeof(double))+1));
@@ -58,7 +58,8 @@ static void setFloatValue(void *obj, TD_DataPoolId id, TD_Float newValue)
 { 
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
 
-    assert(This->value!=pNULL && id<=(This->size-sizeof(TD_Float)));
+    assert((This->value != pNULL) && 
+           (id <= (int)(This->size - sizeof(TD_Float))));
 
     *(TD_Float*)(This->value+id) = newValue;
 }
@@ -72,7 +73,8 @@ static void setIntegerValue(void *obj, TD_DataPoolId id, TD_Integer newValue)
 {
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
 
-    assert(This->value!=pNULL && id<=(This->size-sizeof(TD_Integer)));
+    assert((This->value != pNULL) && 
+           (id <= (int)(This->size - sizeof(TD_Integer))));
 
     *(TD_Integer*)(This->value+id) = newValue;
 }
@@ -88,7 +90,8 @@ static TD_Float getFloatValue(void *obj, TD_DataPoolId id)
 {
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
 
-    assert(This->value!=pNULL && id<=(This->size-sizeof(TD_Float)));
+    assert((This->value != pNULL) && 
+           (id <= (int)(This->size - sizeof(TD_Float))));
 
     return *(TD_Float*)(This->value+id);
 }
@@ -104,7 +107,8 @@ static TD_Integer getIntegerValue(void *obj, TD_DataPoolId id)
 {
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
     
-    assert(This->value!= pNULL && id<=(This->size-sizeof(TD_Integer)));
+    assert((This->value != pNULL) && 
+           (id <= (int)(This->size - sizeof(TD_Integer))));
 
     return *(TD_Integer*)(This->value+id);
 }
@@ -120,7 +124,8 @@ static TD_Float* getPointerFloatValue(void *obj, TD_DataPoolId id)
 {
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
 
-    assert(This->value!=pNULL && id<=(This->size-sizeof(TD_Float)));
+    assert((This->value != pNULL) && 
+           (id <= (int)(This->size - sizeof(TD_Float))));
 
     return (TD_Float*)(This->value+id);
 }
@@ -136,7 +141,8 @@ static TD_Integer* getPointerIntegerValue(void *obj, TD_DataPoolId id)
 {
     DC_BasicDataPool *This = DC_BASICDATAPOOL(obj);
 
-    assert(This->value!=pNULL && id<=(This->size-sizeof(TD_Integer)));
+    assert((This->value != pNULL) && 
+           (id <= (int)(This->size - sizeof(TD_Integer))));
 
     return (TD_Integer*)(This->value+id);
 }

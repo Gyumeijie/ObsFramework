@@ -142,16 +142,16 @@ static void setNumberOfOutputs(void *obj, unsigned int n)
 static void reset(void *obj)
 {
     CopyControlBlock *This = COPYCONTROLBLOCK(obj);
+    ControlBlock *parent = CONTROLBLOCK(obj);
 
-    assert((This->x != pNULL) && (This->u != pNULL));
+    assert((parent->x != pNULL) && (This->u != pNULL));
 
     // Reset the state variables
     ControlBlockClass *cbc = GET_CLASS(TYPE_CONTROLBLOCK);
     cbc->reset(obj);
 
     int i;
-    ControlBlock *parent = CONTROLBLOCK(obj);
-    for (i=0;i<parent->nInputs; i++) {
+    for (i=0; i<parent->nInputs; i++) {
         This->u[i] = (TD_Float)0.0;
     }
 }

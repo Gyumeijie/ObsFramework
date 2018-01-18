@@ -81,70 +81,70 @@ TD_InstanceId CC_RootObject_getSystemListSize(void)
 
 void CC_RootObject_setEventRepository(DC_EventRepository* pEventRep)
 {
-    assert( pEventRep != pNULL );
+    assert(pEventRep != pNULL);
     CC_RootObject_pEventRepository = pEventRep;
 }
 
 
 DC_EventRepository* CC_RootObject_getEventRepository(void)
 {
-    assert( CC_RootObject_pEventRepository != pNULL);
+    assert(CC_RootObject_pEventRepository != pNULL);
     return CC_RootObject_pEventRepository;
 }
 
 
 void CC_RootObject_setParameterDatabase(ParameterDatabase* pDatabase)
 {
-    assert( pDatabase != pNULL );
+    assert(pDatabase != pNULL);
     CC_RootObject_pParameterDatabase = pDatabase;
 }
 
 
 ParameterDatabase* CC_RootObject_getParameterDatabase(void)
 {
-    assert( CC_RootObject_pParameterDatabase != pNULL );
+    assert(CC_RootObject_pParameterDatabase != pNULL);
     return CC_RootObject_pParameterDatabase;
 }
 
 
 void CC_RootObject_setDataPool(DataPool* pPool)
 {
-    assert( pPool != pNULL );
+    assert(pPool != pNULL);
     CC_RootObject_pDataPool = pPool;
 }
 
 
 DataPool* CC_RootObject_getDataPool(void) 
 {
-    assert( CC_RootObject_pDataPool != pNULL );
+    assert(CC_RootObject_pDataPool != pNULL);
     return CC_RootObject_pDataPool;
 }
 
 
 void CC_RootObject_setTracer(Tracer* pTrace) 
 {
-    assert( pTrace != pNULL );
+    assert(pTrace != pNULL);
     CC_RootObject_pTracer = pTrace;
 }
 
 
 Tracer* CC_RootObject_getTracer(void) 
 {
-    assert( pTracer != pNULL );
+    assert(CC_RootObject_pTracer != pNULL);
     return CC_RootObject_pTracer;
 }
 
 
 void CC_RootObject_packetTrace(unsigned int n, TD_TraceItem traceData[]) 
 {
-   assert( (CC_RootObject_pTracer != pNULL) && (traceData != pNULL) );
+   assert((CC_RootObject_pTracer != pNULL) && (traceData != pNULL));
    Tracer_sendPacketTrace(CC_RootObject_pTracer, n, traceData);
 }
 
 
 void CC_RootObject_synchTrace(TD_TraceItem traceId)
 {
-   assert( CC_RootObject_pTracer != pNULL );
+   assert(CC_RootObject_pTracer != pNULL);
    Tracer_sendSynchTrace(CC_RootObject_pTracer, traceId);
 }
 

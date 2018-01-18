@@ -29,14 +29,16 @@ void PunctualActionListModeManager_setListItem(PunctualActionListModeManager *Th
                                                unsigned int pos, 
                                                PunctualAction* pItem)
 {
-    assert(n < (unsigned int)ModeManager_getNumberOfModes(This));
+    const unsigned int nModes = ModeManager_getNumberOfModes((ModeManager*)This);
+
+    assert(n < nModes);
     assert(This->listLength != pNULL);
     assert(This->listLength[n] > 0);
     assert(pos < This->listLength[n]);
     assert(pItem != pNULL);
 
-    if ((pos<This->listLength[n]) && 
-        (n<(unsigned int)ModeManager_getNumberOfModes((ModeManager*)This))) {
+    if ((pos < This->listLength[n]) && 
+        (n < nModes)) {
         This->list[n][pos] = pItem;
     } else {
         DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
@@ -51,8 +53,8 @@ void PunctualActionListModeManager_setListLength(PunctualActionListModeManager *
 {
     assert(This->listLength != pNULL);
     assert(This->list != pNULL);
-    assert(n < (unsigned int)ModeManager_getNumberOfModes(This));
-    assert(This->length > 0);
+    assert(n < (unsigned int)ModeManager_getNumberOfModes((ModeManager*)This));
+    assert(length > 0);
 
     This->listLength[n] = length;
     This->list[n] = g_malloc(length*sizeof(PunctualAction*));

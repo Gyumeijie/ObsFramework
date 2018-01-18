@@ -25,7 +25,7 @@
 
 void ControlBlock_setNumberOfStates(ControlBlock *This, unsigned int n)
 {
-    assert(This->nStates<0);
+    assert(This->nStates < 0);
 
     This->nStates = n;
     This->x = g_malloc(sizeof(TD_Float)*n);
@@ -38,7 +38,7 @@ void ControlBlock_setNumberOfStates(ControlBlock *This, unsigned int n)
 
 void ControlBlock_setNumberOfParameters(ControlBlock *This, unsigned int n)
 {
-    assert(This->nParameters<0);
+    assert(This->nParameters < 0);
 
     This->nParameters = n;
     This->p = g_malloc(sizeof(TD_Float)*n);
@@ -51,28 +51,28 @@ void ControlBlock_setNumberOfParameters(ControlBlock *This, unsigned int n)
 
 int ControlBlock_getNumberOfOutputs(const ControlBlock *This)
 {
-    assert(This->nOutputs>-1);
+    assert(This->nOutputs > -1);
 
     return This->nOutputs;
 }
 
 int ControlBlock_getNumberOfStates(const ControlBlock *This)
 {
-    assert(This->nStates>-1);
+    assert(This->nStates > -1);
 
     return This->nStates;
 }
 
 int ControlBlock_getNumberOfInputs(const ControlBlock *This)
 {
-    assert(This->nInputs>-1);
+    assert(This->nInputs > -1);
 
     return This->nInputs;
 }
 
 int ControlBlock_getNumberOfParameters(const ControlBlock *This)
 {
-    assert(This->nParameters>-1);
+    assert(This->nParameters > -1);
 
     return This->nParameters;
 }
@@ -86,7 +86,7 @@ TD_Float ControlBlock_getState(const ControlBlock *This, unsigned int i)
 
 TD_Float ControlBlock_getParameter(const ControlBlock *This, unsigned int i)
 {
-    assert((p != pNULL) && ((int)i < This->nParameters));
+    assert((This->p != pNULL) && ((int)i < This->nParameters));
 
     return This->p[i];
 }
