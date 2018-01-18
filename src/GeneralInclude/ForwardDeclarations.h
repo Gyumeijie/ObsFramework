@@ -243,6 +243,9 @@ typedef struct DC_CyclingPunctualActionModeManagerClass DC_CyclingPunctualAction
 typedef struct DC_SimplePunctualActionModeManagerClass DC_SimplePunctualActionModeManagerClass;
 typedef struct DC_SimplePunctualActionModeManager DC_SimplePunctualActionModeManager;
 
+typedef struct TelemetryModeManager TelemetryModeManager;
+typedef struct TelemetryModeManagerClass TelemetryModeManagerClass;
+
 typedef struct DC_PUSTelemetryModeManager  DC_PUSTelemetryModeManager;
 typedef struct DC_PUSTelemetryModeManagerClass  DC_PUSTelemetryModeManagerClass;
 
