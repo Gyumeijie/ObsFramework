@@ -36,8 +36,8 @@ void DC_CycleDataItem16TmStream_setNumberOfDataItems
 {
     TelemetryStreamClass *tsc = TELEMETRYSTREAM_GET_CLASS(This);
 
-    g_assert(This->nDataItems == 0);        // should only be called once
-    g_assert(n > 0);
+    assert(This->nDataItems == 0);        // should only be called once
+    assert(n > 0);
 
     if (This->nDataItems == 0) {
         This->nDataItems = n;
@@ -57,8 +57,8 @@ void DC_CycleDataItem16TmStream_setDataItem
     DC_RawDataItem *pDI
 )
 {
-    g_assert((This->nDataItems > 0) && (index < This->nDataItems));
-    g_assert(pDI != pNULL);
+    assert((This->nDataItems > 0) && (index < This->nDataItems));
+    assert(pDI != pNULL);
     This->pDataItem[index] = pDI;
 }
 
@@ -77,7 +77,7 @@ static void reset(void *obj)
 {
     DC_CycleDataItem16TmStream *This = DC_CYCLEDATAITEM16TMSTREAM(obj);
 
-    g_assert((This->nDataItems > 0) && (This->pDataItem != pNULL));
+    assert((This->nDataItems > 0) && (This->pDataItem != pNULL));
     This->writeCounter = 0;
 }
 
@@ -101,7 +101,7 @@ static unsigned int getCapacity(void *obj)
 {
     DC_CycleDataItem16TmStream *This = DC_CYCLEDATAITEM16TMSTREAM(obj);
 
-    g_assert((This->nDataItems > 0) && (This->pDataItem != pNULL));
+    assert((This->nDataItems > 0) && (This->pDataItem != pNULL));
     return This->nDataItems;
 }
 
@@ -126,7 +126,7 @@ static bool doesPacketFit(void *obj, TelemetryPacket* pItem)
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(pItem);
     DC_CycleDataItem16TmStream *This = DC_CYCLEDATAITEM16TMSTREAM(obj);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
     
     const unsigned int nBytes = tpc->getNumberOfBytes(pItem);
     return (nBytes <= 2*(This->nDataItems - This->writeCounter));
@@ -160,7 +160,7 @@ static void write(void *obj, TelemetryPacket *pItem)
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(pItem);
     DC_CycleDataItem16TmStream *This = DC_CYCLEDATAITEM16TMSTREAM(obj);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
 
     unsigned short tmValue;
     unsigned short temp;

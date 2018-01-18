@@ -17,7 +17,6 @@
 #include "TelemetryListModeManager.h"
 
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 //                  non-virtual member method(s) definition
@@ -31,11 +30,11 @@ void TelemetryListModeManager_setListItem(TelemetryListModeManager *This,
 {
     const unsigned int nModes = ModeManager_getNumberOfModes((ModeManager*)This);
 
-    g_assert(n < nModes);
-    g_assert(This->listLength != pNULL);
-    g_assert(This->listLength[n] > 0);
-    g_assert(pos < This->listLength[n]);
-    g_assert(pItem != pNULL);
+    assert(n < nModes);
+    assert(This->listLength != pNULL);
+    assert(This->listLength[n] > 0);
+    assert(pos < This->listLength[n]);
+    assert(pItem != pNULL);
 
     if ((pos < This->listLength[n]) && (n < nModes)) {
         This->list[n][pos] = pItem;
@@ -52,10 +51,10 @@ void TelemetryListModeManager_setListLength(TelemetryListModeManager *This,
 {
     const unsigned int nModes = ModeManager_getNumberOfModes((ModeManager*)This);
 
-    g_assert(This->listLength != pNULL);
-    g_assert(This->list != pNULL);
-    g_assert(length > 0);
-    g_assert(n < nModes);
+    assert(This->listLength != pNULL);
+    assert(This->list != pNULL);
+    assert(length > 0);
+    assert(n < nModes);
 
     This->listLength[n] = length;
     This->list[n] = g_malloc(length*sizeof(TelemetryPacket*));
@@ -91,8 +90,8 @@ static void allocateMemory(void *obj, TD_Mode numberOfModes)
 {
     TelemetryListModeManager *This = TELEMETRYLISTMODEMANAGER(obj);
 
-    g_assert(numberOfModes > 0);
-    g_assert(This->list == pNULL);
+    assert(numberOfModes > 0);
+    assert(This->list == pNULL);
 
     This->list = g_malloc(numberOfModes*sizeof(TelemetryPacket**));
     for (TD_Mode i=0; i<numberOfModes; i++) {
@@ -119,7 +118,7 @@ static TelemetryPacket* getIterationTelemetryPacket(void *obj)
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
     TelemetryListModeManager *This = TELEMETRYLISTMODEMANAGER(obj);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
 
     if (This->counter >= This->listLength[This->iterationListIndex]) {
         This->counter = This->listLength[This->iterationListIndex] - 1;
@@ -164,7 +163,7 @@ static void first(void *obj)
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
     TelemetryListModeManager *This = TELEMETRYLISTMODEMANAGER(obj);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
     This->counter = 0;
     This->iterationListIndex = ModeManager_getCurrentMode(obj);
 }
@@ -179,7 +178,7 @@ static void next(void *obj)
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
     TelemetryListModeManager *This = TELEMETRYLISTMODEMANAGER(obj);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
     This->counter++;
 }
 
@@ -197,7 +196,7 @@ static bool isIterationFinished(void *obj)
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
     TelemetryListModeManager *This = TELEMETRYLISTMODEMANAGER(obj);
 
-    g_assert(cc_roc->isObjectConfigured(obj));
+    assert(cc_roc->isObjectConfigured(obj));
     return(This->counter == This->listLength[This->iterationListIndex]);
 }
 

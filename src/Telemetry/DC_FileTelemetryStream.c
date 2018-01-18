@@ -80,7 +80,7 @@ static void flush(void *obj)
  */
 static void write(void *obj, TelemetryPacket *tmItem)
 {
-    g_assert(tmItem != pNULL);
+    assert(tmItem != pNULL);
     DC_FileTelemetryStream *This = DC_FILETELEMETRYSTREAM(obj);
     TelemetryPacketClass *tpc = TELEMETRYPACKET_GET_CLASS(tmItem);
 
