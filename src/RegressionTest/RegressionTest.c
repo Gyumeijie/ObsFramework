@@ -66,6 +66,7 @@
 #include "TestCaseCycleDataItem16TmStream_1.h"
 #include "TestCaseFileTelemetryStream_1.h"
 #include "TestCaseFileTelemetryStream_2.h"
+#include "TestCaseSimpleTelemetryModeManager_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -199,6 +200,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFileTelemetryStream_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFileTelemetryStream_2_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseSimpleTelemetryModeManager_1_new());
 
 
 	// Run the test suite -- this causes all test cases in
