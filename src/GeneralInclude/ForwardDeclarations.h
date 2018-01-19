@@ -147,6 +147,9 @@ typedef struct DC_FdirCheckClass DC_FdirCheckClass;
 typedef struct DC_NullRecoveryAction  DC_NullRecoveryAction;
 typedef struct DC_NullRecoveryActionClass  DC_NullRecoveryActionClass;
 
+typedef struct Manoeuvre Manoeuvre;
+typedef struct ManoeuvreClass ManoeuvreClass;
+
 typedef struct DC_DummyConfigurableManoeuvre  DC_DummyConfigurableManoeuvre;
 typedef struct DC_DummyConfigurableManoeuvreClass  DC_DummyConfigurableManoeuvreClass;
 
@@ -269,6 +272,9 @@ typedef struct DC_PUSTmLoggerClass  DC_PUSTmLoggerClass;
 
 typedef struct DC_TestPUSConfigurableManoeuvre  DC_TestPUSConfigurableManoeuvre;
 typedef struct DC_TestPUSConfigurableManoeuvreClass  DC_TestPUSConfigurableManoeuvreClass;
+
+typedef struct DC_PUSClearDataReporting DC_PUSClearDataReporting;
+typedef struct DC_PUSClearDataReportingClass DC_PUSClearDataReportingClass;
 
 typedef struct DC_TestPUSTelecommand  DC_TestPUSTelecommand;
 typedef struct DC_TestPUSTelecommandClass  DC_TestPUSTelecommandClass;
