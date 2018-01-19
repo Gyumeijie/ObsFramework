@@ -58,6 +58,7 @@
 #include "TestCaseTelemetryManager_2.h"
 #include "TestCaseDummyTelecommand_1.h" 
 #include "TestCaseDummyCriticalTelecommand_1.h" 
+#include "TestCaseDummyCriticalTelecommand_2.h" 
 
 void regression_test_type_register()
 {
@@ -174,4 +175,6 @@ void regression_test_type_register()
    TestCaseDummyTelecommand_1_register();
 
    TestCaseDummyCriticalTelecommand_1_register(); 
+
+   TestCaseDummyCriticalTelecommand_2_register(); 
 }
