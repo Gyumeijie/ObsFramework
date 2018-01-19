@@ -203,11 +203,11 @@ void CC_RootObject_setClassId(CC_RootObject *This, TD_ClassId classId)
  */
 static bool isObjectConfigured(void* obj) 
 {
-    return (CC_RootObject_pEventRepository != pNULL && 
-            CC_RootObject_pTracer != pNULL &&
-            CC_RootObject_pSystemList != pNULL);
-            //CC_RootObject_pDataPool != pNULL &&
-            //CC_RootObject_pParameterDatabase != pNULL);
+    return ((CC_RootObject_pEventRepository != pNULL) && 
+            (CC_RootObject_pTracer != pNULL) &&
+            (CC_RootObject_pSystemList != pNULL) &&
+            (CC_RootObject_pDataPool != pNULL) &&
+            (CC_RootObject_pParameterDatabase != pNULL));
 }
 
 

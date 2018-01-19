@@ -14,8 +14,8 @@
 #include "../GeneralInclude/Constants.h"
 #include "../Base/CC_RootObject.h"
 #include "../Event/DC_EventRepository.h"
-//#include "../Data/DC_DummyDataPool.h"
-//#include "../Data/DC_DummyDatabase.h"
+#include "../Data/DC_DummyDataPool.h"
+#include "../Data/DC_DummyDatabase.h"
 #include "../System/DC_DummyObsClock.h"
 #include "../System/DC_DummyTracer.h"
 #include "../Telemetry/PUSTelemetryPacket.h"
@@ -80,20 +80,20 @@ static bool setUpTestCase(void *obj)
          return INITIALIZATION_FAILURE;
      }
 
-     #if 0
      // Load a dummy database into class CC_RootObject and check success
-     DC_DummyDatabase* pDB = new DC_DummyDatabase();
-     CC_RootObject::setParameterDatabase(pDB);
-     if ( CC_RootObject::getParameterDatabase()!=pDB )
+     DC_DummyDatabase *pDB = DC_DummyDatabase_new();
+     CC_RootObject_setParameterDatabase((ParameterDatabase*)pDB);
+     if (CC_RootObject_getParameterDatabase() != (ParameterDatabase*)pDB) {
          return INITIALIZATION_FAILURE;
+     }
 
      // Load a dummy datapool into class CC_RootObject and check success
-     DC_DummyDataPool* pDP = new DC_DummyDataPool();
-     CC_RootObject::setDataPool(pDP);
-     if ( CC_RootObject::getDataPool()!=pDP )
+     DC_DummyDataPool *pDP = DC_DummyDataPool_new();
+     CC_RootObject_setDataPool((DataPool*)pDP);
+     if (CC_RootObject_getDataPool() != (DataPool*)pDP) {
          return INITIALIZATION_FAILURE;
+     }
 
-     #endif
      // Load a tracer into class CC_RootObject and check success
      DC_DummyTracer* pTrc = DC_DummyTracer_new();
      CC_RootObject_setTracer((Tracer*)pTrc);
