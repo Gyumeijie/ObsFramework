@@ -23,7 +23,7 @@
 //#include "../Telemetry/DC_PUSTcVerificationPacket.h"
 //#include "../Telemetry/DC_PUSDataReportingPacket.h"
 #include "../Telemetry/DC_DummyPUSTelemetryPacket.h"
-//#include "../Telecommand/PUSTelecommand.h"
+#include "../Telecommand/PUSTelecommand.h"
 #include "../Qom/object.h"
 
 
@@ -106,9 +106,7 @@ static bool setUpTestCase(void *obj)
      PUSTelemetryPacket_setApplicationId(TEST_TM_APID);
      PUSTelemetryPacket_setObsClock((ObsClock*)pClk);
 
-     #if 0
-     PUSTelecommand::setApplicationId(TEST_TC_APID);
-     #endif
+     PUSTelecommand_setApplicationId(TEST_TC_APID);
 
      firstActivation = false;
    }
