@@ -54,6 +54,7 @@
 #include "TestCaseFileTelemetryStream_2.h"
 #include "TestCaseSimpleTelemetryModeManager_1.h"
 #include "TestCaseCyclingTelemetryModeManager_1.h"
+#include "TestCaseTelemetryManager_1.h"
 
 void regression_test_type_register()
 {
@@ -162,4 +163,6 @@ void regression_test_type_register()
    TestCaseSimpleTelemetryModeManager_1_register();
 
    TestCaseCyclingTelemetryModeManager_1_register();
+
+   TestCaseTelemetryManager_1_register();
 }
