@@ -313,7 +313,8 @@ static void instance_init(Object *obj)
 
 Manoeuvre* Manoeuvre_new(void)
 {
-    return (Manoeuvre*)object_new(TYPE_MANOEUVRE);
+    Object *obj = object_new(TYPE_MANOEUVRE);
+    return (Manoeuvre*)obj;
 }
 
 
@@ -328,9 +329,6 @@ static void class_init(ObjectClass *oc, void *data)
 {
     ManoeuvreClass *mc = MANOEUVRE_CLASS(oc);
 
-    mc->doInternalContinue = doInternalContinue;
-    mc->isFinished = isFinished;
-
     mc->internalAbort = internalAbort;
     mc->internalTerminate = internalTerminate;
     mc->internalCanStart = internalCanStart;
@@ -338,6 +336,9 @@ static void class_init(ObjectClass *oc, void *data)
     mc->initialize = initialize;
     mc->canContinue = canContinue;
     mc->getContinuationCheckCode = getContinuationCheckCode;
+
+    mc->doInternalContinue = doInternalContinue;
+    mc->isFinished = isFinished;
 }
 
 static const TypeInfo type_info = {
