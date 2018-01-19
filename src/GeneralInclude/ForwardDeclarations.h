@@ -159,6 +159,12 @@ typedef struct DC_DummyTelecommandClass  DC_DummyTelecommandClass;
 typedef struct DC_DummyPUSTelecommand  DC_DummyPUSTelecommand;
 typedef struct DC_DummyPUSTelecommandClass  DC_DummyPUSTelecommandClass;
 
+typedef struct CriticalTelecommand CriticalTelecommand;
+typedef struct CriticalTelecommandClass CriticalTelecommandClass;
+
+typedef struct DC_DummyCriticalTelecommand DC_DummyCriticalTelecommand;
+typedef struct DC_DummyCriticalTelecommandClass DC_DummyCriticalTelecommandClass;
+
 typedef struct PUSTelemetryPacket PUSTelemetryPacket;
 typedef struct PUSTelemetryPacketClass PUSTelemetryPacketClass;
 
