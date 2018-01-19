@@ -7,6 +7,7 @@
 #include "../Data/DataTypeRegister.h"
 #include "../FSM/FSMTypeRegister.h" 
 #include "../Telemetry/TelemetryTypeRegister.h"
+#include "../Telecommand/TelecommandTypeRegister.h" 
 #include "../Qom/object.h"
 
 void application_type_register(void)
@@ -21,6 +22,7 @@ void application_type_register(void)
     data_type_register(); 
     fsm_type_register(); 
     telemetry_type_register();
+    telecommand_type_register();
 }
 
 
