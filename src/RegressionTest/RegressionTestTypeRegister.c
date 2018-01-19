@@ -61,6 +61,7 @@
 #include "TestCaseDummyCriticalTelecommand_2.h" 
 #include "TestCaseDummyPUSTelecommand_1.h"
 #include "TestCaseDummyManoeuvre_1.h"
+#include "TestCaseDummyConfigurableManoeuvre_1.h"
 
 void regression_test_type_register()
 {
@@ -183,4 +184,6 @@ void regression_test_type_register()
    TestCaseDummyPUSTelecommand_1_register();
 
    TestCaseDummyManoeuvre_1_register();
+
+   TestCaseDummyConfigurableManoeuvre_1_register();
 }
