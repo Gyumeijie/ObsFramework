@@ -17,6 +17,7 @@
 #include "TelemetryListModeManager.h"
 #include "DC_SimpleTelemetryModeManager.h"
 #include "DC_CyclingTelemetryModeManager.h"
+#include "CC_TelemetryManager.h" 
 
 void telemetry_type_register(void)
 {
@@ -40,4 +41,6 @@ void telemetry_type_register(void)
     TelemetryListModeManager_register();
     DC_SimpleTelemetryModeManager_register();
     DC_CyclingTelemetryModeManager_register();
+
+    CC_TelemetryManager_register();
 }
