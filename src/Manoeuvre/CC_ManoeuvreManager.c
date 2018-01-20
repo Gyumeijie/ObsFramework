@@ -94,7 +94,7 @@ unsigned int CC_ManoeuvreManager_getPendingManoeuvres(CC_ManoeuvreManager *This)
  * @see TD_EventType
  * @param pManoeuvre the manoeuvre that is loaded
  */
-static void unload(void *obj, Manoeuvre* pManoeuvre)
+static void unload(void *obj, Manoeuvre *pManoeuvre)
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
     CC_ManoeuvreManager *This = CC_MANOEUVREMANAGER(obj);
@@ -252,10 +252,10 @@ static void activate(void *obj)
 
     for (unsigned int i=0; i<This->manListSize; i++) {
         Manoeuvre *pM = This->pManList[i];
-        ManoeuvreClass *mc = MANOEUVRE_GET_CLASS(pM);
 
 		if (pM == pNULL) continue;
 
+        ManoeuvreClass *mc = MANOEUVRE_GET_CLASS(pM);
 	    if (!Manoeuvre_isExecuting(pM)) {
 			if (mc->canStart(pM)) {
 				mc->initialize(pM);
