@@ -63,6 +63,7 @@
 #include "TestCaseDummyManoeuvre_1.h"
 #include "TestCaseDummyConfigurableManoeuvre_1.h"
 #include "TestCaseTestPUSConfigurableManoeuvre_1.h"
+#include "TestCaseManoeuvreManager_1.h" 
 
 
 void regression_test_type_register()
@@ -190,4 +191,6 @@ void regression_test_type_register()
    TestCaseDummyConfigurableManoeuvre_1_register();
 
    TestCaseTestPUSConfigurableManoeuvre_1_register();
+
+   TestCaseManoeuvreManager_1_register();
 }

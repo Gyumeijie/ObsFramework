@@ -4,7 +4,7 @@
 #include "DC_DummyConfigurableManoeuvre.h" 
 #include "PUSTcManoeuvre.h"
 #include "DC_TestPUSConfigurableManoeuvre.h"
-
+#include "CC_ManoeuvreManager.h"
 
 void manoeuvre_type_register(void)
 {
@@ -13,4 +13,6 @@ void manoeuvre_type_register(void)
     DC_DummyConfigurableManoeuvre_register();
     PUSTcManoeuvre_register();
     DC_TestPUSConfigurableManoeuvre_register();
+
+    CC_ManoeuvreManager_register();
 }

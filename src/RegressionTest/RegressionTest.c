@@ -77,6 +77,7 @@
 #include "TestCaseDummyManoeuvre_1.h"
 #include "TestCaseDummyConfigurableManoeuvre_1.h"
 #include "TestCaseTestPUSConfigurableManoeuvre_1.h"
+#include "TestCaseManoeuvreManager_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -232,6 +233,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyConfigurableManoeuvre_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseTestPUSConfigurableManoeuvre_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseManoeuvreManager_1_new());
 
 	// Run the test suite -- this causes all test cases in
 	// the test suite to be run in sequence
