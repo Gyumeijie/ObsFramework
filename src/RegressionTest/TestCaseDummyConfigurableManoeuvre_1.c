@@ -171,7 +171,7 @@ static void class_init(ObjectClass *oc, void *data)
 
 static const TypeInfo type_info = {
     .name = TYPE_TESTCASEDUMMYCONFIGURABLEMANOEUVRE_1,
-    .parent = TYPE_TESTCASEGENERICSETUP,
+    .parent = TYPE_TESTCASEGENERICSETUP,
     .instance_size = sizeof(TestCaseDummyConfigurableManoeuvre_1),
     .abstract = false,
     .class_size = sizeof(TestCaseDummyConfigurableManoeuvre_1Class),
