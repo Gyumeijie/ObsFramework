@@ -58,6 +58,7 @@
 #include "TestCaseSimplePunctualActionModeManager_1.h"
 #include "TestCaseDummyTelemetryPacket_1.h" 
 #include "TestCaseDummyPUSTelemetryPacket_1.h"
+#include "TestCasePUSDataReportingPacket_1.h"
 #include "TestCaseChecksum_1.h"
 #include "TestCasePUSMemoryDumpOffset_1.h" 
 #include "TestCaseDataItem16TmWord_1.h"
@@ -197,6 +198,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTelemetryPacket_1_new());
     
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyPUSTelemetryPacket_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCasePUSDataReportingPacket_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseChecksum_1_new());
     
