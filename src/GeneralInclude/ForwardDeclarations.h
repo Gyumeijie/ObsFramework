@@ -30,6 +30,9 @@ typedef struct DC_BasicDataPoolClass DC_BasicDataPoolClass;
 typedef struct DC_DummyDataPool DC_DummyDataPool;
 typedef struct DC_DummyDataPoolClass DC_DummyDataPoolClass;
 
+typedef struct DC_SampleFullDataPool DC_SampleFullDataPool;
+typedef struct DC_SampleFullDataPoolClass DC_SampleFullDataPoolClass;
+
 typedef struct CC_RootObject  CC_RootObject;
 typedef struct CC_RootObjectClass  CC_RootObjectClass;
 
@@ -170,6 +173,9 @@ typedef struct DC_DummyCriticalTelecommandClass DC_DummyCriticalTelecommandClass
 
 typedef struct PUSTelemetryPacket PUSTelemetryPacket;
 typedef struct PUSTelemetryPacketClass PUSTelemetryPacketClass;
+
+typedef struct PUSDumpMemory PUSDumpMemory;
+typedef struct PUSDumpMemoryClass PUSDumpMemoryClass;
 
 typedef struct DC_DummyPUSTelemetryPacket  DC_DummyPUSTelemetryPacket;
 typedef struct DC_DummyPUSTelemetryPacketClass  DC_DummyPUSTelemetryPacketClass;
