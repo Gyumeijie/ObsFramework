@@ -4,6 +4,7 @@
 #include "PUSTelemetryPacket.h"
 #include "DC_PUSTcVerificationPacket.h"
 #include "DC_DummyPUSTelemetryPacket.h"
+#include "DC_PUSDataReportingPacket.h"
 #include "PUSMemoryDump.h"
 #include "DC_PUSMemoryDumpOffset.h"
 #include "DC_PUSMemoryDumpAbsolute.h"
@@ -26,6 +27,7 @@ void telemetry_type_register(void)
     DC_DummyTelemetryPacket_register();
     PUSTelemetryPacket_register();
     DC_PUSTcVerificationPacket_register();
+    DC_PUSDataReportingPacket_register();
     DC_DummyPUSTelemetryPacket_register();
     PUSMemoryDump_register();
     DC_PUSMemoryDumpOffset_register();
