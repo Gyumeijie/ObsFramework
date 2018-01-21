@@ -46,6 +46,7 @@
 #include "TestCaseDummyPUSTelemetryPacket_1.h" 
 #include "TestCasePUSDataReportingPacket_1.h"
 #include "TestCasePUSDataReportingPacket_2.h"
+#include "TestCasePUSDataReportingPacket_3.h"
 #include "TestCaseChecksum_1.h"
 #include "TestCasePUSMemoryDumpOffset_1.h" 
 #include "TestCaseDataItem16TmWord_1.h"
@@ -160,6 +161,8 @@ void regression_test_type_register()
    TestCasePUSDataReportingPacket_1_register();
 
    TestCasePUSDataReportingPacket_2_register();
+
+   TestCasePUSDataReportingPacket_3_register();
 
    TestCaseChecksum_1_register();
 
