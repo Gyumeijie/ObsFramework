@@ -210,6 +210,9 @@ typedef struct DC_PUSMemoryDumpAbsoluteClass  DC_PUSMemoryDumpAbsoluteClass;
 typedef struct DC_PUSMemoryDumpOffset  DC_PUSMemoryDumpOffset;
 typedef struct DC_PUSMemoryDumpOffsetClass  DC_PUSMemoryDumpOffsetClass;
 
+typedef struct PUSMemoryLoad PUSMemoryLoad;
+typedef struct PUSMemoryLoadClass PUSMemoryLoadClass;
+
 typedef struct DC_PUSMemoryLoadAbsolute  DC_PUSMemoryLoadAbsolute;
 typedef struct DC_PUSMemoryLoadAbsoluteClass  DC_PUSMemoryLoadAbsoluteClass;
 
