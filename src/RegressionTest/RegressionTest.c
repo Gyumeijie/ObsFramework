@@ -84,6 +84,7 @@
 #include "TestCaseManoeuvreManager_3.h"
 #include "TestCaseSampleFullDataPool_1.h"
 #include "TestCasePUSMemoryLoadAbsolute_1.h"
+#include "TestCasePUSMemoryLoadOffset_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -253,6 +254,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseSampleFullDataPool_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCasePUSMemoryLoadAbsolute_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCasePUSMemoryLoadOffset_1_new());
 
 	// Run the test suite -- this causes all test cases in
 	// the test suite to be run in sequence

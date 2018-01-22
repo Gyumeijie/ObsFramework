@@ -70,6 +70,7 @@
 #include "TestCaseManoeuvreManager_3.h" 
 #include "TestCaseSampleFullDataPool_1.h" 
 #include "TestCasePUSMemoryLoadAbsolute_1.h"
+#include "TestCasePUSMemoryLoadOffset_1.h"
 
 void regression_test_type_register()
 {
@@ -210,4 +211,6 @@ void regression_test_type_register()
    TestCaseSampleFullDataPool_1_register();
 
    TestCasePUSMemoryLoadAbsolute_1_register();
+
+   TestCasePUSMemoryLoadOffset_1_register();
 }
