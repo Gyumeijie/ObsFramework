@@ -31,7 +31,7 @@
  */
 static void runTestCase(void *obj)
 {
-   DC_PUSMemoryLoadOffset* pML = DC_PUSMemoryLoadOffset_new();
+   DC_PUSMemoryLoadOffset *pML = DC_PUSMemoryLoadOffset_new();
    TelecommandClass *tc = TELECOMMAND_GET_CLASS(pML);
    CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(pML);
 
@@ -42,7 +42,7 @@ static void runTestCase(void *obj)
    tc->setTelecommandId(pML, 2);
 
    // Memory area where telecommand data will be loaded
-   const unsigned int paSize =100;
+   const unsigned int paSize = 100;
    TD_PUSMemData pa[paSize];
    for (unsigned int i=0; i<paSize; i++) {
         pa[i]=0;
@@ -146,7 +146,7 @@ static void runTestCase(void *obj)
                                 "Wrong execution outcome");
     	return;
    }
-   if ((pa[os1]!=d1) || (pa[os1+1]!=d2))
+   if ((pa[os1] != d1) || (pa[os1+1] != d2))
    {
         TestCase_setTestResult((TestCase*)obj, TEST_FAILURE,
                                 "Wrong loaded data");
@@ -221,7 +221,7 @@ static void runTestCase(void *obj)
     	return;
    }
    tc->setRawDataFastly(pML, packet, offset);
-   if (tc->getValidityCheckCode(pML)!=0)
+   if (tc->getValidityCheckCode(pML) != 0)
    {
         TestCase_setTestResult((TestCase*)obj, TEST_FAILURE,
                                 "Wrong validity code");
