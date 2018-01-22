@@ -9,6 +9,7 @@
 #include "DC_PUSDumpMemoryAbsolute.h"
 #include "DC_PUSDumpMemoryOffset.h"
 #include "PUSMemoryLoad.h"
+#include "DC_PUSMemoryLoadAbsolute.h"
 
 void telecommand_type_register(void)
 {
@@ -25,5 +26,6 @@ void telecommand_type_register(void)
    DC_PUSDumpMemoryAbsolute_register();
    DC_PUSDumpMemoryOffset_register();
    PUSMemoryLoad_register();
+   DC_PUSMemoryLoadAbsolute_register();
 }
 
