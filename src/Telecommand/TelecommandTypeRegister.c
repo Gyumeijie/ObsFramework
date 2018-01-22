@@ -7,6 +7,7 @@
 #include "DC_DummyPUSTelecommand.h"
 #include "PUSDumpMemory.h"
 #include "DC_PUSDumpMemoryAbsolute.h"
+#include "DC_PUSDumpMemoryOffset.h"
 
 void telecommand_type_register(void)
 {
@@ -18,5 +19,6 @@ void telecommand_type_register(void)
    DC_DummyPUSTelecommand_register();
    PUSDumpMemory_register();
    DC_PUSDumpMemoryAbsolute_register();
+   DC_PUSDumpMemoryOffset_register();
 }
 
