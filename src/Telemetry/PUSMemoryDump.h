@@ -77,22 +77,6 @@ void PUSMemoryDump_register(void);
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-typedef struct MemBlockType {
-    /**
-     * Start address of a memory dump block
-     */
-    TD_PUSMemData *startAddress;         
-    /**
-     * The number of SAUs to be loaded
-     */
-    TD_PUSMemLength length;              
-    /**
-     * The checksum of the block
-     */
-    unsigned short checksum;             
-
-} MemBlockType;
-
 
 struct PUSMemoryDump {
     PUSTelemetryPacket parent;
