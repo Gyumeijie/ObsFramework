@@ -345,6 +345,9 @@ typedef struct TelecommandClass  TelecommandClass;
 typedef struct TelecommandLoader  TelecommandLoader;
 typedef struct TelecommandLoaderClass  TelecommandLoaderClass;
 
+typedef struct DC_DummyTelecommandLoader DC_DummyTelecommandLoader;
+typedef struct DC_DummyTelecommandLoaderClass DC_DummyTelecommandLoaderClass;
+
 typedef struct TelemetryPacket  TelemetryPacket;
 typedef struct TelemetryPacketClass  TelemetryPacketClass;
 
