@@ -13,6 +13,7 @@
 #include "DC_PUSMemoryLoadOffset.h"
 #include "TelecommandLoader.h"
 #include "DC_DummyTelecommandLoader.h"
+#include "CC_TelecommandManager.h"
 
 void telecommand_type_register(void)
 {
@@ -34,5 +35,7 @@ void telecommand_type_register(void)
 
    TelecommandLoader_register();
    DC_DummyTelecommandLoader_register();
+
+   CC_TelecommandManager_register();
 }
 

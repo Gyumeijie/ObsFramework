@@ -73,6 +73,9 @@
 #include "TestCasePUSMemoryLoadAbsolute_1.h"
 #include "TestCasePUSMemoryLoadOffset_1.h"
 #include "TestCasePUSMemoryLoadOffset_2.h"
+#include "TestCaseTelecommandManager_1.h"
+#include "TestCaseTelecommandManager_2.h"
+#include "TestCaseTelecommandManager_3.h"
 #include "TestCaseDummyTelecommandLoader_1.h"
 
 void regression_test_type_register()
@@ -220,6 +223,12 @@ void regression_test_type_register()
    TestCasePUSMemoryLoadOffset_1_register();
 
    TestCasePUSMemoryLoadOffset_2_register();
+
+   TestCaseTelecommandManager_1_register(); 
+   
+   TestCaseTelecommandManager_2_register(); 
+
+   TestCaseTelecommandManager_3_register(); 
 
    TestCaseDummyTelecommandLoader_1_register();
 }
