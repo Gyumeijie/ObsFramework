@@ -68,6 +68,7 @@
 #include "TestCaseTestPUSConfigurableManoeuvre_1.h"
 #include "TestCaseManoeuvreManager_1.h" 
 #include "TestCaseManoeuvreManager_3.h" 
+#include "TestCaseManoeuvrePunctualAction_1.h"
 #include "TestCaseSampleFullDataPool_1.h" 
 #include "TestCasePUSMemoryLoadAbsolute_1.h"
 #include "TestCasePUSMemoryLoadOffset_1.h"
@@ -208,6 +209,8 @@ void regression_test_type_register()
    TestCaseManoeuvreManager_1_register();
 
    TestCaseManoeuvreManager_3_register();
+
+   TestCaseManoeuvrePunctualAction_1_register();
 
    TestCaseSampleFullDataPool_1_register();
 

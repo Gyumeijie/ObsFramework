@@ -82,6 +82,7 @@
 #include "TestCaseTestPUSConfigurableManoeuvre_1.h"
 #include "TestCaseManoeuvreManager_1.h"
 #include "TestCaseManoeuvreManager_3.h"
+#include "TestCaseManoeuvrePunctualAction_1.h"
 #include "TestCaseSampleFullDataPool_1.h"
 #include "TestCasePUSMemoryLoadAbsolute_1.h"
 #include "TestCasePUSMemoryLoadOffset_1.h"
@@ -251,6 +252,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseManoeuvreManager_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseManoeuvreManager_3_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseManoeuvrePunctualAction_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseSampleFullDataPool_1_new());
 
