@@ -87,6 +87,9 @@
 #include "TestCasePUSMemoryLoadAbsolute_1.h"
 #include "TestCasePUSMemoryLoadOffset_1.h"
 #include "TestCasePUSMemoryLoadOffset_2.h"
+#include "TestCaseTelecommandManager_1.h"
+#include "TestCaseTelecommandManager_2.h"
+#include "TestCaseTelecommandManager_3.h"
 #include "TestCaseDummyTelecommandLoader_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
@@ -263,6 +266,12 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCasePUSMemoryLoadOffset_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCasePUSMemoryLoadOffset_2_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseTelecommandManager_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseTelecommandManager_2_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseTelecommandManager_3_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTelecommandLoader_1_new());
 
