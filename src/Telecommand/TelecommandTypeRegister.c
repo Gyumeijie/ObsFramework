@@ -11,6 +11,7 @@
 #include "PUSMemoryLoad.h"
 #include "DC_PUSMemoryLoadAbsolute.h"
 #include "DC_PUSMemoryLoadOffset.h"
+#include "TelecommandLoader.h"
 
 void telecommand_type_register(void)
 {
@@ -29,5 +30,7 @@ void telecommand_type_register(void)
    PUSMemoryLoad_register();
    DC_PUSMemoryLoadAbsolute_register();
    DC_PUSMemoryLoadOffset_register();
+
+   TelecommandLoader_register();
 }
 
