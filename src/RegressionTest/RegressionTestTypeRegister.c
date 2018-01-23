@@ -73,6 +73,7 @@
 #include "TestCasePUSMemoryLoadAbsolute_1.h"
 #include "TestCasePUSMemoryLoadOffset_1.h"
 #include "TestCasePUSMemoryLoadOffset_2.h"
+#include "TestCaseDummyTelecommandLoader_1.h"
 
 void regression_test_type_register()
 {
@@ -219,4 +220,6 @@ void regression_test_type_register()
    TestCasePUSMemoryLoadOffset_1_register();
 
    TestCasePUSMemoryLoadOffset_2_register();
+
+   TestCaseDummyTelecommandLoader_1_register();
 }
