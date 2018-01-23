@@ -90,6 +90,9 @@ typedef struct DC_DummyConditionalPunctualActionClass DC_DummyConditionalPunctua
 typedef struct DC_DummyPunctualAction DC_DummyPunctualAction;
 typedef struct DC_DummyPunctualActionClass DC_DummyPunctualActionClass;
 
+typedef struct DC_ManoeuvrePunctualAction DC_ManoeuvrePunctualAction;
+typedef struct DC_ManoeuvrePunctualActionClass DC_ManoeuvrePunctualActionClass;
+
 typedef struct RecoveryAction RecoveryAction; 
 typedef struct RecoveryActionClass RecoveryActionClass; 
 
