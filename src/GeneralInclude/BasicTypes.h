@@ -298,6 +298,26 @@ typedef unsigned char TD_PUSNumberMemBlocks;
  */
 typedef unsigned short TD_PUSMemOffset;
 
+/**
+ *  Type used in Telecommand/PUSMemoryLoad and Telemetry/PUSMemoryDump
+ */
+typedef struct MemBlockType {
+    /**
+     * Start address of a memory dump block
+     */
+    TD_PUSMemData *startAddress;         
+    /**
+     * The number of SAUs to be loaded
+     */
+    TD_PUSMemLength length;              
+    /**
+     * The checksum of the block
+     */
+    unsigned short checksum;             
+
+} MemBlockType;
+
+
 // -------------------------------------------------------------------
 /**
  * Type for the telemetry packet type.
