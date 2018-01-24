@@ -165,11 +165,10 @@ TestCaseWithEvtCheck* TestCaseWithEvtCheck_new(int id, char *name)
 
 static void class_init(ObjectClass *oc, void *data)
 {
-    TestCaseWithEvtCheckClass *tcwecc = TESTCASEWITHEVTCHECK_CLASS(oc);
-
     TestCaseClass *tcc = TESTCASE_CLASS(oc);
     tcc->setUpTestCase = setUpTestCase;
 
+    TestCaseWithEvtCheckClass *tcwecc = TESTCASEWITHEVTCHECK_CLASS(oc);
     tcwecc->post_init = post_init;
 }
 
