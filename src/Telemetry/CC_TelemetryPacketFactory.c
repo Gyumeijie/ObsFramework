@@ -576,7 +576,7 @@ bool CC_TelemetryPacketFactory_isFreePUSTcVerificationPacket(CC_TelemetryPacketF
  */
 static bool isObjectConfigured(void *obj)
 {
-    CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(obj);
+    CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
     CC_TelemetryPacketFactory *This = CC_TELEMETRYPACKETFACTORY(obj);
 
     if (!cc_roc->isObjectConfigured(obj)) return false;
