@@ -21,6 +21,7 @@
 #include "DC_SimpleTelemetryModeManager.h"
 #include "DC_CyclingTelemetryModeManager.h"
 #include "CC_TelemetryManager.h" 
+#include "CC_TelemetryPacketFactory.h"
 
 void telemetry_type_register(void)
 {
@@ -49,4 +50,6 @@ void telemetry_type_register(void)
     DC_CyclingTelemetryModeManager_register();
 
     CC_TelemetryManager_register();
+
+    CC_TelemetryPacketFactory_register();
 }
