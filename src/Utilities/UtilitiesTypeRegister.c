@@ -3,6 +3,7 @@
 #include "TestCaseGenericSetUp.h"
 #include "TestSuite.h"
 #include "TestCaseWithEvtCheck.h"
+#include "TestCaseWithFactories.h"
 
 void utilities_type_register(void)
 {
@@ -10,4 +11,5 @@ void utilities_type_register(void)
     TestSuite_register();
     TestCaseGenericSetup_register();
     TestCaseWithEvtCheck_register();
+    TestCaseWithFactories_register();
 }
