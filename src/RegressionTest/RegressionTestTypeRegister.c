@@ -79,6 +79,7 @@
 #include "TestCaseDummyTelecommandLoader_1.h"
 #include "TestCaseBasicPUSTmStream_1.h"
 #include "TestCaseIntStack_1.h"
+#include "TestCaseRootObjectStack_1.h"
 
 void regression_test_type_register()
 {
@@ -236,4 +237,6 @@ void regression_test_type_register()
 
    TestCaseBasicPUSTmStream_1_register();
    TestCaseIntStack_1_register();
+
+   TestCaseRootObjectStack_1_register();
 }

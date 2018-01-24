@@ -366,6 +366,9 @@ typedef struct DC_TestTracerClass  DC_TestTracerClass;
 typedef struct CC_IntStack CC_IntStack;
 typedef struct CC_IntStackClass CC_IntStackClass;
 
+typedef struct CC_RootObjectStack CC_RootObjectStack;
+typedef struct CC_RootObjectStackClass CC_RootObjectStackClass;
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 //                          types of unit test 
