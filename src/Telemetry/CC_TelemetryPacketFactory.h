@@ -134,6 +134,19 @@ CC_TelemetryPacketFactory* CC_TelemetryPacketFactory_getInstance(void);
 ///////////////////////////////////////////////////////////////////////////////
 
 /**
+ * General interface for all TelemetryPacket setter methods
+ *
+ * @param i the index in the internal array
+ * @param pItem the component instance
+ */
+void CC_TelecommandFactory_setTelemetryPacket
+(
+    CC_TelemetryPacketFactory *This, 
+    unsigned int i,
+    TelemetryPacket *pItem
+);
+
+/**
  * Load one instance of type <code>DC_DummyPUSTelemetryPacket</code> in the
  * factory. The component instances managed by the factory are internally stored in an
  * array. This method loads the i-th element of the array. The argument i should lie
@@ -149,7 +162,7 @@ CC_TelemetryPacketFactory* CC_TelemetryPacketFactory_getInstance(void);
  * @param i the index in the internal array
  * @param pItem the component instance
  */
-void CC_TelemetryPacketFactory_setDummyPUSTelemetryPacket
+static void setDummyPUSTelemetryPacket
 (
     CC_TelemetryPacketFactory *This, 
     unsigned int i,
@@ -229,7 +242,7 @@ bool CC_TelemetryPacketFactory_isFreeDummyPUSTelemetryPacket
  * @param i the index in the internal array
  * @param pItem the component instance
  */
-void CC_TelemetryPacketFactory_setPUSDataReportingPacket
+static void setPUSDataReportingPacket
 (
     CC_TelemetryPacketFactory *This,
     unsigned int i, 
@@ -343,7 +356,7 @@ DC_PUSDataReportingPacket* CC_TelemetryPacketFactory_getPUSDataReportingPacket
  * @param i the index in the internal array
  * @param pItem the component instance
  */
-void CC_TelemetryPacketFactory_setPUSMemoryDumpAbsolute
+static void setPUSMemoryDumpAbsolute
 (
     CC_TelemetryPacketFactory *This,
     unsigned int i,
@@ -437,7 +450,7 @@ bool CC_TelemetryPacketFactory_isFreePUSMemoryDumpAbsolute
  * @param i the index in the internal array
  * @param pItem the component instance
  */
-void CC_TelemetryPacketFactory_setPUSMemoryDumpOffset
+static void setPUSMemoryDumpOffset
 (
     CC_TelemetryPacketFactory *This, 
     unsigned int i, 
@@ -531,7 +544,7 @@ bool CC_TelemetryPacketFactory_isFreePUSMemoryDumpOffset
  * @param i the index in the internal array
  * @param pItem the component instance
  */
-void CC_TelemetryPacketFactory_setPUSTcVerificationPacket
+static void setPUSTcVerificationPacket
 (
     CC_TelemetryPacketFactory *This, 
     unsigned int i,
