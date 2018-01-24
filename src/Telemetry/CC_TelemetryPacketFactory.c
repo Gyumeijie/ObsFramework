@@ -55,7 +55,7 @@ CC_TelemetryPacketFactory* CC_TelemetryPacketFactory_getInstance(void)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void CC_TelecommandFactory_setTelemetryPacket
+void CC_TelemetryPacketFactory_setTelemetryPacket
 (
     CC_TelemetryPacketFactory *This, 
     unsigned int i,
