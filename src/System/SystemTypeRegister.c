@@ -4,6 +4,7 @@
 #include "DC_TestTracer.h"
 #include "ObsClock.h"
 #include "DC_DummyObsClock.h"
+#include "CC_IntStack.h"
 
 void system_type_register()
 {
@@ -13,5 +14,7 @@ void system_type_register()
    
     ObsClock_register();
     DC_DummyObsClock_register();
+
+    CC_IntStack_register();
 }
 
