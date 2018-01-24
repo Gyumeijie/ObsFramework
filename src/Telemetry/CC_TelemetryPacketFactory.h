@@ -139,7 +139,7 @@ CC_TelemetryPacketFactory* CC_TelemetryPacketFactory_getInstance(void);
  * @param i the index in the internal array
  * @param pItem the component instance
  */
-void CC_TelecommandFactory_setTelemetryPacket
+void CC_TelemetryPacketFactory_setTelemetryPacket
 (
     CC_TelemetryPacketFactory *This, 
     unsigned int i,
