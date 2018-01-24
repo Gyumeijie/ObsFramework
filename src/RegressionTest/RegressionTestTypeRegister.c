@@ -77,6 +77,7 @@
 #include "TestCaseTelecommandManager_2.h"
 #include "TestCaseTelecommandManager_3.h"
 #include "TestCaseDummyTelecommandLoader_1.h"
+#include "TestCaseBasicPUSTmStream_1.h"
 
 void regression_test_type_register()
 {
@@ -231,4 +232,6 @@ void regression_test_type_register()
    TestCaseTelecommandManager_3_register(); 
 
    TestCaseDummyTelecommandLoader_1_register();
+
+   TestCaseBasicPUSTmStream_1_register();
 }

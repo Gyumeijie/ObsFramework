@@ -91,6 +91,7 @@
 #include "TestCaseTelecommandManager_2.h"
 #include "TestCaseTelecommandManager_3.h"
 #include "TestCaseDummyTelecommandLoader_1.h"
+#include "TestCaseBasicPUSTmStream_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -274,6 +275,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseTelecommandManager_3_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTelecommandLoader_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCaseBasicPUSTmStream_1_new());
 
 	// Run the test suite -- this causes all test cases in
 	// the test suite to be run in sequence
