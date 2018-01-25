@@ -4,6 +4,7 @@
 #include "TestSuite.h"
 #include "TestCaseWithEvtCheck.h"
 #include "TestCaseWithFactories.h"
+#include "TestCasePUSFull.h"
 
 void utilities_type_register(void)
 {
@@ -12,4 +13,5 @@ void utilities_type_register(void)
     TestCaseGenericSetup_register();
     TestCaseWithEvtCheck_register();
     TestCaseWithFactories_register();
+    TestCasePUSFull_register();
 }

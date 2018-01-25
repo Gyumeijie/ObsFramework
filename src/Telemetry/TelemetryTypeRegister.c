@@ -23,6 +23,7 @@
 #include "CC_TelemetryManager.h" 
 #include "DC_BasicPUSTmStream.h"
 #include "CC_TelemetryPacketFactory.h"
+#include "DC_PUSTelemetryModeManager.h"
 
 void telemetry_type_register(void)
 {
@@ -50,8 +51,10 @@ void telemetry_type_register(void)
     TelemetryListModeManager_register();
     DC_SimpleTelemetryModeManager_register();
     DC_CyclingTelemetryModeManager_register();
+    DC_PUSTelemetryModeManager_register();
 
     CC_TelemetryManager_register();
 
     CC_TelemetryPacketFactory_register();
+
 }
