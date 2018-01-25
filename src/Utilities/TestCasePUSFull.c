@@ -488,7 +488,6 @@ static bool setUpTestCase(void *obj)
     cc_tcmc->activate(pTcManager);
 #endif
     CC_TelemetryManagerClass *cc_tmc = CC_TELEMETRYMANAGER_GET_CLASS(pTmManager);
-    printf("activate-------------\n");
     cc_tmc->activate(pTmManager);
     cc_tmc->activate(pTmManager);
 

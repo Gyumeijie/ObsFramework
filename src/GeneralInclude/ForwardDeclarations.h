@@ -27,6 +27,9 @@ typedef struct CC_TelemetryPacketFactoryClass  CC_TelemetryPacketFactoryClass;
 typedef struct CC_ManoeuvreFactory CC_ManoeuvreFactory;
 typedef struct CC_ManoeuvreFactoryClass CC_ManoeuvreFactoryClass;
 
+typedef struct CC_TelecommandFactory CC_TelecommandFactory;
+typedef struct CC_TelecommandFactoryClass CC_TelecommandFactoryClass;
+
 typedef struct DataPool  DataPool;
 typedef struct DataPoolClass  DataPoolClass;
 

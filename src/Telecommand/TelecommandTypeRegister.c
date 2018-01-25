@@ -15,6 +15,7 @@
 #include "DC_DummyTelecommandLoader.h"
 #include "CC_TelecommandManager.h"
 #include "DC_TestPUSTelecommand.h"
+#include "CC_TelecommandFactory.h"
 
 void telecommand_type_register(void)
 {
@@ -39,5 +40,7 @@ void telecommand_type_register(void)
    DC_DummyTelecommandLoader_register();
 
    CC_TelecommandManager_register();
+
+   CC_TelecommandFactory_register();
 }
 
