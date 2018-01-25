@@ -391,5 +391,8 @@ typedef struct TestCaseWithEvtCheckClass  TestCaseWithEvtCheckClass;
 typedef struct TestCaseWithFactories TestCaseWithFactories;
 typedef struct TestCaseWithFactoriesClass TestCaseWithFactoriesClass;
 
+typedef struct TestCasePUSFull TestCasePUSFull;
+typedef struct TestCasePUSFullClass TestCasePUSFullClass;
+
 #endif
 
