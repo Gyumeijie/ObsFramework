@@ -12,6 +12,7 @@
 #include "DC_InRangeProfile.h"
 #include "DC_OutOfRangeProfile.h"
 #include "DC_ProfileList.h"
+#include "DC_SimpleChangeProfile.h"
 
 void fdir_type_register(void)
 {
@@ -28,4 +29,5 @@ void fdir_type_register(void)
     DC_InRangeProfile_register();
     DC_OutOfRangeProfile_register();
     DC_ProfileList_register();
+    DC_SimpleChangeProfile_register();
 }
