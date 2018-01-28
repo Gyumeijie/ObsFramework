@@ -14,7 +14,7 @@
 #include "../GeneralInclude/Constants.h"
 #include "../Base/CC_RootObject.h"
 #include "../System/DC_DummyObsClock.h"
-//#include "../Event/DC_PUSEventRepository.h"
+#include "../Event/DC_PUSEventRepository.h"
 #include "../Data/DC_DummyDataPool.h"
 #include "../Data/DC_DummyDatabase.h"
 #include "../Manoeuvre/CC_ManoeuvreManager.h"
@@ -24,7 +24,7 @@
 #include "../Telemetry/DC_PUSTmLogger.h"
 #include "../Telemetry/TelemetryPacket.h"
 #include "../Telecommand/CC_TelecommandManager.h"
-//#include "../Telecommand/DC_BasicPUSTcLoader.h"
+#include "../Telecommand/DC_BasicPUSTcLoader.h"
 #include "../Telecommand/TelecommandLoader.h"
 #include "../Telecommand/PUSTelecommand.h"
 
@@ -328,6 +328,7 @@ void TestCasePUSFull_resetCommandLoadArea(TestCasePUSFull *This)
 static bool setUpTestCase(void *obj)
 {
    TestCaseWithFactoriesClass *tcwfc = GET_CLASS(TYPE_TESTCASEWITHFACTORIES);
+   TestCasePUSFull *This = TESTCASEPUSFULL(obj); 
    CC_RootObjectClass *cc_roc;
 
    if (!TESTCASE_CLASS(tcwfc)->setUpTestCase(obj)) {
@@ -342,18 +343,17 @@ static bool setUpTestCase(void *obj)
       pTcManager = CC_TelecommandManager_new();
       pManManager = CC_ManoeuvreManager_new();
       pTmLogger = DC_PUSTmLogger_new();
-      // pTcLoader =  DC_BasicPUSTcLoader_new();
-      // pEvtRep = DC_PUSEventRepository_new();
+      pTcLoader =  DC_BasicPUSTcLoader_new();
+      pEvtRep = DC_PUSEventRepository_new();
       pObsClock = DC_DummyObsClock_new();
-#if 0
-     // Configure the non-changeable part of the tc manager
-     cc_roc = CC_ROOTOBJECT_GET_CLASS(pTcManager);
-     if (cc_roc->isObjectConfigured(pTcManager)) {
+
+      // Configure the non-changeable part of the tc manager
+      cc_roc = CC_ROOTOBJECT_GET_CLASS(pTcManager);
+      if (cc_roc->isObjectConfigured(pTcManager)) {
         return false;
-     }
-     CC_TelecommandManager_setPendingTelecommandListSize(pTcManager, 
+      }
+      CC_TelecommandManager_setPendingTelecommandListSize(pTcManager, 
                                           TC_MAN_PEND_TC_LIST_SIZE);
-#endif
      
      // Configure the non-changeable part of the tm mode manager
      cc_roc = CC_ROOTOBJECT_GET_CLASS(pTmModeMan);
@@ -378,16 +378,13 @@ static bool setUpTestCase(void *obj)
      CC_ManoeuvreManager_setPendingManoeuvreListSize(pManManager, 
                                   MAN_MAN_PENDING_MAN_LIST_SIZE);
 
-#if 0
      // Configure the non-changeable part of the tc loader
      cc_roc = CC_ROOTOBJECT_GET_CLASS(pTcLoader);
      if (cc_roc->isObjectConfigured(pTcLoader)) {
         return false;
      }
-#endif
 
      // Configure the non-changeable part of the tm stream
-
      cc_roc = CC_ROOTOBJECT_GET_CLASS(pTmLogger);
      if (cc_roc->isObjectConfigured(pTmLogger)) {
         return false;
@@ -398,18 +395,16 @@ static bool setUpTestCase(void *obj)
          return false;
      }
 
-#if 0
      // Configure the non-changeable part of the evt repository
      cc_roc = CC_ROOTOBJECT_GET_CLASS(pEvtRep);
      if (cc_roc->isObjectConfigured(pEvtRep)) {
          return false;
      }
-     DC_PUSEventRepository_setRepositorySize(pEvtRep, PUS_EVT_REP_SIZE);
-#endif
+     DC_EventRepository_setRepositorySize((DC_EventRepository*)pEvtRep, PUS_EVT_REP_SIZE);
+
      firstActivation = false;
    }
 
-#if 0
    // Configure the updatable part of the tc manager
    ObsClock *clock = (ObsClock*)TestCasePUSFull_getObsClock(obj);
    CC_TelecommandManager_setObsClock(pTcManager, clock);
@@ -418,7 +413,6 @@ static bool setUpTestCase(void *obj)
    if (!cc_roc->isObjectConfigured(pTcManager)) {
         return false;
    }
-#endif
 
    // Configure the updatable part of the tm mode manager
    ModeManagerClass *mmc = MODEMANAGER_GET_CLASS(pTmModeMan);
@@ -429,10 +423,8 @@ static bool setUpTestCase(void *obj)
    }
 
    // Configure the updatable part of the tm manager
-   CC_TelemetryManager_setTelemetryStream(pTmManager, 
-                                         (TelemetryStream*)pTmLogger);
-   CC_TelemetryManager_setTelemetryModeManager(pTmManager, 
-                                              (TelemetryModeManager*)pTmModeMan);
+   CC_TelemetryManager_setTelemetryStream(pTmManager, (TelemetryStream*)pTmLogger);
+   CC_TelemetryManager_setTelemetryModeManager(pTmManager, (TelemetryModeManager*)pTmModeMan);
    cc_roc = CC_ROOTOBJECT_GET_CLASS(pTmManager);
    if (!cc_roc->isObjectConfigured(pTmManager)) {
         return false;
@@ -444,33 +436,36 @@ static bool setUpTestCase(void *obj)
         return false;
    }
 
-#if 0
    // Configure the updatable part of the tc loader
-   pTcLoader->setMaxNumberOfTc(TC_COMMAND_AREA_MAX_N_TC);
-   pTcLoader->setMaxTcLength(TC_COMMAND_AREA_MAX_TC_LEN);
-   pTcLoader->setTcLoadAreaStart(tcCommandArea);
-   pTcLoader->setTelecommandManager(pTcManager);
-   if (!pTcLoader->isObjectConfigured())
+   DC_BasicPUSTcLoader_setMaxNumberOfTc(pTcLoader, TC_COMMAND_AREA_MAX_N_TC);
+   DC_BasicPUSTcLoader_setMaxTcLength(pTcLoader, TC_COMMAND_AREA_MAX_TC_LEN);
+   DC_BasicPUSTcLoader_setTcLoadAreaStart(pTcLoader, tcCommandArea);
+   TelecommandLoader_setTelecommandManager((TelecommandLoader*)pTcLoader, pTcManager);
+   cc_roc = CC_ROOTOBJECT_GET_CLASS(pTcLoader);
+   if (!cc_roc->isObjectConfigured(pTcLoader)) {
         return false;
+   }
 
     // Configure the updatable part of the evt repository
-    pEvtRep->setObsClock(getObsClock());
-    pEvtRep->setTelemetryManager(pTmManager);
-    if (!pEvtRep->isObjectConfigured())
+    DC_EventRepository_setObsClock((DC_EventRepository*)pEvtRep, 
+                                   (ObsClock*)TestCasePUSFull_getObsClock(obj));
+    DC_PUSEventRepository_setTelemetryManager(pEvtRep, pTmManager);
+    cc_roc = CC_ROOTOBJECT_GET_CLASS(pEvtRep);
+    if (!cc_roc->isObjectConfigured(pEvtRep)) {
         return false;
+    }
 
     // Swap the event repository
-    pOldEvtRep = CC_RootObject::getEventRepository();
-    CC_RootObject::setEventRepository(pEvtRep);
+    This->pOldEvtRep = CC_RootObject_getEventRepository();
+    CC_RootObject_setEventRepository((DC_EventRepository*)pEvtRep);
     // Reset the telecommand load area
     TestCasePUSFull_resetCommandLoadArea(obj);
-#endif
 
     // Clear the mode manager of any packets that were loaded in previous tests  
     TelemetryModeManagerClass *tmmc = TELEMETRYMODEMANAGER_GET_CLASS(pTmModeMan);
     for (tmmc->first(pTmModeMan); 
              !tmmc->isIterationFinished(pTmModeMan); 
-                  tmmc->next(pTmModeMan)) 
+                   tmmc->next(pTmModeMan)) 
     {
        TelemetryPacket *pTP = tmmc->getIterationTelemetryPacket(pTmModeMan);
 
@@ -483,10 +478,9 @@ static bool setUpTestCase(void *obj)
     }
 
     // Flush the functionality managers
-#if 0
     CC_TelecommandManagerClass *cc_tcmc = CC_TELECOMMANDMANAGER_GET_CLASS(pTcManager);
     cc_tcmc->activate(pTcManager);
-#endif
+
     CC_TelemetryManagerClass *cc_tmc = CC_TELEMETRYMANAGER_GET_CLASS(pTmManager);
     cc_tmc->activate(pTmManager);
     cc_tmc->activate(pTmManager);
@@ -501,12 +495,16 @@ static bool setUpTestCase(void *obj)
  */
 static bool shutDownTestCase(void *obj)
 {
-#if 0
-   // restore the event repository
    TestCasePUSFull *This = TESTCASEPUSFULL(obj); 
    CC_RootObject_setEventRepository(This->pOldEvtRep);
-#endif
-   return SHUTDOWN_SUCCESS;
+
+   // TODO The following code is added by myself, I will check this later.
+   TestCaseWithFactoriesClass *tcwfc = GET_CLASS(TYPE_TESTCASEWITHFACTORIES);
+   if (!TESTCASE_CLASS(tcwfc)->shutDownTestCase(obj)) {
+       return SHUTDOWN_FAILURE;
+   } else {
+       return SHUTDOWN_SUCCESS;
+   }
 }
 
 
