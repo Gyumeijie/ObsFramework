@@ -348,6 +348,9 @@ typedef struct PUSTcManoeuvreClass  PUSTcManoeuvreClass;
 typedef struct Telecommand  Telecommand;
 typedef struct TelecommandClass  TelecommandClass;
 
+typedef struct PUSFunctionManagement PUSFunctionManagement;
+typedef struct PUSFunctionManagementClass PUSFunctionManagementClass;
+
 typedef struct TelecommandLoader  TelecommandLoader;
 typedef struct TelecommandLoaderClass  TelecommandLoaderClass;
 
@@ -371,6 +374,7 @@ typedef struct CC_IntStackClass CC_IntStackClass;
 
 typedef struct CC_RootObjectStack CC_RootObjectStack;
 typedef struct CC_RootObjectStackClass CC_RootObjectStackClass;
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //
