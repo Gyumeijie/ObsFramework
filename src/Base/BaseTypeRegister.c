@@ -11,6 +11,7 @@
 #include "DC_CyclingPunctualActionModeManager.h"
 #include "DC_SimplePunctualActionModeManager.h" 
 #include "DC_BasicReconfigurer.h"
+#include "CC_PunctualActionManager.h"
 
 void base_type_register(void)
 {
@@ -30,4 +31,6 @@ void base_type_register(void)
     DC_SimplePunctualActionModeManager_register(); 
 
     DC_BasicReconfigurer_register();
+
+    CC_PunctualActionManager_register();
 }

@@ -378,6 +378,9 @@ typedef struct CC_RootObjectStackClass CC_RootObjectStackClass;
 typedef struct DC_BasicReconfigurer DC_BasicReconfigurer;
 typedef struct DC_BasicReconfigurerClass DC_BasicReconfigurerClass;
 
+typedef struct CC_PunctualActionManager CC_PunctualActionManager;
+typedef struct CC_PunctualActionManagerClass CC_PunctualActionManagerClass;
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //

@@ -86,6 +86,7 @@
 #include "TestCasePUSClearDataReporting_1.h"
 #include "TestCasePUSControlDataReporting_1.h"
 #include "TestCaseBasicReconfigurer_1.h"
+#include "TestCasePunctualActionManager_1.h"
 
 void regression_test_type_register()
 {
@@ -258,4 +259,6 @@ void regression_test_type_register()
    TestCasePUSControlDataReporting_1_register();
 
    TestCaseBasicReconfigurer_1_register();
+
+   TestCasePunctualActionManager_1_register();
 }
