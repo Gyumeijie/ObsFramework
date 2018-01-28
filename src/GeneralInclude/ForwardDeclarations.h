@@ -93,6 +93,9 @@ typedef struct ConditionalPunctualActionClass ConditionalPunctualActionClass;
 typedef struct DC_DummyConditionalPunctualAction DC_DummyConditionalPunctualAction;
 typedef struct DC_DummyConditionalPunctualActionClass DC_DummyConditionalPunctualActionClass;
 
+typedef struct DC_ControlAction DC_ControlAction;
+typedef struct DC_ControlActionClass DC_ControlActionClass;
+
 typedef struct DC_DummyPunctualAction DC_DummyPunctualAction;
 typedef struct DC_DummyPunctualActionClass DC_DummyPunctualActionClass;
 
