@@ -97,6 +97,7 @@
 #include "TestCasePUSTelemetryModeManager_1.h"
 #include "TestCaseBasicPUSTcLoader_1.h"
 #include "TestCasePUSEventRepository_1.h" 
+#include "TestCasePUSClearDataReporting_1.h"
 
 #include "../GeneralInclude/TestCompilerSwitches.h"                             
 #include "../GeneralInclude/CompilerSwitches.h"                                 
@@ -292,6 +293,8 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseBasicPUSTcLoader_1_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCasePUSEventRepository_1_new());
+
+    TestSuite_loadTestCase(ts, (TestCase*)TestCasePUSClearDataReporting_1_new());
 
 
 	// Run the test suite -- this causes all test cases in
