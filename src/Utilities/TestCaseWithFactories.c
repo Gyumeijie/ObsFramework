@@ -31,7 +31,9 @@
 #include "../Telecommand/DC_PUSMemoryLoadAbsolute.h"
 #include "../Telecommand/DC_PUSDumpMemoryOffset.h"
 #include "../Telecommand/DC_PUSDumpMemoryAbsolute.h"
-//#include "../Telecommand/CC_TelecommandFactory.h"
+#include "../Telecommand/DC_PUSControlDataReporting.h"
+#include "../Telecommand/DC_PUSDefineDataReporting.h"
+#include "../Telecommand/CC_TelecommandFactory.h"
 #include "../Telecommand/DC_DummyTelecommand.h"
 #include "../Telecommand/DC_DummyPUSTelecommand.h"
 #include "../Telecommand/PUSTelecommand.h"
@@ -155,11 +157,11 @@ static bool setUpTestCase(void *obj)
      pTcPDum = DC_DummyPUSTelecommand_new();
      pTcDum1 = DC_DummyTelecommand_new();
      pTcDum2 = DC_DummyTelecommand_new();
-     // pTcCDR = DC_PUSControlDataReporting_new();
-     // pTcDDR = DC_PUSDefineDataReporting_new();
-     // pTcTPT1 = DC_TestPUSTelecommand_new();
-     // pTcTPT2 = DC_TestPUSTelecommand_new();
-     // pTcTPT3 = DC_TestPUSTelecommand_new();
+     pTcCDR = DC_PUSControlDataReporting_new();
+     pTcDDR = DC_PUSDefineDataReporting_new();
+     pTcTPT1 = DC_TestPUSTelecommand_new();
+     pTcTPT2 = DC_TestPUSTelecommand_new();
+     pTcTPT3 = DC_TestPUSTelecommand_new();
      pTcDMO = DC_PUSDumpMemoryOffset_new();
      pTcDMA = DC_PUSDumpMemoryAbsolute_new();
      pTcMLO = DC_PUSMemoryLoadOffset_new();
@@ -197,33 +199,35 @@ static bool setUpTestCase(void *obj)
      CC_ManoeuvreFactory_setManoeuvre(pManFct, 0, (Manoeuvre*)pManDum);
 
      // Load the telecommand factory
-     // CC_TelecommandFactory* pTcFct = CC_TelecommandFactory::getInstance();
-     // pTcFct->setTelecommand(0, pTcDum1);
-     // pTcFct->setTelecommand(1, pTcDum2);
-     // pTcFct->setTelecommand(0, pTcPDum);
-     // pTcFct->setTelecommand(0, pTcCDR);
-     // pTcFct->setTelecommand(0, pTcDDR);
-     // pTcFct->setTelecommand(0, pTcTPT1);
-     // pTcFct->setTelecommand(1, pTcTPT2);
-     // pTcFct->setTelecommand(2, pTcTPT3);
+     CC_TelecommandFactory *pTcFct = CC_TelecommandFactory_getInstance();
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcDum1);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 1, (Telecommand*)pTcDum2);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcPDum);
 
-     // pTcDMO->setNumberOfRawData(PUS_MEM_BUFFER_LENGTH);
-     // pTcFct->setTelecommand(0, pTcDMO);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcCDR);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcDDR);
 
-     // pTcDMA->setNumberOfRawData(PUS_MEM_BUFFER_LENGTH);
-     // pTcFct->setTelecommand(0, pTcDMA);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcTPT1);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 1, (Telecommand*)pTcTPT2);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 2, (Telecommand*)pTcTPT3);
 
-     // pTcMLA1->setMaxNumberBlocks(PUS_NUMBER_MEM_BLOCKS);
-     // pTcMLA1->setMaxNumberData(PUS_MEM_BUFFER_LENGTH);
-     // pTcFct->setTelecommand(0, pTcMLA1);
+     PUSDumpMemory_setNumberOfRawData((PUSDumpMemory*)pTcDMO, PUS_MEM_BUFFER_LENGTH);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcDMO);
 
-     // pTcMLA2->setMaxNumberBlocks(PUS_NUMBER_MEM_BLOCKS);
-     // pTcMLA2->setMaxNumberData(PUS_MEM_BUFFER_LENGTH);
-     // pTcFct->setTelecommand(1, pTcMLA2);
+     PUSDumpMemory_setNumberOfRawData((PUSDumpMemory*)pTcDMA, PUS_MEM_BUFFER_LENGTH);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcDMA);
 
-     // pTcMLO->setMaxNumberBlocks(PUS_NUMBER_MEM_BLOCKS);
-     // pTcMLO->setMaxNumberData(PUS_MEM_BUFFER_LENGTH);
-     // pTcFct->setTelecommand(0, pTcMLO);
+     PUSMemoryLoad_setMaxNumberBlocks((PUSMemoryLoad*)pTcMLA1, PUS_NUMBER_MEM_BLOCKS);
+     PUSMemoryLoad_setMaxNumberData((PUSMemoryLoad*)pTcMLA1, PUS_MEM_BUFFER_LENGTH);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcMLA1);
+
+     PUSMemoryLoad_setMaxNumberBlocks((PUSMemoryLoad*)pTcMLA2, PUS_NUMBER_MEM_BLOCKS);
+     PUSMemoryLoad_setMaxNumberData((PUSMemoryLoad*)pTcMLA2, PUS_MEM_BUFFER_LENGTH);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 1, (Telecommand*)pTcMLA2);
+
+     PUSMemoryLoad_setMaxNumberBlocks((PUSMemoryLoad*)pTcMLO, PUS_NUMBER_MEM_BLOCKS);
+     PUSMemoryLoad_setMaxNumberData((PUSMemoryLoad*)pTcMLO, PUS_MEM_BUFFER_LENGTH);
+     CC_TelecommandFactory_setTelecommand(pTcFct, 0, (Telecommand*)pTcMLO);
 
      // Check factory configuration
      cc_roc = CC_ROOTOBJECT_GET_CLASS(pTmFct);
@@ -232,18 +236,21 @@ static bool setUpTestCase(void *obj)
                                  "TM Factory is not configured");
          return INITIALIZATION_FAILURE;
      }
+
      cc_roc = CC_ROOTOBJECT_GET_CLASS(pManFct);
      if (!cc_roc->isObjectConfigured(pManFct)) {
          TestCase_setTestResult((TestCase*)obj, false, 
                                 "Manoeuvre Factory is not configured");
          return INITIALIZATION_FAILURE;
      }
-#if 0
-     if (!pTcFct->isObjectConfigured()) {
-         TestCase_setTestResult((TestCase*)obj,false,"TC Factory is not configured");
+
+     cc_roc = CC_ROOTOBJECT_GET_CLASS(pTcFct);
+     if (!cc_roc->isObjectConfigured(pTcFct)) {
+         TestCase_setTestResult((TestCase*)obj, false,
+                                 "TC Factory is not configured");
          return INITIALIZATION_FAILURE;
      }
-#endif
+     
      firstActivation = false;
    }
 
@@ -278,21 +285,20 @@ static bool shutDownTestCase(void *obj)
      Manoeuvre_setInUse((Manoeuvre*)pManDum, NOT_IN_USE);
      Manoeuvre_setInUse((Manoeuvre*)pManTP, NOT_IN_USE);
 
-#if 0
-     pTcDum1->setInUse(NOT_IN_USE);
-     pTcDum2->setInUse(NOT_IN_USE);
-     pTcPDum->setInUse(NOT_IN_USE);
-     pTcCDR->setInUse(NOT_IN_USE);
-     pTcDDR->setInUse(NOT_IN_USE);
-     pTcTPT1->setInUse(NOT_IN_USE);
-     pTcTPT2->setInUse(NOT_IN_USE);
-     pTcTPT3->setInUse(NOT_IN_USE);
-     pTcDMO->setInUse(NOT_IN_USE);
-     pTcDMA->setInUse(NOT_IN_USE);
-     pTcMLA1->setInUse(NOT_IN_USE);
-     pTcMLA2->setInUse(NOT_IN_USE);
-     pTcMLO->setInUse(NOT_IN_USE);
-#endif
+     Telecommand_setInUse((Telecommand*)pTcDum1, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcDum2, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcPDum, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcCDR, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcDDR, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcTPT1, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcTPT2, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcTPT3, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcDMO, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcDMA, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcMLA1, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcMLA2, NOT_IN_USE);
+     Telecommand_setInUse((Telecommand*)pTcMLO, NOT_IN_USE);
+
      if (!TESTCASE_CLASS(tcwecc)->shutDownTestCase(obj)) { 
        return SHUTDOWN_FAILURE;
      } else {
