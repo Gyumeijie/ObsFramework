@@ -327,6 +327,9 @@ typedef struct DC_OutOfRangeProfileClass DC_OutOfRangeProfileClass;
 typedef struct DC_ProfileList DC_ProfileList;
 typedef struct DC_ProfileListClass DC_ProfileListClass;
 
+typedef struct DC_SimpleChangeProfile DC_SimpleChangeProfile;
+typedef struct DC_SimpleChangeProfileClass DC_SimpleChangeProfileClass;
+
 typedef struct ObsClock  ObsClock;
 typedef struct ObsClockClass  ObsClockClass;
 
