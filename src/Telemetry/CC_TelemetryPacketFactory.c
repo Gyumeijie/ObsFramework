@@ -92,7 +92,8 @@ static void setDummyPUSTelemetryPacket
     assert(i < This->sizeDummyPUSTelemetryPacket);
     assert(pItem != pNULL);
     This->poolDummyPUSTelemetryPacket[i] = pItem;
-    TelemetryPacket_setInUse((TelemetryPacket*)This->poolDummyPUSTelemetryPacket[i], false);
+    TelemetryPacket_setInUse((TelemetryPacket*)This->poolDummyPUSTelemetryPacket[i],  
+                              false);
 }
 
 unsigned int CC_TelemetryPacketFactory_getNumberDummyPUSTelemetryPacket
@@ -101,12 +102,9 @@ unsigned int CC_TelemetryPacketFactory_getNumberDummyPUSTelemetryPacket
 )
 {
     unsigned int counter = 0;
-    DC_DummyPUSTelemetryPacket **poolDummyPUSTelemetryPacket;
-    poolDummyPUSTelemetryPacket = This->poolDummyPUSTelemetryPacket;
-    for (unsigned int i=0; i<This->sizeDummyPUSTelemetryPacket; i++) 
-    {
-        if (TelemetryPacket_isInUse((TelemetryPacket*)poolDummyPUSTelemetryPacket[i])) 
-        {
+    DC_DummyPUSTelemetryPacket** const pool = This->poolDummyPUSTelemetryPacket;
+    for (unsigned int i=0; i<This->sizeDummyPUSTelemetryPacket; i++) {
+        if (TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
             counter++;
         }
     }
@@ -130,13 +128,10 @@ DC_DummyPUSTelemetryPacket* CC_TelemetryPacketFactory_allocateDummyPUSTelemetryP
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
     assert(cc_roc->isObjectConfigured(This));
 
-    DC_DummyPUSTelemetryPacket **poolDummyPUSTelemetryPacket;
-    poolDummyPUSTelemetryPacket = This->poolDummyPUSTelemetryPacket;
-    for (unsigned int i=0; i<This->sizeDummyPUSTelemetryPacket; i++) 
-    {
-        if (!TelemetryPacket_isInUse((TelemetryPacket*)poolDummyPUSTelemetryPacket[i]))
-        {
-           TelemetryPacket_setInUse((TelemetryPacket*)poolDummyPUSTelemetryPacket[i], true);
+    DC_DummyPUSTelemetryPacket** const pool = This->poolDummyPUSTelemetryPacket;
+    for (unsigned int i=0; i<This->sizeDummyPUSTelemetryPacket; i++) {
+        if (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
+           TelemetryPacket_setInUse((TelemetryPacket*)pool[i], true);
            return This->poolDummyPUSTelemetryPacket[i];
         }
     }
@@ -149,12 +144,9 @@ bool CC_TelemetryPacketFactory_isFreeDummyPUSTelemetryPacket
     CC_TelemetryPacketFactory *This
 )
 {
-    DC_DummyPUSTelemetryPacket **poolDummyPUSTelemetryPacket;
-    poolDummyPUSTelemetryPacket = This->poolDummyPUSTelemetryPacket;
-    for (unsigned int i=0; i<This->sizeDummyPUSTelemetryPacket; i++) 
-    {
-        if (!TelemetryPacket_isInUse((TelemetryPacket*)poolDummyPUSTelemetryPacket[i])) 
-        {
+    DC_DummyPUSTelemetryPacket** const pool = This->poolDummyPUSTelemetryPacket;
+    for (unsigned int i=0; i<This->sizeDummyPUSTelemetryPacket; i++) {
+        if (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
            return true;
         }
     }
@@ -172,7 +164,8 @@ static void setPUSDataReportingPacket
     assert(i < This->sizePUSDataReportingPacket);
     assert(pItem != pNULL);
     This->poolPUSDataReportingPacket[i] = pItem;
-    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSDataReportingPacket[i], false);
+    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSDataReportingPacket[i],
+                              false);
 }
 
 unsigned int CC_TelemetryPacketFactory_getNumberPUSDataReportingPacket
@@ -181,12 +174,9 @@ unsigned int CC_TelemetryPacketFactory_getNumberPUSDataReportingPacket
 )
 {
     unsigned int counter = 0;
-    DC_PUSDataReportingPacket **poolPUSDataReportingPacket;
-    poolPUSDataReportingPacket = This->poolPUSDataReportingPacket;
-    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) 
-    {
-        if (TelemetryPacket_isInUse((TelemetryPacket*)poolPUSDataReportingPacket[i])) 
-        {
+    DC_PUSDataReportingPacket** const pool = This->poolPUSDataReportingPacket;
+    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) {
+        if (TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
             counter++;
         }
     }
@@ -216,21 +206,19 @@ DC_PUSDataReportingPacket* CC_TelemetryPacketFactory_allocatePUSDataReportingPac
     unsigned int defBufferSize; 
     unsigned int valBufferSize;
     unsigned int maxNumFA;
-    DC_PUSDataReportingPacket **poolPUSDataReportingPacket;
-    poolPUSDataReportingPacket = This->poolPUSDataReportingPacket;
-    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) 
-    {
-        defBufferSize = DC_PUSDataReportingPacket_getDefinitionBufferSize(poolPUSDataReportingPacket[i]); 
-        valBufferSize = DC_PUSDataReportingPacket_getValueBufferSize(poolPUSDataReportingPacket[i]);
-        maxNumFA = DC_PUSDataReportingPacket_getMaxNumberFA(poolPUSDataReportingPacket[i]);
+    DC_PUSDataReportingPacket** const pool = This->poolPUSDataReportingPacket;
+    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) {
+        defBufferSize = DC_PUSDataReportingPacket_getDefinitionBufferSize(pool[i]); 
+        valBufferSize = DC_PUSDataReportingPacket_getValueBufferSize(pool[i]);
+        maxNumFA = DC_PUSDataReportingPacket_getMaxNumberFA(pool[i]);
 
         if ((defBufferSize >= DefinitionBufferSize) &&
             (valBufferSize >= ValueBufferSize) &&
             (maxNumFA >= MaxNumberFA) &&
-            (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSDataReportingPacket[i]))) 
+            (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i]))) 
         {
-            TelemetryPacket_setInUse((TelemetryPacket*)poolPUSDataReportingPacket[i], true);
-            return poolPUSDataReportingPacket[i];
+            TelemetryPacket_setInUse((TelemetryPacket*)pool[i], true);
+            return pool[i];
         }
     }
 
@@ -248,18 +236,16 @@ bool CC_TelemetryPacketFactory_isFreePUSDataReportingPacket
     unsigned int defBufferSize; 
     unsigned int valBufferSize;
     unsigned int maxNumFA;
-    DC_PUSDataReportingPacket **poolPUSDataReportingPacket;
-    poolPUSDataReportingPacket = This->poolPUSDataReportingPacket;
-    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) 
-    {
-        defBufferSize = DC_PUSDataReportingPacket_getDefinitionBufferSize(poolPUSDataReportingPacket[i]); 
-        valBufferSize = DC_PUSDataReportingPacket_getValueBufferSize(poolPUSDataReportingPacket[i]);
-        maxNumFA = DC_PUSDataReportingPacket_getMaxNumberFA(poolPUSDataReportingPacket[i]);
+    DC_PUSDataReportingPacket** const pool = This->poolPUSDataReportingPacket;
+    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) {
+        defBufferSize = DC_PUSDataReportingPacket_getDefinitionBufferSize(pool[i]); 
+        valBufferSize = DC_PUSDataReportingPacket_getValueBufferSize(pool[i]);
+        maxNumFA = DC_PUSDataReportingPacket_getMaxNumberFA(pool[i]);
 
         if ((defBufferSize >= DefinitionBufferSize) &&
             (valBufferSize >= ValueBufferSize) &&
             (MaxNumberFA >= MaxNumberFA) &&
-            (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSDataReportingPacket[i])))
+            (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i]))) 
         {
            return true;
         }
@@ -278,14 +264,11 @@ DC_PUSDataReportingPacket* CC_TelemetryPacketFactory_getPUSDataReportingPacket
     assert(cc_roc->isObjectConfigured(This));
     assert(sid > 0);
 
-    DC_PUSDataReportingPacket **poolPUSDataReportingPacket;
-    poolPUSDataReportingPacket = This->poolPUSDataReportingPacket;
-    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) 
-    {
-        if ((DC_PUSDataReportingPacket_getSID(poolPUSDataReportingPacket[i]) == sid ) &&
-            (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSDataReportingPacket[i]))) 
-        {
-            return poolPUSDataReportingPacket[i];
+    DC_PUSDataReportingPacket** const pool = This->poolPUSDataReportingPacket;
+    for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) {
+        if ((DC_PUSDataReportingPacket_getSID(pool[i]) == sid ) &&
+            (TelemetryPacket_isInUse((TelemetryPacket*)pool[i]))) {
+            return pool[i];
         }
     }
 
@@ -302,7 +285,8 @@ static void setPUSMemoryDumpAbsolute
     assert(i < This->sizePUSMemoryDumpAbsolute);
     assert(pItem != pNULL);
     This->poolPUSMemoryDumpAbsolute[i] = pItem;
-    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSMemoryDumpAbsolute[i], false);
+    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSMemoryDumpAbsolute[i],
+                              false);
 }
 
 unsigned int CC_TelemetryPacketFactory_getNumberPUSMemoryDumpAbsolute
@@ -311,12 +295,9 @@ unsigned int CC_TelemetryPacketFactory_getNumberPUSMemoryDumpAbsolute
 )
 {
     unsigned int counter = 0;
-    DC_PUSMemoryDumpAbsolute **poolPUSMemoryDumpAbsolute;
-    poolPUSMemoryDumpAbsolute = This->poolPUSMemoryDumpAbsolute;
-    for (unsigned int i=0; i<This->sizePUSMemoryDumpAbsolute; i++) 
-    {
-        if (TelemetryPacket_isInUse((TelemetryPacket*)poolPUSMemoryDumpAbsolute[i]))
-        {
+    DC_PUSMemoryDumpAbsolute** const pool = This->poolPUSMemoryDumpAbsolute;
+    for (unsigned int i=0; i<This->sizePUSMemoryDumpAbsolute; i++) {
+        if (TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
             counter++;
         }
     }
@@ -344,19 +325,17 @@ DC_PUSMemoryDumpAbsolute* CC_TelemetryPacketFactory_allocatePUSMemoryDumpAbsolut
     
     unsigned int maxNumBlks; 
     unsigned int dumpBufSize;
-    DC_PUSMemoryDumpAbsolute **poolPUSMemoryDumpAbsolute;
-    poolPUSMemoryDumpAbsolute = This->poolPUSMemoryDumpAbsolute;
-    for (unsigned int i=0; i<This->sizePUSMemoryDumpAbsolute; i++) 
-    {
-        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)poolPUSMemoryDumpAbsolute[i]);
-        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)poolPUSMemoryDumpAbsolute[i]);
+    DC_PUSMemoryDumpAbsolute** const pool = This->poolPUSMemoryDumpAbsolute;
+    for (unsigned int i=0; i<This->sizePUSMemoryDumpAbsolute; i++) {
+        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)pool[i]);
+        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)pool[i]);
 
         if ((maxNumBlks >= MaxNumberBlocks) &&
             (dumpBufSize >= DumpBufferSize) &&
-            (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSMemoryDumpAbsolute[i])))
+            (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])))
         {
-           TelemetryPacket_setInUse((TelemetryPacket*)poolPUSMemoryDumpAbsolute[i], true);
-           return poolPUSMemoryDumpAbsolute[i];
+           TelemetryPacket_setInUse((TelemetryPacket*)pool[i], true);
+           return pool[i];
         }
     }
 
@@ -372,15 +351,14 @@ bool CC_TelemetryPacketFactory_isFreePUSMemoryDumpAbsolute
 {
     unsigned int maxNumBlks; 
     unsigned int dumpBufSize;
-    DC_PUSMemoryDumpAbsolute **poolPUSMemoryDumpAbsolute;
-    poolPUSMemoryDumpAbsolute = This->poolPUSMemoryDumpAbsolute;
+    DC_PUSMemoryDumpAbsolute** const pool = This->poolPUSMemoryDumpAbsolute;
     for (unsigned int i=0; i<This->sizePUSMemoryDumpAbsolute; i++) {
-        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)poolPUSMemoryDumpAbsolute[i]);
-        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)poolPUSMemoryDumpAbsolute[i]);
+        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)pool[i]);
+        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)pool[i]);
 
         if ((maxNumBlks >= MaxNumberBlocks) &&
             (dumpBufSize >= DumpBufferSize) &&
-            (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSMemoryDumpAbsolute[i])))
+            (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])))
         {
            return true;
         }
@@ -399,7 +377,8 @@ static void setPUSMemoryDumpOffset
     assert(i < This->sizePUSMemoryDumpOffset);
     assert(pItem != pNULL);
     This->poolPUSMemoryDumpOffset[i] = pItem;
-    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSMemoryDumpOffset[i], false);
+    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSMemoryDumpOffset[i], 
+                              false);
 }
 
 unsigned int CC_TelemetryPacketFactory_getNumberPUSMemoryDumpOffset
@@ -408,12 +387,9 @@ unsigned int CC_TelemetryPacketFactory_getNumberPUSMemoryDumpOffset
 )
 {
     unsigned int counter = 0;
-    DC_PUSMemoryDumpOffset **poolPUSMemoryDumpOffset;
-    poolPUSMemoryDumpOffset = This->poolPUSMemoryDumpOffset;
-    for (unsigned int i=0; i<This->sizePUSMemoryDumpOffset; i++) 
-    {
-        if (TelemetryPacket_isInUse((TelemetryPacket*)poolPUSMemoryDumpOffset[i])) 
-        {
+    DC_PUSMemoryDumpOffset** const  pool = This->poolPUSMemoryDumpOffset;
+    for (unsigned int i=0; i<This->sizePUSMemoryDumpOffset; i++) {
+        if (TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
             counter++;
         }
     }
@@ -441,19 +417,18 @@ DC_PUSMemoryDumpOffset* CC_TelemetryPacketFactory_allocatePUSMemoryDumpOffset
 
     unsigned int maxNumBlks; 
     unsigned int dumpBufSize;
-    DC_PUSMemoryDumpOffset **poolPUSMemoryDumpOffset;
-    poolPUSMemoryDumpOffset = This->poolPUSMemoryDumpOffset;
+    DC_PUSMemoryDumpOffset** const  pool = This->poolPUSMemoryDumpOffset;
     for (unsigned int i=0; i<This->sizePUSMemoryDumpOffset; i++) 
     {
-        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)poolPUSMemoryDumpOffset[i]);
-        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)poolPUSMemoryDumpOffset[i]);
+        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)pool[i]);
+        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)pool[i]);
 
         if ((maxNumBlks >= MaxNumberBlocks) &&
             (dumpBufSize >= DumpBufferSize) &&
-            (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSMemoryDumpOffset[i])))
+            (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])))
         {
-           TelemetryPacket_setInUse((TelemetryPacket*)poolPUSMemoryDumpOffset[i], true);
-           return poolPUSMemoryDumpOffset[i];
+           TelemetryPacket_setInUse((TelemetryPacket*)pool[i], true);
+           return pool[i];
         }
     }
 
@@ -469,16 +444,15 @@ bool CC_TelemetryPacketFactory_isFreePUSMemoryDumpOffset
 {
     unsigned int maxNumBlks; 
     unsigned int dumpBufSize;
-    DC_PUSMemoryDumpOffset **poolPUSMemoryDumpOffset;
-    poolPUSMemoryDumpOffset = This->poolPUSMemoryDumpOffset;
+    DC_PUSMemoryDumpOffset** const  pool = This->poolPUSMemoryDumpOffset;
     for (unsigned int i=0; i<This->sizePUSMemoryDumpOffset; i++)
     {
-        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)poolPUSMemoryDumpOffset[i]);
-        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)poolPUSMemoryDumpOffset[i]);
+        maxNumBlks = PUSMemoryDump_getMaxNumberBlocks((PUSMemoryDump*)pool[i]);
+        dumpBufSize = PUSMemoryDump_getDumpBufferSize((PUSMemoryDump*)pool[i]);
 
         if ((maxNumBlks >= MaxNumberBlocks) &&
             (dumpBufSize >= DumpBufferSize) &&
-            (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSMemoryDumpOffset[i])))
+            (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])))
         {
            return true;
         }
@@ -487,28 +461,26 @@ bool CC_TelemetryPacketFactory_isFreePUSMemoryDumpOffset
     return false;
 }
 
-static void setPUSTcVerificationPacket
-(
-    CC_TelemetryPacketFactory *This, 
-    unsigned int i,
-    DC_PUSTcVerificationPacket *pItem
-)
+static void setPUSTcVerificationPacket(CC_TelemetryPacketFactory *This, 
+                                       unsigned int i,
+                                       DC_PUSTcVerificationPacket *pItem)
 {
     assert(i < This->sizePUSTcVerificationPacket);
     assert(pItem != pNULL);
     This->poolPUSTcVerificationPacket[i] = pItem;
-    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSTcVerificationPacket[i], false);
+    TelemetryPacket_setInUse((TelemetryPacket*)This->poolPUSTcVerificationPacket[i],
+                              false);
 }
 
-unsigned int CC_TelemetryPacketFactory_getNumberPUSTcVerificationPacket(CC_TelemetryPacketFactory *This)
+unsigned int CC_TelemetryPacketFactory_getNumberPUSTcVerificationPacket
+(
+    CC_TelemetryPacketFactory *This
+)
 {
     unsigned int counter = 0;
-    DC_PUSTcVerificationPacket **poolPUSTcVerificationPacket;
-    poolPUSTcVerificationPacket = This->poolPUSTcVerificationPacket;
-    for (unsigned int i=0; i<This->sizePUSTcVerificationPacket; i++) 
-    {
-       if (TelemetryPacket_isInUse((TelemetryPacket*)poolPUSTcVerificationPacket[i])) 
-       {
+    DC_PUSTcVerificationPacket** const pool = This->poolPUSTcVerificationPacket;
+    for (unsigned int i=0; i<This->sizePUSTcVerificationPacket; i++) {
+       if (TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
            counter++;
        }
     }
@@ -532,28 +504,25 @@ DC_PUSTcVerificationPacket* CC_TelemetryPacketFactory_allocatePUSTcVerificationP
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
     assert(cc_roc->isObjectConfigured(This));
 
-    DC_PUSTcVerificationPacket **poolPUSTcVerificationPacket;
-    poolPUSTcVerificationPacket = This->poolPUSTcVerificationPacket;
-    for (unsigned int i=0; i<This->sizePUSTcVerificationPacket; i++) 
-    {
-       if (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSTcVerificationPacket[i]))
-       {
-          TelemetryPacket_setInUse((TelemetryPacket*)poolPUSTcVerificationPacket[i], true);
-          return poolPUSTcVerificationPacket[i];
+    DC_PUSTcVerificationPacket** const pool = This->poolPUSTcVerificationPacket;
+    for (unsigned int i=0; i<This->sizePUSTcVerificationPacket; i++) {
+       if (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
+          TelemetryPacket_setInUse((TelemetryPacket*)pool[i], true);
+          return pool[i];
        }
     }
 
     return pNULL;
 }
 
-bool CC_TelemetryPacketFactory_isFreePUSTcVerificationPacket(CC_TelemetryPacketFactory *This)
+bool CC_TelemetryPacketFactory_isFreePUSTcVerificationPacket
+(
+    CC_TelemetryPacketFactory *This
+)
 {
-    DC_PUSTcVerificationPacket **poolPUSTcVerificationPacket;
-    poolPUSTcVerificationPacket = This->poolPUSTcVerificationPacket;
-    for (unsigned int i=0; i<This->sizePUSTcVerificationPacket; i++) 
-    {
-       if (!TelemetryPacket_isInUse((TelemetryPacket*)poolPUSTcVerificationPacket[i])) 
-       {
+    DC_PUSTcVerificationPacket** const pool = This->poolPUSTcVerificationPacket;
+    for (unsigned int i=0; i<This->sizePUSTcVerificationPacket; i++) {
+       if (!TelemetryPacket_isInUse((TelemetryPacket*)pool[i])) {
           return true;
        }
 
@@ -579,9 +548,13 @@ static bool isObjectConfigured(void *obj)
     CC_RootObjectClass *cc_roc = GET_CLASS(TYPE_CC_ROOTOBJECT);
     CC_TelemetryPacketFactory *This = CC_TELEMETRYPACKETFACTORY(obj);
 
-    if (!cc_roc->isObjectConfigured(obj)) return false;
+    if (!cc_roc->isObjectConfigured(obj)) {
+        return false;
+    }
   
-    if (This->poolDummyPUSTelemetryPacket == pNULL) return false;
+    if (This->poolDummyPUSTelemetryPacket == pNULL) {
+        return false;
+    }
 
     for (unsigned int i=0; i<This->sizeDummyPUSTelemetryPacket; i++) {
         if (This->poolDummyPUSTelemetryPacket[i] == pNULL) {
@@ -589,7 +562,9 @@ static bool isObjectConfigured(void *obj)
         }
     }
      
-    if (This->poolPUSDataReportingPacket == pNULL) return false;
+    if (This->poolPUSDataReportingPacket == pNULL) {
+        return false;
+    }
 
     for (unsigned int i=0; i<This->sizePUSDataReportingPacket; i++) {
         if (This->poolPUSDataReportingPacket[i] == pNULL) {
@@ -597,7 +572,9 @@ static bool isObjectConfigured(void *obj)
         }
     }
      
-    if (This->poolPUSMemoryDumpAbsolute == pNULL) return false;
+    if (This->poolPUSMemoryDumpAbsolute == pNULL) {
+        return false;
+    }
 
     for (unsigned int i=0; i<This->sizePUSMemoryDumpAbsolute; i++) {
         if (This->poolPUSMemoryDumpAbsolute[i] == pNULL) {
@@ -605,7 +582,9 @@ static bool isObjectConfigured(void *obj)
         }
     }
      
-    if (This->poolPUSMemoryDumpOffset == pNULL) return false;
+    if (This->poolPUSMemoryDumpOffset == pNULL) {
+        return false;
+    }
 
     for (unsigned int i=0; i<This->sizePUSMemoryDumpOffset; i++) {
         if (This->poolPUSMemoryDumpOffset[i] == pNULL) {
@@ -613,7 +592,9 @@ static bool isObjectConfigured(void *obj)
         }
     }
      
-    if (This->poolPUSTcVerificationPacket == pNULL) return false;
+    if (This->poolPUSTcVerificationPacket == pNULL) {
+        return false;
+    }
 
     for (unsigned int i=0; i<This->sizePUSTcVerificationPacket; i++) {
         if (This->poolPUSTcVerificationPacket[i] == pNULL) {
@@ -635,47 +616,47 @@ static bool isObjectConfigured(void *obj)
 static void instance_init(Object *obj)
 {
     CC_TelemetryPacketFactory *This = CC_TELEMETRYPACKETFACTORY(obj);
+    unsigned int size;
 
-
-    const unsigned int size1 = 2;
     // DC_DummyPUSTelemetryPacket*
-    This->poolDummyPUSTelemetryPacket = g_malloc(size1*sizeof(void*));
-    for (unsigned int i=0; i<size1; i++) {
+    size = 2;
+    This->poolDummyPUSTelemetryPacket = g_malloc(size*sizeof(void*));
+    for (unsigned int i=0; i<size; i++) {
         This->poolDummyPUSTelemetryPacket[i] = pNULL;
     }
-    This->sizeDummyPUSTelemetryPacket = size1;
+    This->sizeDummyPUSTelemetryPacket = size;
       
-    const unsigned int size2 = 2;
     // DC_PUSDataReportingPacket* 
-    This->poolPUSDataReportingPacket = g_malloc(size2*sizeof(void*));
-    for (unsigned int i=0; i<size2; i++) {
+    size = 2;
+    This->poolPUSDataReportingPacket = g_malloc(size*sizeof(void*));
+    for (unsigned int i=0; i<size; i++) {
         This->poolPUSDataReportingPacket[i] = pNULL;
     }
-    This->sizePUSDataReportingPacket = size2;
+    This->sizePUSDataReportingPacket = size;
       
-    const unsigned int size3 = 1;
     // DC_PUSMemoryDumpAbsolute* 
-    This->poolPUSMemoryDumpAbsolute = g_malloc(size3*sizeof(void*));
-    for (unsigned int i=0; i<size3; i++) {
+    size = 1;
+    This->poolPUSMemoryDumpAbsolute = g_malloc(size*sizeof(void*));
+    for (unsigned int i=0; i<size; i++) {
         This->poolPUSMemoryDumpAbsolute[i] = pNULL;
     }
-    This->sizePUSMemoryDumpAbsolute = size3;
+    This->sizePUSMemoryDumpAbsolute = size;
 
-    const unsigned int size4 = 1;
     // DC_PUSMemoryDumpOffset* 
-    This->poolPUSMemoryDumpOffset = g_malloc(size4*sizeof(void*));
-    for (unsigned int i=0; i<size4; i++) {
+    size = 1;
+    This->poolPUSMemoryDumpOffset = g_malloc(size*sizeof(void*));
+    for (unsigned int i=0; i<size; i++) {
         This->poolPUSMemoryDumpOffset[i] = pNULL;
     }
-    This->sizePUSMemoryDumpOffset = size4;
+    This->sizePUSMemoryDumpOffset = size;
       
-    const unsigned int size5 = 1;
     // DC_PUSTcVerificationPacket* 
-    This->poolPUSTcVerificationPacket = g_malloc(size5*sizeof(void*));
-    for (unsigned int i=0; i<size5; i++) {
+    size = 1;
+    This->poolPUSTcVerificationPacket = g_malloc(size*sizeof(void*));
+    for (unsigned int i=0; i<size; i++) {
         This->poolPUSTcVerificationPacket[i] = pNULL;
     }
-    This->sizePUSTcVerificationPacket = size5;
+    This->sizePUSTcVerificationPacket = size;
 
 
     CC_RootObject_setClassId((CC_RootObject*)obj, ID_TELECOMMANDFACTORY);
