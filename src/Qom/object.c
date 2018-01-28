@@ -249,6 +249,22 @@ static bool type_is_ancestor(TypeImpl *type, TypeImpl *target_type)
     return false;
 }
 
+bool is_compatible_type(const char *typename, const char *target_typename)
+{ 
+     g_assert(typename != NULL);
+     g_assert(target_typename != NULL);
+   
+     TypeImpl *type = type_get_by_name(typename);
+     TypeImpl *target_type = type_get_by_name(target_typename);
+
+     /* If type and target_type is the same type, retrun true */
+     if (type == target_type) return true;
+ 
+     /* Check if target_type is ancestor of type */
+     return type_is_ancestor(type, target_type);
+
+}
+
 static void type_initialize(TypeImpl *ti);
 
 static void type_initialize_interface(TypeImpl *ti, TypeImpl *interface_type,

@@ -685,6 +685,15 @@ void *get_class_by_name(const char *typename,
                         const char *func);
 
 /**
+ *  
+ * bool is_compatible_type:
+ * @typename: the name of the type to be tested. 
+ * @target_typename: the name of the targert type. 
+ */
+
+bool is_compatible_type(const char *typename, const char *target_typename);
+
+/**
  * object_class_dynamic_cast_assert:
  * @klass: The #ObjectClass to attempt to cast.
  * @typename: The QOM typename of the class to cast to.
