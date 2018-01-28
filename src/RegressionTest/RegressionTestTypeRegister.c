@@ -89,6 +89,7 @@
 #include "TestCasePunctualActionManager_1.h"
 #include "TestCaseSimpleChangeProfile_1.h"
 #include "TestCaseControlAction_1.h"
+#include "TestCaseControlList_1.h"
 
 void regression_test_type_register()
 {
@@ -267,4 +268,6 @@ void regression_test_type_register()
    TestCaseSimpleChangeProfile_1_register();
 
    TestCaseControlAction_1_register();
+
+   TestCaseControlList_1_register();
 }
