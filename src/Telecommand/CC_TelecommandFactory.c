@@ -12,8 +12,8 @@
 #include "../GeneralInclude/Constants.h"
 #include "../Telecommand/DC_DummyPUSTelecommand.h"
 #include "../Telecommand/DC_DummyTelecommand.h"
-//#include "../Telecommand/DC_PUSControlDataReporting.h"
-//#include "../Telecommand/DC_PUSDefineDataReporting.h"
+#include "../Telecommand/DC_PUSControlDataReporting.h"
+#include "../Telecommand/DC_PUSDefineDataReporting.h"
 #include "../Telecommand/DC_PUSDumpMemoryAbsolute.h"
 #include "../Telecommand/DC_PUSDumpMemoryOffset.h"
 #include "../Telecommand/DC_PUSMemoryLoadAbsolute.h"
@@ -58,29 +58,44 @@ CC_TelecommandFactory* CC_TelecommandFactory_getInstance(void)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void setTelecommand(CC_TelecommandFactory *This, unsigned int i, Telecommand *pItem)
+void CC_TelecommandFactory_setTelecommand(CC_TelecommandFactory *This, 
+                                          unsigned int i,
+                                          Telecommand *pItem)
 {
     assert(pItem != pNULL); 
 
     const char *typeName = object_get_typename((Object*)pItem);
 
     if (strcmp(typeName, TYPE_DC_DUMMYPUSTELECOMMAND) == 0) {
+
         setDummyPUSTelecommand(This, i, (DC_DummyPUSTelecommand*)pItem);
     } else if (strcmp(typeName, TYPE_DC_DUMMYTELECOMMAND) == 0) {
+
         setDummyTelecommand(This, i, (DC_DummyTelecommand*)pItem);
     } else if (strcmp(typeName, TYPE_DC_PUSDUMPMEMORYABSOLUTE) == 0) {
+
         setPUSDumpMemoryAbsolute(This, i, (DC_PUSDumpMemoryAbsolute*)pItem);
     } else if (strcmp(typeName, TYPE_DC_PUSDUMPMEMORYOFFSET) == 0) {
+
         setPUSDumpMemoryOffset(This, i, (DC_PUSDumpMemoryOffset*)pItem);
     } else if (strcmp(typeName, TYPE_DC_PUSMEMORYLOADABSOLUTE) == 0) {
+
         setPUSMemoryLoadAbsolute(This, i, (DC_PUSMemoryLoadAbsolute*)pItem); 
     } else if (strcmp(typeName, TYPE_DC_PUSMEMORYLOADOFFSET) == 0) {
+
         setPUSMemoryLoadOffset(This, i, (DC_PUSMemoryLoadOffset*)pItem);
     } else if (strcmp(typeName, TYPE_DC_TESTPUSTELECOMMAND) == 0) {
+
         setTestPUSTelecommand(This, i, (DC_TestPUSTelecommand*)pItem);
+    } else if (strcmp(typeName, TYPE_DC_PUSCONTROLDATAREPORTING) == 0) {
+
+        setPUSControlDataReporting(This, i, (DC_PUSControlDataReporting*)pItem);
+    } else if (strcmp(typeName, TYPE_DC_PUSDEFINEDATAREPORTING) == 0) {
+
+        setPUSDefineDataReporting(This, i, (DC_PUSDefineDataReporting*)pItem);
     } else {
-       // Unknown Telecommand type
-       assert(false); 
+        // Unknown Telecommand type
+        assert(false); 
     }
 }
 
@@ -215,7 +230,6 @@ bool CC_TelecommandFactory_isFreeDummyTelecommand(CC_TelecommandFactory *This)
     return false;
 }
 
-#if 0
 static void setPUSControlDataReporting(CC_TelecommandFactory *This, 
                                        unsigned int i,
                                        DC_PUSControlDataReporting *pItem)
@@ -265,10 +279,10 @@ DC_PUSControlDataReporting* CC_TelecommandFactory_allocatePUSControlDataReportin
         
         maxNumSid = DC_PUSControlDataReporting_getMaxNumberSID(pool[i]);
         if ((maxNumSid >= MaxNumberSID) &&
-            (!Telecommand_isInUse((Telecommand*)pool[i])) 
+            (!Telecommand_isInUse((Telecommand*)pool[i]))) 
         {
-           Telecommand_setInUse((Telecommand*)pool[i], true);
-           return pool[i];
+            Telecommand_setInUse((Telecommand*)pool[i], true);
+            return pool[i];
         }
     }
 
@@ -287,7 +301,7 @@ bool CC_TelecommandFactory_isFreePUSControlDataReporting
         
         maxNumSid = DC_PUSControlDataReporting_getMaxNumberSID(pool[i]);
         if ((maxNumSid >= MaxNumberSID) &&
-            (!Telecommand_isInUse((Telecommand*)pool[i])) 
+            (!Telecommand_isInUse((Telecommand*)pool[i])))
         {
            return true;
         }
@@ -347,7 +361,7 @@ DC_PUSDefineDataReporting* CC_TelecommandFactory_allocatePUSDefineDataReporting
         tc = TELECOMMAND_CLASS(pool[i]);
         nRawData = tc->getNumberOfRawData(pool[i]);
         if ((nRawData >= NumberOfRawData) &&
-            (!Telecommand_isInUse((Telecommand*)pool[i])) 
+            (!Telecommand_isInUse((Telecommand*)pool[i]))) 
         {
            Telecommand_setInUse((Telecommand*)pool[i], true);
            return pool[i];
@@ -371,7 +385,7 @@ bool CC_TelecommandFactory_isFreePUSDefineDataReporting
         tc = TELECOMMAND_CLASS(pool[i]);
         nRawData = tc->getNumberOfRawData(pool[i]);
         if ((nRawData >= NumberOfRawData) &&
-            (!Telecommand_isInUse((Telecommand*)pool[i]))
+            (!Telecommand_isInUse((Telecommand*)pool[i])))
         {
            return true;
         }
@@ -379,7 +393,6 @@ bool CC_TelecommandFactory_isFreePUSDefineDataReporting
 
     return false;
 }
-#endif
 
 static void setPUSDumpMemoryAbsolute(CC_TelecommandFactory *This, 
                                      unsigned int i, 
@@ -689,6 +702,7 @@ DC_PUSMemoryLoadOffset* CC_TelecommandFactory_allocatePUSMemoryLoadOffset
         {
            Telecommand_setInUse((Telecommand*)pool[i], true);
            return pool[i];
+        
         }
     }
     return pNULL;
@@ -759,8 +773,7 @@ DC_TestPUSTelecommand* CC_TelecommandFactory_allocateTestPUSTelecommand
 
     DC_TestPUSTelecommand** const pool  = This->poolTestPUSTelecommand;
     for (unsigned int i=0; i<This->sizeTestPUSTelecommand; i++) {
-        if (!Telecommand_isInUse((Telecommand*)pool[i])) 
-        {
+        if (!Telecommand_isInUse((Telecommand*)pool[i])) {
             Telecommand_setInUse((Telecommand*)pool[i], true);
             return pool[i];
         }
@@ -802,7 +815,7 @@ static bool isObjectConfigured(void *obj)
         return false;
     }
   
-    if (This->poolDummyPUSTelecommand==pNULL) {
+    if (This->poolDummyPUSTelecommand == pNULL) {
         return false;
     }
 
@@ -821,7 +834,7 @@ static bool isObjectConfigured(void *obj)
             return false;
         }
     }
-     
+
     if (This->poolPUSControlDataReporting==pNULL) { 
         return false;
     }
@@ -840,7 +853,7 @@ static bool isObjectConfigured(void *obj)
             return false;
         }
     }
-     
+
     if (This->poolPUSDumpMemoryAbsolute == pNULL) {
         return false;
     }
