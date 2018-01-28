@@ -81,6 +81,7 @@
 #include "TestCaseIntStack_1.h"
 #include "TestCaseRootObjectStack_1.h"
 #include "TestCasePUSTelemetryModeManager_1.h"
+#include "TestCaseBasicPUSTcLoader_1.h"
 
 void regression_test_type_register()
 {
@@ -243,4 +244,6 @@ void regression_test_type_register()
    TestCaseRootObjectStack_1_register();
 
    TestCasePUSTelemetryModeManager_1_register();
+
+   TestCaseBasicPUSTcLoader_1_register();
 }
