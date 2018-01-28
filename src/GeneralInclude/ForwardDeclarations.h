@@ -99,6 +99,10 @@ typedef struct DC_ControlActionClass DC_ControlActionClass;
 typedef struct DC_ControlList DC_ControlList;
 typedef struct DC_ControlListClass DC_ControlListClass;
 
+typedef struct DC_DataPoolMonitor DC_DataPoolMonitor;
+typedef struct DC_DataPoolMonitorClass DC_DataPoolMonitorClass;
+
+
 typedef struct DC_DummyPunctualAction DC_DummyPunctualAction;
 typedef struct DC_DummyPunctualActionClass DC_DummyPunctualActionClass;
 
