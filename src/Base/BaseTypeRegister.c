@@ -10,6 +10,7 @@
 #include "PunctualActionListModeManager.h"
 #include "DC_CyclingPunctualActionModeManager.h"
 #include "DC_SimplePunctualActionModeManager.h" 
+#include "DC_BasicReconfigurer.h"
 
 void base_type_register(void)
 {
@@ -27,4 +28,6 @@ void base_type_register(void)
     PunctualActionListModeManager_register();
     DC_CyclingPunctualActionModeManager_register();
     DC_SimplePunctualActionModeManager_register(); 
+
+    DC_BasicReconfigurer_register();
 }
