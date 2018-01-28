@@ -375,6 +375,9 @@ typedef struct CC_IntStackClass CC_IntStackClass;
 typedef struct CC_RootObjectStack CC_RootObjectStack;
 typedef struct CC_RootObjectStackClass CC_RootObjectStackClass;
 
+typedef struct DC_BasicReconfigurer DC_BasicReconfigurer;
+typedef struct DC_BasicReconfigurerClass DC_BasicReconfigurerClass;
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //
