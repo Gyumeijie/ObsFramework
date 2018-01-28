@@ -90,6 +90,7 @@
 #include "TestCaseSimpleChangeProfile_1.h"
 #include "TestCaseControlAction_1.h"
 #include "TestCaseControlList_1.h"
+#include "TestCaseDataPoolMonitor_1.h"
 
 void regression_test_type_register()
 {
@@ -270,4 +271,6 @@ void regression_test_type_register()
    TestCaseControlAction_1_register();
 
    TestCaseControlList_1_register();
+
+   TestCaseDataPoolMonitor_1_register();
 }
