@@ -17,6 +17,7 @@
 #include "DC_TestPUSTelecommand.h"
 #include "CC_TelecommandFactory.h"
 #include "DC_BasicPUSTcLoader.h"
+#include "DC_PUSClearDataReporting.h"
 
 void telecommand_type_register(void)
 {
@@ -36,6 +37,7 @@ void telecommand_type_register(void)
    DC_PUSMemoryLoadAbsolute_register();
    DC_PUSMemoryLoadOffset_register();
    DC_TestPUSTelecommand_register();
+   DC_PUSClearDataReporting_register();
 
    TelecommandLoader_register();
    DC_DummyTelecommandLoader_register();
