@@ -155,7 +155,7 @@ CC_TelecommandFactory* CC_TelecommandFactory_getInstance(void);
  * @param i the index in the internal array
  * @param pItem the component instance
  */
-void setTelecommand
+void CC_TelecommandFactory_setTelecommand
 (
     CC_TelecommandFactory *This, 
     unsigned int i,
