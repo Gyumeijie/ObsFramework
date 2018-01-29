@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_PUSMemoryDumpAbsolute.h
 //
-// Version	1.0
-// Date		01.03.04
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_PUSMEMORYDUMPABSOLUTE_H

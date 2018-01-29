@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseTestPUSConfigurableManoeuvre_1.h
 //
-// Version	1.0
-// Date		12.02.04 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASETESTPUSCONFIGURABLEMANOEUVRE_1_H

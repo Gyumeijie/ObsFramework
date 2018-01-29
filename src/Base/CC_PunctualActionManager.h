@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CC_PunctualActionManager.h
 //
-// Version	1.0
-// Date		18.09.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef CC_PUNCTUALACTIONMANAGER_H

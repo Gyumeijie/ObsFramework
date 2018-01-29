@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // Manoeuvre.h
 //
-// Version	1.0
-// Date		10.04.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef MANOEUVRE_H

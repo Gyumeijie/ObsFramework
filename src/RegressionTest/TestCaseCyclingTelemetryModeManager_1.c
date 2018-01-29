@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseCyclingTelemetryModeManager_1.c
 //
-// Version	1.0
-// Date		18.01.04
-// Author	A. Pasetti (P&P Software)
 
 #include "TestCaseCyclingTelemetryModeManager_1.h"
 #include "../GeneralInclude/CompilerSwitches.h"

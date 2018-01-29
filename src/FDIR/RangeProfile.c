@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // RangeProfile.c
 //
-// Version	1.1
-// Date		17.01.03 (Version 1.0)
-//          01.10.03 (Version 1.1)
-// Author	A. Pasetti (P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.1: replaced double and int with TD_Float and TD_Integer
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"
@@ -54,7 +48,6 @@ TD_Float RangeProfile_getUpperBound(const RangeProfile *This)
 ///////////////////////////////////////////////////////////////////////////////
 
 /**
- * Version of method <CODE>doProfileCheck(void)</CODE> for monitored variables 
  * of type TD_Integer. The check is performed by using the "TD_Float" version
  * of <code>doProfileCheck</code>.
  * A pseudo-code implementation for this method is as follows: <PRE>

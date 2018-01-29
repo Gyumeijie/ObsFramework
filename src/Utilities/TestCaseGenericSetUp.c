@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseGenericSetUp.c
 //
-// Version	1.0
-// Date		13.04.03
-// Author	A. Pasetti (P&P Software)
 
 #include "TestCaseGenericSetUp.h"
 #include "TestCase.h"

@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyPunctualAction.h
 //
-// Version	1.1
-// Date		01.10.02 (Version 1.0)
-//          30.09.03 (Version 1.1)
-// Author	A. Pasetti(P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.1: Added an activation counter and its getter method
 
 
 #ifndef DC_DUMMYPUNCTUALACTION_H

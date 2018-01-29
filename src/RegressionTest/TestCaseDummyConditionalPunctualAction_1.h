@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyConditionalPunctualAction_1.h
 //
-// Version	1.0
-// Date		04.06.03 (Version 1.0)
-// Author	R. Totaro
 
 
 #ifndef TESTCASEDUMMYCONDITIONALPUNCTUALACTION_1_H

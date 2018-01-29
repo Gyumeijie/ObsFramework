@@ -1,17 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_ProfileList.h
 //
-// Version	1.2
-// Date		31.08.03 (Version 1.0)
-//          01.10.03 (Version 1.1)
-//          21.10.03 (Version 1.2)
-// Author	A. Pasetti(P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.1: replaced double and int with TD_Float and TD_Integer
-//   Version 1.2: loadMonitoringProfile(void) renamed setMonitoringProfile(void)
 
 
 #ifndef DC_PROFILELIST_H

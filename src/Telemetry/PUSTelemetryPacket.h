@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // PUSTelemetryPacket.h
 //
-// Version	1.0
-// Date		01.12.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef PUSTELEMETRYPACKET_H

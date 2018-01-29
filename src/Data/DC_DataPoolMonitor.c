@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DataPoolMonitor.c
 //
-// Version	1.0
-// Date		11.10.03
-// Author	R. Totaro
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

@@ -1,18 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyCopyControlBlock.c
 //
-// Version	1.3
-// Date	    11.04.03 (Version 1.0)
-//          14.10.03 (Version 1.1)
-//          16.10.03 (Version 1.2 & 1.3)
-// Author	A. Pasetti (P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.1: Updated to reflect the new structure of the ControlBlock class
-//   Version 1.2: The class is now derived from CopyControlBlock
-//   Version 1.3: Added missing assert()s
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

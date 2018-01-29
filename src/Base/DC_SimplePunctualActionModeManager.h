@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_SimplePunctualActionModeManager.h
 //
-// Version	1.0
-// Date		18.09.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_SIMPLEPUNCTUALACTIONMODEMANAGER_H

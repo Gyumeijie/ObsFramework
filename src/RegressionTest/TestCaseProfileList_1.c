@@ -1,19 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseProfileList_1.c
 //
-// Version	1.3
-// Date		15.09.03 (Version 1.0)
-//          01.10.03 (Version 1.1)
-//          08.10.03 (Version 1.2)
-//          21.10.03 (Version 1.3)
-// Author	R. Totaro
 //
 // Change Record:
-//   Version 1.1: Replaced double and int with TD_Float and TD_Integer
-//   Version 1.2: Added check that isObjectConfigured() works according to specs
-//   Version 1.3: Replaced all occurrences of loadMonitoringProfile() with setMonitoringProfile()
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/ClassId.h"

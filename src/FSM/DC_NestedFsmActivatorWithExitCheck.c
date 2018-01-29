@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_NestedFsmActivatorWithExitCheck.c
 //
-// Version	1.0
-// Date		08.07.03
-// Author	R. Totaro
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

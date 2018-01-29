@@ -1,10 +1,7 @@
 /*
  * QEMU Error Objects
  *
- * Copyright IBM, Corp. 2011
- * Copyright (C) 2011-2015 Red Hat, Inc.
  *
- * Authors:
  *  Anthony Liguori   <aliguori@us.ibm.com>
  *  Markus Armbruster <armbru@redhat.com>,
  *

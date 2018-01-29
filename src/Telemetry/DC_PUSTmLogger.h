@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_PUSTmLogger.h
 //
-// Version	1.0
-// Date		04.02.04 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_PUSTMLOGGER_H

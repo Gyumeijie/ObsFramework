@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyManoeuvre.h
 //
-// Version	1.0
-// Date		11.04.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_DUMMYMANOEUVRE_H

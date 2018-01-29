@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseOutOfRangeProfile_1.h
 //
-// Version	1.0
-// Date		16.01.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEOUTOFRANGEPROFILE_1_H

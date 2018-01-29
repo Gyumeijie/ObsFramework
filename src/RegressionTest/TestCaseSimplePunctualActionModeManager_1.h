@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseSimplePunctualActionModeManager_1.h
 //
-// Version	1.0
-// Date		29.09.03
-// Author	R. Totaro
 
 
 #ifndef TESTCASESIMPLEPUNCTUALACTIONMODEMANAGER_1_H

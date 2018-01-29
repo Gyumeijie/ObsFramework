@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyManoeuvre_1.h
 //
-// Version	1.1
-// Date		08.05.03 (Version 1.1)
-// Author	A. Pasetti(P&P Software), R. Totaro
 
 
 #ifndef TESTCASEDUMMYMANOEUVRE_1_H

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CC_TelecommandManager.c
 //
-// Version	1.0
-// Date	    4.12.02 (Version 1.0)
-// Author	A. Pasetti (P&P Software)
 //
 // Change Record:
 

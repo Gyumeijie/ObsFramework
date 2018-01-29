@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseFSM_3.h
 //
-// Version	1.0
-// Date		04.10.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEFSM_3_H

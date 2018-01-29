@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyPUSTelecommand.h
 //
-// Version	1.0
-// Date		05.12.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_DUMMYPUSTELECOMMAND_H

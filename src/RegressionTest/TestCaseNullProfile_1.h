@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseNullProfile_1.h
 //
-// Version	1.0
-// Date		01.10.03
-// Author	R. Totaro
 
 
 #ifndef TESTCASENULLPROFILE_1_H

@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_NestedFsmActivatorWithEndState.h
 //
-// Version	1.1
-// Date		31.05.03 (Version 1.0)
-//          23.06.03 (Version 1.1)
-// Author	A. Pasetti(P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.1: The class is now derived from DC_NestedFsmActivator. It used
 //                to be derived from FsmState.
 
 

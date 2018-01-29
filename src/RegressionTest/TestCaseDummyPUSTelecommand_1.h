@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyPUSTelecommand_1.h
 //
-// Version	1.1
-// Date		11.06.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEDUMMYPUSTELECOMMAND_1_H

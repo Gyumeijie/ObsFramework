@@ -1,12 +1,8 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_EventRepository.h
 //
-// Version	1.0
-// Date	    13.09.03 (version 1.0)
 //          03.12.03 (version 1.1)
-// Author	A. Pasetti, R. Totaro
 //
 
 

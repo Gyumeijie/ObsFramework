@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // PunctualActionModeManager.h
 //
-// Version	1.0
-// Date		29.02.04 
-// Author	A. Pasetti, R. Totaro
 //
 // Change Record:
 

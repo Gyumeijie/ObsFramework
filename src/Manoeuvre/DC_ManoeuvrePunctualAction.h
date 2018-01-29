@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_ManoeuvrePunctualAction.h
 //
-// Version	1.0
-// Date		18.05.03 (version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_MANOEUVREPUNCTUALACTION_H

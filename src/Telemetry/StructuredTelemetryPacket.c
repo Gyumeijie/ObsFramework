@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // StructuredTelemetryPacket.c
 //
-// Version	1.1
-// Date		23.02.03 (version 1.0)
-// Author	A. Pasetti (P&P Software)
 //
 // Change Record:
 

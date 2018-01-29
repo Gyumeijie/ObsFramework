@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // FsmState.h
 //
-// Version	1.0
-// Date		25.02.03 
-// Author	A. Pasetti(P&P Software)
 //
 //
 // Change Record:

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCase.h
 //
-// Version	1.0
-// Date		13.09.02
-// Author	A. Pasetti(P&P Software)
 //
 //
 // A test suite is a collection of test cases that are intended to be

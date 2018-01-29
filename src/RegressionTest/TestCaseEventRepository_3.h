@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseEventRepository_3.h
 //
-// Version	1.0
-// Date		15.10.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEEVENTREPOSITORY_3_H

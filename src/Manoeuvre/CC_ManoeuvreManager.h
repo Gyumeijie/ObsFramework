@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CC_ManoeuvreManager.h
 //
-// Version	1.0
-// Date		16.04.03 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef CC_MANOEUVREMANAGER_H

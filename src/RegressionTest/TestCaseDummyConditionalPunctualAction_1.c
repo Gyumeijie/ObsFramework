@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyConditionalPunctualAction_1.c
 //
-// Version	1.0
-// Date		04.06.03
-// Author	R. Totaro
 
 #include "TestCaseDummyConditionalPunctualAction_1.h"
 #include "../GeneralInclude/CompilerSwitches.h"

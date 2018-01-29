@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DebugSupport.h
 //
-// Version	1.0
-// Date		20.10.03
-// Author	R. Totaro
 //
 // Change Record:
 

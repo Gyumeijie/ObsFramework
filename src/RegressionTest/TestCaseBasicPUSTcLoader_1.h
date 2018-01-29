@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseBasicPUSTcLoader_1.h
 //
-// Version	1.0
-// Date		11.01.04
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEBASICPUSTCLOADER_1_H

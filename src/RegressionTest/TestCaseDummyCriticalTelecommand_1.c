@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyCriticalTelecommand_1.c
 //
-// Version	1.0
-// Date		17.06.03
-// Author	R. Totaro
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/ClassId.h"

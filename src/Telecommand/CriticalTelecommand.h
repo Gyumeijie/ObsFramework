@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CriticalTelecommand.h
 //
-// Version	1.0
-// Date		20.06.03 
-// Author	A. Pasetti(P&P Software), R. Totaro
 
 
 #ifndef CRITICALTELECOMMAND_H

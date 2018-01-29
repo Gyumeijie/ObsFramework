@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyConfigurableFsmState.h
 //
-// Version	1.1
-// Date		12.10.02 (Version 1.0)
-//          25.o2.03 (Version 1.1)
-// Author	A. Pasetti(P&P Software)
 //
 // Change Record:
-//   Version 1.1: fixed errors in CcDoc references
 
 
 #ifndef DC_DUMMYCONFIGURABLEFSMSTATE_H

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyFsmState_1.h
 //
-// Version	1.0
-// Date		02.10.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEDUMMYFSMSTATE_1_H

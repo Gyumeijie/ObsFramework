@@ -1,6 +1,5 @@
   
 //
-// Copyright 2003 P&P Software GmbH - All Rights Reserved
 //
 // DC_SampleFullDataPool.c
 //

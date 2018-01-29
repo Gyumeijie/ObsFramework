@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CriticalTelecommand.c
 //
-// Version	1.1
-// Date		20.06.03
-// Author	A. Pasetti (P&P Software), R. Totaro
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

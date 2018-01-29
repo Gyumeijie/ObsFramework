@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_BasicDatabase.h
 //
-// Version	1.0
-// Date		13.10.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_BASICDATABASE_H

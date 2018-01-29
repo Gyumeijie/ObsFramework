@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseStuckDeltaProfile_1.h
 //
-// Version	1.0
-// Date		11.01.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEDELTAPROFILE_1_H

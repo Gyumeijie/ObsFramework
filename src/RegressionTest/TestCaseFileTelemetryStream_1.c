@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseFileTelemetryStream_1.c
 //
-// Version	1.1
-// Date		04.04.03
-// Author	A. Pasetti (P&P Software)
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/ClassId.h"

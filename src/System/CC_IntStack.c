@@ -1,11 +1,7 @@
 //
-// Copyright 2003 P&P Software GmbH - All Rights Reserved
 //
 // CC_IntStack.h
 //
-// Version	1.0
-// Date		30.08.03 (Version 1.0)
-// Author	A. Pasetti (P&P Software)
 //
 
 #include "../GeneralInclude/CompilerSwitches.h"

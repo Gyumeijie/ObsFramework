@@ -1,20 +1,10 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_ProfileList.c
 //
-// Version	1.3
-// Date		15.08.03 (Version 1.0)
-//          01.10.03 (Version 1.1)
-//          08.10.03 (Version 1.2)
-//          21.10.03 (Version 1.3)
-// Author	R. Totaro
 //
 // Change Record:
-//   Version 1.1: Replaced double and int with TD_Float and TD_Integer
-//   Version 1.2: Fixed isObjectConfigured() it did not check that all the
 //                profiles were loaded.
-//   Version 1.3: loadMonitoringProfile() renamed setMonitoringProfile()
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"
@@ -87,7 +77,6 @@ MonitoringProfile* DC_ProfileList_getMonitoringProfile
 ///////////////////////////////////////////////////////////////////////////////
 
 /**
- * Version of method <CODE>doProfileCheck(void)</CODE> for monitored variables
  * of type TD_Integer. The logic of this method is the same as for the version
  * that takes a <code>TD_Float</code> argument.
  * @see #doProfileCheck

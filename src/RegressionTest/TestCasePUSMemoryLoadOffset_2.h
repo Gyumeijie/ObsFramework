@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCasePUSMemoryLoadOffset_2.h
 //
-// Version	1.0
-// Date		11.02.04
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEPUSMEMORYLOADOFFSET_2_H

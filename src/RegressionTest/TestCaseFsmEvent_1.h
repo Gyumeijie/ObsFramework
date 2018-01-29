@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseFsmEvent_1.h
 //
-// Version	1.0
-// Date		02.10.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEFSMEVENT_1_H

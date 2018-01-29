@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // ObsClock.c (generated from ObsClock.h)
 //
-// Version	1.0
-// Date		12.09.02
-// Author	A. Pasetti (P&P Software)
 
 #include "ObsClock.h"
 

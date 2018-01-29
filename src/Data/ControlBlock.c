@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // ControlBlock.c
 //
-// Version	1.0
-// Date	    11.04.03 (Version 1.0)
-// Author	A. Pasetti (P&P Software), R. Totaro
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

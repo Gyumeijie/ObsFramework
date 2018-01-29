@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseSimpleChangeProfile_1.c
 //
-// Version	1.2
-// Date		13.04.03 (Version 1.1)
-//          01.10.03 (Version 1.2)
-// Author	A. Pasetti (P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.2: replaced double and int with TD_Float and TD_Integer
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/ClassId.h"
