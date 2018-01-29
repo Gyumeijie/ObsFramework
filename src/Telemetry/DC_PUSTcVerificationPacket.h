@@ -53,18 +53,18 @@ void DC_PUSTcVerificationPacket_register(void);
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-typedef struct DC_PUSTcVerificationPacket {
+struct DC_PUSTcVerificationPacket {
     PUSTelemetryPacket parent;
 
     unsigned int packetLengthSuccess;
     unsigned int packetLengthFailure;
     unsigned char *tmByte;
-} DC_PUSTcVerificationPacket;
+};
 
 
-typedef struct DC_PUSTcVerificationPacketClass {
+struct DC_PUSTcVerificationPacketClass {
     PUSTelemetryPacketClass parent_class;
-} DC_PUSTcVerificationPacketClass;
+};
 
 
 #define DC_PUSTCVERIFICATIONPACKET_GET_CLASS(obj) \
