@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_PUSClearDataReporting.h
 //
-// Version	1.0
-// Date		05.02.04
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_PUSCLEARDATAREPORTING_H

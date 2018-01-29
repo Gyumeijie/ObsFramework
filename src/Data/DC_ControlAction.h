@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_ControlAction.h
 //
-// Version	1.0
-// Date		28.07.03 (version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_CONTROLACTION_H

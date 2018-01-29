@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CC_FSM.c
 //
-// Version	1.0
-// Date	    11.04.03 
-// Author	A. Pasetti (P&P Software)
 //
 // Change Record:
 

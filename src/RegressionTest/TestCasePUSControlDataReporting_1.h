@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCasePUSControlDataReporting_1.h
 //
-// Version	1.0
-// Date		11.11.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEPUSCONTROLDATAREPORTING_1_H

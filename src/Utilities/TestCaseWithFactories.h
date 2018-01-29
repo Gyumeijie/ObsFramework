@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseWithFactories.h
 //
-// Version	1.0
-// Date		28.01.04
-// Author	A. Pasetti
 //
 // Change Record:
 

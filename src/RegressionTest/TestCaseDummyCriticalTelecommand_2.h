@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyCriticalTelecommand_2.h
 //
-// Version	1.0
-// Date		17.06.03
-// Author	R. Totaro
 
 
 #ifndef TESTCASEDUMMYCRITICALTELECOMMAND_2_H

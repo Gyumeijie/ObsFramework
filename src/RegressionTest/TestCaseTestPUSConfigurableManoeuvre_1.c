@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseTestPUSConfigurableManoeuvre_1.c
 //
-// Version	1.0
-// Date		06.02.04
-// Author	A. Pasetti
 
 #include "TestCaseTestPUSConfigurableManoeuvre_1.h"
 #include "../GeneralInclude/ClassId.h"

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCasePUSDataReportingPacket_3.h
 //
-// Version	1.0
-// Date		11.12.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEPUSDATAREPORTINGPACKET_3_H

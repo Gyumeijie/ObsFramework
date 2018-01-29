@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // ConditionalPunctualAction.h
 //
-// Version	1.0
-// Date		17.05.03 (version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef CONDITIONALPUNCTUALACTION_H

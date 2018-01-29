@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // RecoveryAction.h
 //
-// Version	1.0
-// Date		11.06.03 (version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef RECOVERYACTION_H

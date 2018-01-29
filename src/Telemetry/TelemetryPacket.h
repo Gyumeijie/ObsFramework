@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TelemetryPacket.h
 //
-// Version	1.0
-// Date		01.12.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TELEMETRYPACKET_H

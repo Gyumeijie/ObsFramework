@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_FromFsmEvent.h
 //
-// Version	1.0
-// Date		18.01.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_FROMFSMEVENT_H

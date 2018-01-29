@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyDataPool.h
 //
-// Version	1.0
-// Date		10.09.03 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 //
 
 

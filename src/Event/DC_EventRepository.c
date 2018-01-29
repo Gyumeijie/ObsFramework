@@ -1,15 +1,10 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_EventRepository.c
 //
-// Version	1.1
-// Date	    13.09.03 (version 1.0)
 //          03.12.03 (version 1.1)
-// Author	A. Pasetti (P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.1: The class was almost completely re-implemented.
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

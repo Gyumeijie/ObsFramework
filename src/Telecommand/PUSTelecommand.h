@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // PUSTelecommand.h
 //
-// Version	1.0
-// Date		15.12.03 (version 1.0)
-// Author	A. Pasetti(P&P Software)
 //
 // Change Record:
 

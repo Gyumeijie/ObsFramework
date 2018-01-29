@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyPointerControlBlock_1.h
 //
-// Version	1.0
-// Date		16.10.03 (Version 1.0)
-// Author	R. Totaro
 //
 // Change Record:
 

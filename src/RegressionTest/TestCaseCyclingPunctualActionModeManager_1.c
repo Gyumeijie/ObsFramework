@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseCyclingPunctualActionModeManager_1.c
 //
-// Version	1.0
-// Date		18.01.04
-// Author	A. Pasetti (P&P Software)
 
 #include "TestCaseCyclingPunctualActionModeManager_1.h"
 #include "../GeneralInclude/CompilerSwitches.h"

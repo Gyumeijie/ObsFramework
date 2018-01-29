@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // Checksum.h 
 //
-// Version	1.0
-// Date		17.01.04 
-// Author	A. Pasetti
 //
 // Change Record:
 

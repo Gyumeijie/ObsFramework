@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseManoeuvreManager_1.c
 //
-// Version	1.0
-// Date		08.05.03
-// Author	R. Totaro
 
 #include "TestCaseManoeuvreManager_1.h"
 #include "../GeneralInclude/ClassId.h"

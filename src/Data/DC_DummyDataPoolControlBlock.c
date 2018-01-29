@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyDataPoolControlBlock.c
 //
-// Version	1.0
-// Date		31.10.03 (Version 1.0)
-// Author	R. Totaro
 //
 // Change Record:
 

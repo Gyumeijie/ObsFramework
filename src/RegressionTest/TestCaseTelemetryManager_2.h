@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseTelemetryManager_2.h
 //
-// Version	1.0
-// Date		04.03.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASETELEMETRYMANAGER_2_H

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseManoeuvreManager_3.h
 //
-// Version	1.0
-// Date		31.08.03 (Version 1.0)
-// Author	A. Pasetti
 
 
 #ifndef TESTCASEMANOEUVREMANAGER_3_H

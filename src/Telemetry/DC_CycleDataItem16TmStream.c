@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_CycleDataItem16TmStream.c
 //
-// Version	1.1
-// Date		04.12.02 (Version 1.0)
-//          04.03.03 (Version 1.1)
-// Author	A. Pasetti (P&P Software)
 //
 // Change Record:
-//   Version 1.1: Changed implementation of method flush to be
 //                equivalent to a call to method reset.
 
 #include "../GeneralInclude/CompilerSwitches.h"

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DataItem16TmWord.h
 //
-// Version	1.0
-// Date		04.12.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_DATAITEM16TMWORD_H

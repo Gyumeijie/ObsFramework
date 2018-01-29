@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CC_ManoeuvreManager.c
 //
-// Version	1.1
-// Date		09.05.03
-// Author	A. Pasetti (P&P Software), R. Totaro
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

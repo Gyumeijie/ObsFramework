@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_PUSTelemetryModeManager.h
 //
-// Version	1.0
-// Date		23.01.04
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_PUSTELEMETRYMODEMANAGER_H

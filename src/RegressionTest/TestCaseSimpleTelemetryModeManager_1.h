@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseSimpleTelemetryModeManager_1.h
 //
-// Version	1.0
-// Date		02.03.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASESIMPLETELEMETRYMODEMANAGER_1_H

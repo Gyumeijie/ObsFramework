@@ -1,19 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyPunctualAction_1.h
 //
-// Version	1.3
-// Date		01.10.02 (Version 1.0)
-//          24.02.03 (Version 1.1)
-//          03.06.03 (Version 1.2)
-//          30.09.03 (Version 1.3)
-// Author	A. Pasetti(P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.1: update of comments
-//   Version 1.2: added tests of getLastOutcome(void) & resetLastOutcome(void) methods
-//   Version 1.2: the base class is now TestCaseWithEvtCheck
 
 
 #ifndef TESTCASEDUMMYPUNCTUALACTION_1_H

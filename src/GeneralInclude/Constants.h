@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // Constants.h
 //
-// Version	1.0
-// Date		13.09.02
-// Author	A. Pasetti (P&P Software), R. Totaro
 
 /**
  * @file Constants.h

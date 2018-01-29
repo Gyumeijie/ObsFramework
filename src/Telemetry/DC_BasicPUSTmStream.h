@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_BasicPUSTmStream.h
 //
-// Version	1.0
-// Date		04.02.04 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_BASICPUSTMSTREAM_H

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_RawDataItem.c
 //
-// Version	1.0
-// Date		11.10.03 (Version 1.1)
-// Author	A. Pasetti (P&P Software), R. Totaro
 
 
 #include "DC_DataItem.h"

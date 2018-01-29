@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyTelemetryStream.h
 //
-// Version	1.0
-// Date		21.11.03
-// Author	R. Totaro
 
 
 #ifndef DC_DUMMYTELEMETRYSTREAM_H

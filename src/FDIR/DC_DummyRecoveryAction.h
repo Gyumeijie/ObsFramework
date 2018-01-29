@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyRecoveryAction.h
 //
-// Version	1.0
-// Date		25.06.03 (version 1.0)
-// Author	R. Totaro
 
 
 #ifndef DC_DUMMYRECOVERYACTION_H

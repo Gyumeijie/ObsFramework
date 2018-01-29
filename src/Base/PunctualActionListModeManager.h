@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // PunctualActionListModeManager.h
 //
-// Version	1.0
-// Date		24.01.04
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef PUNCTUALACTIONLISTMODEMANAGER_H

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseBasicDatabase_1.h
 //
-// Version	1.0
-// Date		12.10.02
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEBASICDATABASE_1_H

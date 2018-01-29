@@ -1,5 +1,4 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // CC_ManoeuvreFactory.h
 //

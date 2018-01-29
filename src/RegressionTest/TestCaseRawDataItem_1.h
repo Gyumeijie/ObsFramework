@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseRawDataItem_1.h
 //
-// Version	1.0
-// Date		11.10.03 (Version 1.0)
-// Author	R. Totaro, A. Pasetti
 //
 // Change Record:
 

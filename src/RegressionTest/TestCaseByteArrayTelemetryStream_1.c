@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseByteArrayTelemetryStream_1.c
 //
-// Version	1.1
-// Date		18.04.03
-// Author	A. Pasetti (P&P Software)
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/TestCompilerSwitches.h"

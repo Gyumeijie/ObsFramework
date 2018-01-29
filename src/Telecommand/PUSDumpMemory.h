@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // PUSDumpMemory.h
 //
-// Version	1.0
-// Date		05.01.04
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef PUSDUMPMEMORY_H

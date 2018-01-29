@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseControlAction_1.c
 //
-// Version	1.0
-// Date		16.10.03 (Version 1.3)
-// Author	A. Pasetti, R. Totaro
 //
 // Change Record:
 

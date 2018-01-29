@@ -1,14 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseFsmEvent_1.c
 //
-// Version	1.1
-// Date		23.03.03
-// Author	A. Pasetti (P&P Software)
 //
 // Change Record:
-//   Version 1.1: added code to configure the FSM
 
 #include "TestCaseFsmEvent_1.h"
 #include "../GeneralInclude/CompilerSwitches.h"

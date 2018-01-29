@@ -1,17 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseProfileList_1.h
 //
-// Version	1.2
-// Date		15.09.03 (Version 1.0)
-//          10.10.03 (Version 1.1)
-//          21.10.03 (Version 1.2)
-// Author	R. Totaro
 //
 // Change Record:
-//   Version 1.1: Amended the test description
-//   Version 1.2: Replaced all occurrences of loadMonitoringProfile(void) with setMonitoringProfile(void)
 
 
 #ifndef TESTCASEPROFILELIST_1_H

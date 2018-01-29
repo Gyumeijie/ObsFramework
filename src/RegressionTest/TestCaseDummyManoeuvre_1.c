@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyManoeuvre_1.c
 //
-// Version	1.1
-// Date		08.05.03
-// Author	R. Totaro
 
 #include "TestCaseDummyManoeuvre_1.h"
 #include "../GeneralInclude/ClassId.h"

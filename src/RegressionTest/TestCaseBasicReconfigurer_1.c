@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseBasicReconfigurer_1.c
 //
-// Version	1.0
-// Date		04.06.03
-// Author	R. Totaro
 
 #include "TestCaseBasicReconfigurer_1.h"
 #include "../GeneralInclude/CompilerSwitches.h"

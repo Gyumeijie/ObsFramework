@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDataItem_1.c
 //
-// Version	2.0
-// Date		17.04.03 (Version 1.1)
-//          11.06.03 (Version 2.0)
-// Author	R. Totaro
 //
 // Change Record:
-//   Version 2.0: Adapted to the new DC_DataItem class interface.
 
 #include <math.h>
 #include <float.h>

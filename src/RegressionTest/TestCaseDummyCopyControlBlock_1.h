@@ -1,19 +1,10 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyCopyControlBlock_1.h
 //
-// Version	1.3
-// Date		22.05.03 (Version 1.0)
-//          14.10.03 (Version 1.1)
-//          16.10.03 (Version 1.2 & 1.3)
-// Author	R. Totaro, A. Pasetti
 //
 // Change Record:
-//   Version 1.1: Updated to reflect the new structure of the ControlBlock class
-//   Version 1.2: Test case renamed(from TestCaseDummyControlBlock_1H
 //                to TestCaseDummyCopyControlBlock_1)
-//   Version 1.2: Amended the test description
 
 
 #ifndef TESTCASEDUMMYCOPYCONTROLBLOCK_1_H

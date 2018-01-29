@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // MonitoringProfile.h
 //
-// Version	1.0
-// Date	    30.09.03 
-// Author	A. Pasetti, R. Totaro
 //
 // Change Record:
 
@@ -161,7 +157,6 @@ bool MonitoringProfile_floatDeviatesFromProfile
 );
 
 /**
- * Version of method <CODE>MonitoringProfile_deviatesFromProfile(void)</CODE> for monitored
  * variables of integer type.
  * @see #deviatesFromProfile
  */

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseNestedFsmActivatorWithExitCheck_1.h
 //
-// Version	1.0
-// Date		08.07.03 (Version 1.0)
-// Author	R. Totaro
 
 
 #ifndef TESTCASENESTEDFSMACTIVATORWITHEXITCHECK_1_H

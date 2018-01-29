@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseCyclingTelemetryModeManager_1.h
 //
-// Version	1.0
-// Date		24.02.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASECYCLINGTELEMETRYMODEMANAGER_1_H

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyTelemetryPacket_1.h
 //
-// Version	1.0
-// Date		04.03.03 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef TESTCASEDUMMYTELEMETRYPACKET_1_H

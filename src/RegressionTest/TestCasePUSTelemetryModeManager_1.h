@@ -1,11 +1,7 @@
 //
-// Copyright 2003 P&amp;P Software GmbH(Konstanz, Germany) - All Rights Reserved
 //
 // TestCasePUSTelemetryModeManager_1.h
 //
-// Version	1.0
-// Date		11.11.03
-// Author	A. Pasetti(P&amp;P Software)
 
 
 #ifndef TESTCASEPUSTELEMETRYMODEMANAGER_1_H

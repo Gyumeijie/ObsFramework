@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyModeManager.h
 //
-// Version	1.0
-// Date		23.02.03
-// Author	A. Pasetti(P&P Software)
 
 
 #ifndef DC_DUMMYMODEMANAGER_H

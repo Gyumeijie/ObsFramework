@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_CycleDataItem16TmStream.h
 //
-// Version	1.0
-// Date		05.10.03 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 //
 // Change Record:
 

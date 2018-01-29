@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_NestedFsmActivator.h
 //
-// Version	1.0
-// Date		31.05.03 (Version 1.0)
-// Author	A. Pasetti(P&P Software)
 //
 // Change Record:
 

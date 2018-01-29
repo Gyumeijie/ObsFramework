@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseEventRepository_2.c
 //
-// Version	1.1
-// Date		25.02.03
-// Author	A. Pasetti (P&P Software)
 
 #include "TestCaseEventRepository_2.h"
 #include "../GeneralInclude/CompilerSwitches.h"

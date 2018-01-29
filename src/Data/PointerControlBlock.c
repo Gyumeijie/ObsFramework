@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // PointerControlBlock.c
 //
-// Version	1.1
-// Date		15.10.03 (Version 1.0)
-//          16.10.03 (Version 1.1)
-// Author	R. Totaro
 //
 // Change Record:
-//   Version 1.1: Fixed the behaviour of isObjectConfigured()
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyModeManager_1.c
 //
-// Version	1.1
-// Date		14.04.03
-// Author	A. Pasetti (P&P Software)
 
 #include "TestCaseDummyModeManager_1.h"
 #include "../GeneralInclude/CompilerSwitches.h"

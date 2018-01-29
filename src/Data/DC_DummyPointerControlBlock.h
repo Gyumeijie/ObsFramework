@@ -1,14 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyPointerControlBlock.h
 //
-// Version	1.1
-// Date		16.10.03 (Version 1.0 & 1.1)
-// Author	R. Totaro
 //
 // Change Record:
-//   Version 1.1: Amended the description of the class constructor
 
 
 #ifndef DC_DUMMYPOINTERCONTROLBLOCK_H

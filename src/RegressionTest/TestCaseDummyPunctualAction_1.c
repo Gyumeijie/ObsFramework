@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDummyPunctualAction_1.c
 //
-// Version	1.3
-// Date		11.04.03 (Version 1.2)
-//          30.09.03 (Version 1.3)
-// Author	A. Pasetti (P&P Software), R. Totaro
 //
 // Change Record:
-//   Version 1.3: Added a test of the action's activation counter
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/ClassId.h"

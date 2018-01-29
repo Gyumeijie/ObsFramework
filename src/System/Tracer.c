@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // Tracer.cpp
 //
-// Version	1.0
-// Date		30.09.02
-// Author	A. Pasetti (P&P Software)
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/DebugSupport.h"

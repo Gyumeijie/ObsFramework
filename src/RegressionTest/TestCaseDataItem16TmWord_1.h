@@ -1,15 +1,9 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseDataItem16TmWord_1.h
 //
-// Version	1.1
-// Date		08.12.02 (Version 1.0)
-//          04.03.03 (Version 1.1)
-// Author	A. Pasetti(P&P Software)
 //
 // Change Record:
-//   Version 1.1: comment update
 
 
 #ifndef TESTCASEDATAITEM16TMWORD_1_H

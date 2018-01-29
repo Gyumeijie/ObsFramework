@@ -1,11 +1,7 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // DC_DummyConditionalPunctualAction.h
 //
-// Version	1.0
-// Date		04.06.03
-// Author	R. Totaro
 
 
 #ifndef DC_DUMMYCONDITIONALPUNCTUALACTION_H

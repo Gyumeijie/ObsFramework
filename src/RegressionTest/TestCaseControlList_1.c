@@ -1,19 +1,11 @@
 //
-// Copyright 2004 P&P Software GmbH - All Rights Reserved
 //
 // TestCaseControlList_1.c
 //
-// Version	1.2
-// Date		11.10.03 (Version 1.0)
-//          14.10.03 (Version 1.1)
-//          16.10.03 (Version 1.2)
-// Author	R. Totaro
 //
 // Change Record:
 //
 // Change Record:
-//   Version 1.1: Updated to reflect the new structure of the ControlBlock class
-//   Version 1.2: Now using DC_DummyCopyControlBlock instead of DC_DummyControlBlock
 
 #include "../GeneralInclude/CompilerSwitches.h"
 #include "../GeneralInclude/ClassId.h"
