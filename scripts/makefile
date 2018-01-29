@@ -16,9 +16,9 @@ SRCDIR     = ../src
 OBJDIR     = .
 TARGET     = ./RegressionTest
 
-CC         = gcc
+CC         = sparc-elf-gcc
 CFLAGS     = 
-CPPFLAGS   = -W --std=c99 -g
+CPPFLAGS   = -W --std=c99 -Os 
 LDFLAGS    = 
 
 VPATH      = ${shell for dir in `find ${SRCDIR} -type d`;do echo -n $$dir:;done}
