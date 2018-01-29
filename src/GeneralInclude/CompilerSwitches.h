@@ -22,8 +22,8 @@
  * under the Borland C++Builder. If the variable is defined, then assertions
  * are switched off. If it is not defined, then assertions are switched on.
  */
-#undef NDEBUG      // assertions are switched on
-//#define NDEBUG   // assertions are switched off
+//#undef NDEBUG      // assertions are switched on
+#define NDEBUG   // assertions are switched off
 
 /**
  * The USE_SYSTEM_ASSERT symbol controls whether the assert() macro defined in
