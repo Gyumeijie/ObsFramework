@@ -464,9 +464,13 @@ struct TypeInfo
  * in object new phase and no object of this type has created before.
  * created
  */
+#ifdef NDEBUG
+#define GET_CLASS(name) \
+     (get_class_by_name((name)))
+#else
 #define GET_CLASS(name) \
      (get_class_by_name((name), __FILE__, __LINE__, __func__))
-
+#endif
 
 /**
  * OBJECT_CHECK:
@@ -481,10 +485,14 @@ struct TypeInfo
  * If an invalid object is passed to this function, a run time assert will be
  * generated.
  */
+#ifdef NDEBUG
+#define OBJECT_CHECK(type, obj, name) \
+    ((type *)object_dynamic_cast_assert(OBJECT(obj), (name))) 
+#else
 #define OBJECT_CHECK(type, obj, name) \
     ((type *)object_dynamic_cast_assert(OBJECT(obj), (name), \
                                         __FILE__, __LINE__, __func__))
-
+#endif
 /**
  * OBJECT_CLASS_CHECK:
  * @class_type: The C type to use for the return value.
@@ -495,10 +503,14 @@ struct TypeInfo
  * typically wrapped by each type to perform type safe casts of a class to a
  * specific class type.
  */
+#ifdef NDEBUG
+#define OBJECT_CLASS_CHECK(class_type, class, name) \
+    ((class_type *)object_class_dynamic_cast_assert(OBJECT_CLASS(class), (name)))
+#else
 #define OBJECT_CLASS_CHECK(class_type, class, name) \
     ((class_type *)object_class_dynamic_cast_assert(OBJECT_CLASS(class), (name), \
                                                __FILE__, __LINE__, __func__))
-
+#endif
 /**
  * OBJECT_GET_CLASS:
  * @class: The C type to use for the return value.
@@ -555,10 +567,14 @@ struct InterfaceClass
  *
  * Returns: @obj casted to @interface if cast is valid, otherwise raise error.
  */
+#ifdef NDEBUG
+#define INTERFACE_CHECK(interface, obj, name) \
+    ((interface *)object_dynamic_cast_assert(OBJECT((obj)), (name)))
+#else
 #define INTERFACE_CHECK(interface, obj, name) \
     ((interface *)object_dynamic_cast_assert(OBJECT((obj)), (name), \
                                              __FILE__, __LINE__, __func__))
-
+#endif
 /**
  *  register the object type
  */
@@ -623,8 +639,13 @@ Object *object_dynamic_cast(Object *obj, const char *typename);
  * This function is not meant to be called directly, but only through
  * the wrapper macro OBJECT_CHECK.
  */
+#ifdef NDEBUG
+Object *object_dynamic_cast_assert(Object *obj, const char *typename);
+
+#else
 Object *object_dynamic_cast_assert(Object *obj, const char *typename,
                                    const char *file, int line, const char *func);
+#endif
 
 /**
  * object_get_class:
@@ -678,10 +699,13 @@ void type_register_static_array(const TypeInfo *infos, int nr_infos);
  * void* get_class_by_name:
  * @typename: The QOM typename of the class to cast to.
  */
+#ifdef NDEBUG
+void *get_class_by_name(const char *typename);
+#else
 void *get_class_by_name(const char *typename,
                         const char *file, int line,
                         const char *func);
-
+#endif
 /**
  *  
  * bool is_compatible_type:
@@ -702,11 +726,15 @@ bool is_compatible_type(const char *typename, const char *target_typename);
  * enabled.  This function is not meant to be called directly, but only through
  * the wrapper macros OBJECT_CLASS_CHECK and INTERFACE_CHECK.
  */
+#ifdef NDEBUG
+ObjectClass *object_class_dynamic_cast_assert(ObjectClass *klass,
+                                              const char *typename);
+#else
 ObjectClass *object_class_dynamic_cast_assert(ObjectClass *klass,
                                               const char *typename,
                                               const char *file, int line,
                                               const char *func);
-
+#endif
 /**
  * object_class_dynamic_cast:
  * @klass: The #ObjectClass to attempt to cast.
