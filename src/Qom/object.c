@@ -159,10 +159,15 @@ static TypeImpl *type_get_by_name(const char *name)
     return type_table_lookup(name);
 }
 
+
+#ifdef NDEBUG
+void *get_class_by_name(const char *typename)
+#else
 void *get_class_by_name(const char *typename,
                         const char *file,
                         int line,
                         const char *func)
+#endif
 {
     g_assert(typename != NULL);
     
@@ -172,10 +177,14 @@ void *get_class_by_name(const char *typename,
     g_assert(ti != NULL);
     
     if (ti->class == NULL) {
+#ifdef NDEBUG
+        fprintf(stderr, "get class by name %s error\n", typename);
+#else
         fprintf(stderr, "%s:%d:%s: type %s is uninitialized, you may call new\
                 function to create a object first or set type_init_phase to \
                 TYPE_REGISTER_PHASE in %s_type_info before get a class.\n",
                 file, line, func, typename, typename);
+#endif
         abort(); 
     }
     
@@ -473,8 +482,13 @@ Object *object_dynamic_cast(Object *obj, const char *typename)
     return NULL;
 }
 
+#ifdef NDEBUG
+Object *object_dynamic_cast_assert(Object *obj, const char *typename)
+#else
 Object *object_dynamic_cast_assert(Object *obj, const char *typename,
-                                   const char *file, int line, const char *func)
+                                   const char *file, int line, 
+                                   const char *func)
+#endif
 {
     g_assert(obj != NULL);
 
@@ -534,11 +548,16 @@ ObjectClass *object_class_dynamic_cast(ObjectClass *class,
     return ret;
 }
 
+#ifdef NDEBUG
+ObjectClass *object_class_dynamic_cast_assert(ObjectClass *class,
+                                              const char *typename)
+#else
 ObjectClass *object_class_dynamic_cast_assert(ObjectClass *class,
                                               const char *typename,
                                               const char *file,
                                               int line,
                                               const char *func)
+#endif
 {
     ObjectClass *ret;
 
@@ -548,8 +567,14 @@ ObjectClass *object_class_dynamic_cast_assert(ObjectClass *class,
 
     ret = object_class_dynamic_cast(class, typename);
     if (!ret && class) {
+#ifdef NDEBUG
+        fprintf(stderr, "Object %p is not an instance of type %s\n", 
+                class, typename);
+#else
         fprintf(stderr, "%s:%d:%s: Object %p is not an instance of type %s\n",
                 file, line, func, class, typename);
+
+#endif
         abort();
     }
 
