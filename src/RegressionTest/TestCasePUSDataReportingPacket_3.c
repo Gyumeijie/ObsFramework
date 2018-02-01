@@ -521,7 +521,6 @@ static void runTestCase(void *obj)
        tpc->update(pTMP);
 
        if (!verifyLatestEvent(obj, nEvt+1, EVT_PUS_DATA_REP_PACKET_TOO_LARGE)) return;
-           return;
        nEvt = nEvt+1;
    }
 

@@ -107,7 +107,7 @@ void DC_PUSDataReportingPacket_setDefinitionBuffer
 {
     CC_RootObjectClass *cc_roc = CC_ROOTOBJECT_GET_CLASS(This);
     DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
-    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(This);
+    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
     DataPool *dp = CC_RootObject_getDataPool();
     DataPoolClass *dpc = DATAPOOL_GET_CLASS(dp);
 
@@ -409,7 +409,7 @@ static void update(void *obj)
     FaDescType* const F = This->F;
 
     DC_EventRepository *dc_er = CC_RootObject_getEventRepository();
-    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(obj);
+    DC_EventRepositoryClass *dc_erc = DC_EVENTREPOSITORY_GET_CLASS(dc_er);
     DataPool *dp = CC_RootObject_getDataPool();
     DataPoolClass *dpc = DATAPOOL_GET_CLASS(dp);
 
