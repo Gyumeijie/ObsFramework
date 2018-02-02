@@ -237,7 +237,9 @@ int main(int argc, char* argv[]) {
     
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseCycleDataItem16TmStream_1_new());
 
+#ifdef MS_HOST
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFileTelemetryStream_1_new());
+#endif
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFileTelemetryStream_2_new());
 
