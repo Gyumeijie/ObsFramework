@@ -128,10 +128,10 @@ int main(int argc, char* argv[]) {
 
     printf( "\nBegin regression test ...\n" );
 
-	// Create and load a test suite (NB: The TestCaseRootObject_3 must be the
+    // Create and load a test suite (NB: The TestCaseRootObject_3 must be the
     // the first test case to run because it tests the system configuration
     // service)
-	TestSuite* ts = TestSuite_new(out);
+    TestSuite* ts = TestSuite_new(out);
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_3_new());
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseRootObject_2_new());
@@ -236,9 +236,9 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDummyTelemetryStream_1_new());
     
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseCycleDataItem16TmStream_1_new());
-
+#ifdef MS_HOST
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFileTelemetryStream_1_new());
-
+#endif
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseFileTelemetryStream_2_new());
 
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseSimpleTelemetryModeManager_1_new());
@@ -314,16 +314,16 @@ int main(int argc, char* argv[]) {
     TestSuite_loadTestCase(ts, (TestCase*)TestCaseDataPoolMonitor_1_new());
 
 
-	// Run the test suite -- this causes all test cases in
-	// the test suite to be run in sequence
-	TestSuite_runTestSuite(ts);
+    // Run the test suite -- this causes all test cases in
+    // the test suite to be run in sequence
+    TestSuite_runTestSuite(ts);
 
     printf( "\nRegression test ended... \n" );
 
 
-	// close output file
+    // close output file
 #ifdef MS_HOST
-	fclose(out);
+    fclose(out);
 #endif
 	return 0;
 }
